@@ -31,6 +31,8 @@
 | `L3-11` | Trục truyền ngang + 2 khớp nối + 2 bánh dẫn $D = 0.25$ m | 1 bộ | Truyền $M_{a,\max}$; 2/4 bánh dẫn | Out-of-Scope chế tạo — chỉ dùng $D_{bx}$, $\eta$ | P-12 [C], P-15 [C] |
 | `L3-12` | Khung xe con + 2 bánh bị dẫn | 1 | $m_{xc} = 1,800$ kg (`P-03 [C]`) | Đối chiếu catalogue xe con dầm đôi 12–15 t: **chưa có dữ liệu trong kho** | CXM |
 
+> **Cập nhật sau G4 (25/10/2026) cho `L3-08`:** đã chốt **SEW R87, $i$ = 155.34**, $M_{a,\max}$ = 1,550 N·m, $F_{Ra}$ = 17,100 N (`[W-06]`) — xem BOM chính thức ở Khối 3. Dòng trên giữ nguyên là yêu cầu sơ bộ tại G3.
+
 ### Cấp 2 — `L2-03` Phân hệ điều khiển & giám sát
 
 | Mã L3 | Thiết bị | SL | Yêu cầu | Ứng viên sơ bộ | Trạng thái nguồn |

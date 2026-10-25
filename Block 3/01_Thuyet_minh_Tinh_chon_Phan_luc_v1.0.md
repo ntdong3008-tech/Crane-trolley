@@ -57,7 +57,7 @@ $a^* = 0.45\text{ m/s}^2$, $\rho^* = 1.8\text{ m/s}^3$ (`SRS-D06`, dự trữ 10
 | :--- | :---: | :---: | :---: | :---: |
 | Tăng tốc S-curve (đỉnh tại $a^*$) | 0.517 | $M_c + M_{đg}$ = **9.93** | 2.67 | I (Tiến) / III (Lùi) |
 | Chạy đều | 118.97 | $M_c$ = 1.87 | 0.26 | I / III |
-| Giảm tốc S-curve (đỉnh) | 0.517 | $M_c - M_{đg}$ = **−6.18** | −2.14 | II / IV |
+| Giảm tốc S-curve (đỉnh) | 0.517 | $M_c - M_{đg}$ = **−6.18** | −2.13 | II / IV |
 | Nghỉ (phanh kẹp) | 180 | 0 | 0 | — |
 
 ```
@@ -79,9 +79,9 @@ $a^* = 0.45\text{ m/s}^2$, $\rho^* = 1.8\text{ m/s}^3$ (`SRS-D06`, dự trữ 10
 
 | Đại lượng | Công thức | Ứng viên 1 DRN80M4 | Ứng viên 2 DRN90S4 |
 | :--- | :--- | :---: | :---: |
-| Mô-men đẳng trị | $M_{đt} = \sqrt{\Sigma M^2 t/\Sigma t_{lv}}$ | 1.378 N·m | 1.375 N·m |
-| Công suất đẳng trị | $P_{đt} = M_{đt}\omega_N$ | 207.8 W | 209.5 W |
-| Hệ số dự trữ nhiệt | $k_{dt} = P_{đm}/P_{đt}$ | **3.61** | 5.25 |
+| Mô-men đẳng trị | $M_{đt} = \sqrt{\Sigma M^2 t/\Sigma t_{lv}}$ | 1.378 N·m | 1.403 N·m |
+| Công suất đẳng trị | $P_{đt} = M_{đt}\omega_N$ | 207.8 W | 213.7 W |
+| Hệ số dự trữ nhiệt | $k_{dt} = P_{đm}/P_{đt}$ | **3.61** | 5.15 |
 | (Tham khảo) tương đương S1 | $P_{đt}\sqrt{CD}$ | 131 W | 132 W |
 
 → `KT-07` ($k_{dt} \ge 1.20$, A.1) **Đạt**; `KT-08` ($k_{dt} \le 1.50$, v1.2) **Không đạt — XUNG ĐỘT đã trình và được Người dùng xử lý tại QĐ-02**. Ghi chú: $P_{đm}$ dùng giá trị S1 của catalogue (bảo thủ, vì công suất cho phép ở S3-40% của cùng động cơ lớn hơn).
@@ -92,16 +92,18 @@ $a^* = 0.45\text{ m/s}^2$, $\rho^* = 1.8\text{ m/s}^3$ (`SRS-D06`, dự trữ 10
 
 $M_{\max} = \dfrac{(F_c + \delta M_\Sigma a_{\max})k_{qđ}}{\eta} + J_{\text{BMot}}\dfrac{a_{\max}}{k_{qđ}}$ (tính ở $a_{\max} = 0.5$ để bao Downstream #6, dù quỹ đạo thật chỉ dùng $a^* = 0.45$).
 
+> Cả hai ứng viên dùng chung hộp số SEW R87, $i_{	ext{thực}}$ = 155.34 (ô `i_in` của Excel áp dụng cho cả hai). Với DRN90S4 (1455 vg/ph) xe chạy nhanh hơn định mức **+2.2%** ở 50 Hz (trong ±5%, biến tần bù tần số). Cột DRN90S4 là kết quả Excel v1.2 khi đặt `sel = 2`.
+
 | Tiêu chí | DRN80M4 (0.75 kW) | DRN90S4 (1.1 kW) | Ngưỡng / Nguồn |
 | :--- | :---: | :---: | :--- |
 | $P_N$ / $M_N$ / $n_N$ / $I_N$ | 0.75 kW / 4.95 N·m / 1440 / 1.75 A | 1.1 kW / 7.2 N·m / 1455 / 2.55 A | [W-01] tr.866 |
 | $\cos\varphi_N$ / $\eta_N$ | 0.74 / 82.9% | 0.73 / 84.5% | [W-01] |
 | $\lambda_K = M_K/M_N$ | **3.4** | 3.3 | ≥ 2.0 (Downstream #7) ✓ |
-| $M_{\max}$ yêu cầu | 10.82 N·m | 12.73 N·m | — |
-| $M_{\max}/M_N$ | 2.19 | 1.77 | — |
-| $\lambda_K (U_{\min}/U_N)^2 = \lambda_K (342/400)^2$ | **2.485 ≥ 2.19 ✓** (biên 1.14) | 2.412 ≥ 1.77 ✓ (biên 1.36) | WORKFLOW §4.2-C2; Checker K6-2 |
+| $M_{\max}$ yêu cầu | 10.82 N·m | 12.84 N·m | — |
+| $M_{\max}/M_N$ | 2.19 | 1.78 | — |
+| $\lambda_K (U_{\min}/U_N)^2 = \lambda_K (342/400)^2$ | **2.485 ≥ 2.19 ✓** (biên 1.14) | 2.412 ≥ 1.78 ✓ (biên 1.35) | WORKFLOW §4.2-C2; Checker K6-2 |
 | Lực kéo tối đa tạo được ở −10% áp | 11,940 N ≥ 9,218 ✓ | — | Downstream #6 |
-| $k_{dt}$ | 3.61 | 5.25 | ≥ 1.20 (A.1) |
+| $k_{dt}$ | 3.61 | 5.15 | ≥ 1.20 (A.1) |
 | Phanh tiêu chuẩn | BE1 (cấp 10/7/5 N·m `[W-07]`) | BE2 (cấp 20/14/10/7/5 N·m `[W-07]`) | §8 |
 | $P_N \le \min(2.2;\ 1.5 P_{\max})$ = 1.84 kW (QCD-C01, cách hiểu QĐ-08: so với $P_{\max}$ = 1.23 kW) | ✓ (61%) | ✓ (89%) | KT-09 |
 
@@ -135,8 +137,8 @@ Dòng đỉnh khi tăng tốc đầy tải ước lượng: $I_0 = I_N(\sin\varp
 | $I_N$ / $P_N$ | 3.3 A / 1.1 kW | 4.0 A / 1.5 kW | [W-05] tr.12 |
 | $I_{Hd}$ / $P_{Hd}$ | 2.6 A / 0.75 kW | 3.3 A / 1.1 kW | [W-05] tr.12 |
 | $I_{Hd} \ge I_{N,\text{ĐC}}$ | 2.6 ≥ 1.75 ✓ | 3.3 ≥ 2.55 ✓ | KT-10 |
-| $1.5 I_{Hd}$ (1 phút/10 phút) ≥ $I_{\text{đỉnh}}$ | 3.9 ≥ 3.32 ✓ | 4.95 ≥ 3.98 ✓ | KT-11 |
-| $I_{\max}$ (2 s khi khởi động) ≥ $I_{\text{đỉnh}}$ | 4.7 ≥ 3.32 ✓ | 5.9 ≥ 3.98 ✓ | KT-12 |
+| $1.5 I_{Hd}$ (1 phút/10 phút) ≥ $I_{\text{đỉnh}}$ | 3.9 ≥ 3.32 ✓ | 4.95 ≥ 4.01 ✓ | KT-11 |
+| $I_{\max}$ (2 s khi khởi động) ≥ $I_{\text{đỉnh}}$ | 4.7 ≥ 3.32 ✓ | 5.9 ≥ 4.01 ✓ | KT-12 |
 | Chopper tích hợp / module encoder | Có / BTAC-02 (HTL/TTL) | Có / BTAC-02 | [W-05] tr.10, 24 |
 | Thời gian tăng mô-men (bước định mức) | < 10 ms | < 10 ms | [W-05] tr.10 → Downstream #4 (I) |
 
@@ -198,7 +200,7 @@ Nguồn: sheet `WCCA` (công thức). $\lambda$ khả dụng $= \lambda_K\,[U_{\
 | WC-6: $\varphi = 0.15$ (ray ẩm, độ nhạy) | 2.187 | 3.069 | 1.40 | **1.137** / 1.232 ✓ | 436.5 | 537 | 3.43 |
 | WC-7: tổ hợp hãm ($w_0$ = 0.012, $\eta$ = 0.95, lưới +10%) | 2.017 | 3.713 | 1.84 | 1.588 / 1.728 | **499.2** (≪ $P_{BR,\max}$ 1,130) | **591** (< 680) | 4.51 |
 
-**Kết luận WCCA:** sheet `WCCA` trả "Đạt" cho cả 8 kịch bản. Hai điểm nhạy: (1) **biên quá tải ở WC-5 chỉ còn 1.02** (1.03 với $i$ = 157.08 lúc chốt QĐ-04) do động cơ định mức 400 V trên lưới 380 V −10% — nếu Người dùng muốn biên ≥ 1.2 thì chọn DRN90S4 (biên ≈ 1.25 ở WC-5) hoặc cuộn dây 380 V; (2) hệ số bám $\varphi$ (`P-14 [C]`) — dùng $a^* = 0.45$ thay vì 0.5 cho dự trữ đủ tới $\varphi \approx 0.15$.
+**Kết luận WCCA:** sheet `WCCA` trả "Đạt" cho cả 8 kịch bản. Hai điểm nhạy: (1) **biên quá tải ở WC-5 chỉ còn 1.02** (1.03 với $i$ = 157.08 lúc chốt QĐ-04) do động cơ định mức 400 V trên lưới 380 V −10% — nếu Người dùng muốn biên ≥ 1.2 thì chọn DRN90S4 (biên ≈ 1.24 ở WC-5) hoặc cuộn dây 380 V; (2) hệ số bám $\varphi$ (`P-14 [C]`) — dùng $a^* = 0.45$ thay vì 0.5 cho dự trữ đủ tới $\varphi \approx 0.15$.
 
 ---
 

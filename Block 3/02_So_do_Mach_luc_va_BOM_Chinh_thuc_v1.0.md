@@ -67,7 +67,7 @@ Cột trạng thái: **XM** — đã xác minh thông số từ nguồn `[W-xx]`
 | Thay đổi | Mã hiệu | Ghi chú |
 | :--- | :--- | :--- |
 | Động cơ | SEW **DRN90S4** 1.1 kW, 7.2 N·m, 1455 vg/ph, 2.55 A, $M_K/M_N$ 3.3; $J_{\text{BMot}}$ 58.7×10⁻⁴ | [W-01], [W-02] |
-| Phanh | BE2 — cấp 20/14/10/7/5 N·m `[W-07]` → chọn cấp 7 hoặc 10 N·m (≤ giới hạn không trượt 9.9 N·m) | Hết xung đột K11-6 |
+| Phanh | BE2 — cấp 20/14/10/7/5 N·m `[W-07]` → chọn cấp 7 hoặc 10 N·m (≤ giới hạn không trượt 10.12 N·m với $i$ = 155.34) | Hết xung đột K11-6 |
 | Biến tần | ACS380-04xS-**04A0-4**: $I_N$ 4.0 A, $I_{Hd}$ 3.3 A, $I_{\max}$ 5.9 A, $R_h \in [99; 285]\ \Omega$ | [W-05] |
 
 ---

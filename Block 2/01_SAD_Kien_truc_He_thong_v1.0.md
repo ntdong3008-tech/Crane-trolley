@@ -169,6 +169,8 @@ Tiêu chí quyết định: phân giải tốc độ ở **tốc độ bò** và
 
 ### 3.5. `TO-05` — Dải công suất động cơ (chốt ở Khối 3)
 
+> **Cập nhật sau G4:** đã chốt DRN80M4 0.75 kW + hộp số R87, $i$ = 155.34 (QĐ-04, `Block 3/02_So_do_Mach_luc_va_BOM_Chinh_thuc_v1.0.md`).
+
 Tính sơ bộ §5 cho thấy động cơ phải định cỡ theo **mô-men cực đại khi tăng tốc**, không theo nhiệt. Hai ứng viên SEW DRN (IE3, 400 V/50 Hz, 4 cực) [W-01] được mang sang Khối 3: **DRN80M4 (0.75 kW)** và **DRN90S4 (1.1 kW)**. Khối 3 sẽ trình bày so sánh, **Người dùng chốt tại G4**.
 
 ---
@@ -208,6 +210,8 @@ Ký hiệu: **P** = phân hệ chịu trách nhiệm chính; **c** = phân hệ 
 ---
 
 ## 5. TÍNH TOÁN ĐỊNH CỠ SƠ BỘ (làm căn cứ chọn dải thiết bị)
+
+> **Cập nhật sau G4 (25/10/2026):** hộp số đã chốt **SEW R87, $i_{	ext{thực}}$ = 155.34** ($M_{a,\max}$ 1,550 N·m) cùng động cơ DRN80M4 (QĐ-04); số liệu chính thức xem `Block 3/00_Tinh_toan_Xe_con_x2_v1.2.xlsx` ($M_{\max}/M_N$ = 2.19, $k_{dt}$ = 3.61; DRN90S4 dự phòng: 1.78, 5.15). Các số dưới đây là tính sơ bộ tại cổng G3 với $i pprox 157$, giữ nguyên làm hồ sơ lịch sử.
 
 Công thức theo `WORKFLOW_RULES.md` §4.2 (A, B, C). Tính chi tiết có công thức Excel ở `Block 3/00_Tinh_toan_Xe_con_x2_v1.2.xlsx`.
 
