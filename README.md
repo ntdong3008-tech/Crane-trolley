@@ -36,7 +36,23 @@ Lưu đồ dự án/
 │   ├── 05_Bao_cao_Tien_do_Khoi_1_SRR.md          # Báo cáo tiến độ hoàn thành Khối 1
 │   └── 06_Bao_cao_Kiem_toan_Dong_bo_DVP_RTM_PRD_SOW_HOQ.md # Báo cáo kiểm toán đối chiếu chéo toàn diện
 │
+├── Block 2/                 # Khối 2: Kiến trúc Hệ thống — Cổng G3 PDR-EVT [ĐÃ DUYỆT & ĐÓNG 24/10/2026]
+│   ├── 01_SAD_Kien_truc_He_thong_v1.0.md         # Kiến trúc PDS, 5 trade-off, phân bổ 8 SRS + 8 Downstream
+│   ├── 02_ICD_Kiem_soat_Giao_dien_v1.0.md        # IF-01..IF-16: ký hiệu, đơn vị, dải, tên biến Simulink
+│   ├── 03_BOM_So_bo_3_cap_v1.0.md                # BOM sơ bộ 3 cấp + trạng thái nguồn catalogue
+│   ├── 04_DFMEA_L1_v1.0.md                       # 12 dạng lỗi, AP trước/sau biện pháp
+│   └── 05_Bao_cao_Checker_G3_G4.md               # Báo cáo Checker K6–K12 (lượt kiểm riêng)
+│
+├── Block 3/                 # Khối 3: Thiết kế Chi tiết — Cổng G4 CDR-EVT [ĐÃ DUYỆT & ĐÓNG 24/10/2026]
+│   ├── 00_Tinh_toan_Xe_con_x2_v1.2.xlsx          # CDRL-02: Params, GiaDinh_K3, Catalogue, Tính chọn, Kiểm tra, Dẫn xuất
+│   ├── 01_Thuyet_minh_Tinh_chon_Phan_luc_v1.0.md # Động cơ, hộp số, biến tần, R_h, phanh, WCCA
+│   ├── 02_So_do_Nguyen_ly_Mach_luc_v1.0.svg      # Bản vẽ nguyên lý mạch động lực
+│   ├── 02_So_do_Mach_luc_va_BOM_Chinh_thuc_v1.0.md # Thuyết minh sơ đồ + BOM chính thức
+│   ├── 03_SDD_Thiet_ke_Dieu_khien_va_Logic_v1.0.md # Tham số ĐC, S-curve, PI MO/SO, FSM 4Q
+│   └── 04_SRS_A1_Dan_xuat_RTM_DVP_WCCA_v1.0.md   # SRS Baseline A.1 (đã ký), SRS-D01..D13, RTM/DVP phân hệ, V-model
+│
 └── Tài liệu tham khảo/      # Kho tiêu chuẩn, bài giảng và Case Studies gốc đã xác minh
+    ├── Catalogue web/                            # [W-01..W-10] Catalogue SEW, ABB, Danotherm cho Khối 2–3 (+ danh mục nguồn)
     ├── Thầy Đỉnh/                                # Bài giảng TKTĐĐ (Bài 1..4) & Tiêu chuẩn VN-Quốc tế
     ├── tcvn-4244-2005.pdf                        # [R1] TCVN 4244:2005 — Thiết bị nâng
     ├── A54.pdf                                   # [R9-10] Tiêu chuẩn ray A54 & bánh xe thép (DIN 536)
@@ -65,6 +81,8 @@ Lưu đồ dự án/
 | **Block 1** | **SSoT** | `SSoT-8.5EMG-v1.2` | [`00_Bang_thong_so_goc_SSoT.md`](file:///d:/Tài%20liệu%20học%20tập/Kỳ%202026.1/Thiết%20Kế%20TĐĐ/Project/Lưu%20đồ%20dự%20án/Block%201/00_Bang_thong_so_goc_SSoT.md) | 20 thông số kỹ thuật gốc `P-01..P-20`: $Q=12,222\text{ kg}, M_\Sigma=14,244\text{ kg}, F_{c.\text{đầy}}=2,096\text{ N}, \eta=0.90$. |
 | **Block 1** | **SRS** | `SRS-8.5EMG-TROLLEY-v1.2` | [`01_SRS_Baseline_A_v1.2.md`](file:///d:/Tài%20liệu%20học%20tập/Kỳ%202026.1/Thiết%20Kế%20TĐĐ/Project/Lưu%20đồ%20dự%20án/Block%201/01_SRS_Baseline_A_v1.2.md) | 8 yêu cầu hệ thống chuẩn (`4 FUNC + 4 PERM`) + Bảng phân bổ 8 thông số Downstream Design Allocation. |
 | **Block 1** | **DVP & RTM** | `RTM-DVP-8.5EMG-v1.2` | [`03_RTM_DVP_Ma_tran_truy_xuat_va_Kiem_chung_v1.2.md`](file:///d:/Tài%20liệu%20học%20tập/Kỳ%202026.1/Thiết%20Kế%20TĐĐ/Project/Lưu%20đồ%20dự%20án/Block%201/03_RTM_DVP_Ma_tran_truy_xuat_va_Kiem_chung_v1.2.md) | Ma trận truy xuất hai chiều (Forward/Backward) & 8 bài đo kiểm chứng `DV-01..08` (`DVP-L0-01..08`). |
+
+> **Cập nhật 24/10/2026:** **Cổng G3 (Khối 2) và G4 (Khối 3) đã duyệt và đóng.** Baseline hiện hành: `SSoT v1.2` + **SRS Baseline A.1** (ký 24/10/2026; `SRS-PERM-04`: $k_{dt} \ge 1.20$). Thiết bị chốt: SEW DRN80M4 0.75 kW (geared motor, phanh BE1 $M_B$ = 7 N·m, encoder ES7C) + ABB ACS380-04xS-03A3-4 + $R_h$ = 210 Ω. Phạm vi: chỉ vận hành lý tưởng (QĐ-07). Quyết định QĐ-01..QĐ-08 ghi trong `Block 2/01_SAD_...` §0 và `Block 3/04_SRS_A1_...` §1. Cập nhật 25/10/2026: đã chốt hộp số SEW R87 ($i$ = 155.34), phanh BE1 7 N·m, điện trở Danotherm CBH 360 C T 406 210R, cầu chì gG 6 A OFAF000H6, contactor ABB AF09-30-10-13; nguồn lưu tại `Tài liệu tham khảo/Catalogue web/`; Excel nâng lên v1.2..W-05]`. Tiếp theo: **G5 (Khối 4)** — `init_params.m` + mô hình Simulink. Kết quả mô phỏng: chưa chạy.
 
 ### 2.2. Các Khối Tiếp Theo Cần Triển Khai (Theo [`WORKFLOW_RULES.md`](file:///d:/Tài%20liệu%20học%20tập/Kỳ%202026.1/Thiết%20Kế%20TĐĐ/Project/Lưu%20đồ%20dự%20án/WORKFLOW_RULES.md))
 
