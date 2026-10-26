@@ -5,7 +5,8 @@
 **Đề tài:** Hệ truyền động di chuyển xe con cầu trục dầm đôi (Động cơ KĐB rotor lồng sóc + Biến tần, điều khiển FOC, quỹ đạo S-curve)  
 **Nhóm sinh viên thực hiện:** Nhóm 8.5-EMG (Đề bài ứng với STT 22, tham số $x = 2$)  
 **Nguồn số liệu duy nhất:** `Block 1/00_Bang_thong_so_goc.md` và `Block 1/01_SRS_Baseline_A.md` (Đã duyệt)  
-**Công cụ kiểm chứng:** Phân tích giải tích (A), Mô phỏng MATLAB/Simulink (S), Tra cứu catalogue (I).
+**Công cụ kiểm chứng:** Phân tích giải tích (A), Mô phỏng MATLAB/Simulink (S), Tra cứu catalogue (I).  
+**Lịch sử:** 26/10/2026 (Người dùng duyệt nhóm A) — đầu ra `SRS-PERM-04` đổi sang $k_{dt} \ge 1.20$ theo SRS Baseline A.1 (CR-01).
 
 ---
 
@@ -152,7 +153,7 @@ graph TB
         OUT5["SRS-PERM-01: Thắng lực cản tĩnh 2,096 N (P-20) [B], chống trượt ray k_bám >= 1.20"]
         OUT6["SRS-PERM-02: Vận tốc xác lập định mức v_max = 0.12 m/s ± 5.0% (0.114 - 0.126 m/s)"]
         OUT7["SRS-PERM-03: Gia tốc thực tế |a(t)| <= 0.5 m/s^2, độ giật thực tế |rho(t)| <= 2.0 m/s^3 (h = 12 m)"]
-        OUT8["SRS-PERM-04: Chế độ S3 - 40% đạt k_dt trong [1.20; 1.50] dưới lưới 380V ± 10%"]
+        OUT8["SRS-PERM-04: Chế độ S3 - 40% đạt k_dt >= 1.20 dưới lưới 380V ± 10%"]
     end
 
     subgraph LOI["CÁC TRẠNG THÁI LỖI (ERROR STATES - 4 LOẠI)"]
@@ -195,7 +196,7 @@ Mỗi đầu ra mong muốn của hệ thống được kiểm soát trực ti�
 5. **SRS-PERM-01:** Động cơ sinh đủ lực kéo thắng lực cản lăn tĩnh đầy tải $F_{c.\text{đầy}} = 2,096\text{ N}$ (P-20) [B], vận hành an toàn ở cả trạng thái đầy tải $14,244\text{ kg}$ (P-04) [B] và không tải $2,022\text{ kg}$ (P-05) [B] mà không trượt ray ($k_{\text{bám}} \ge 1.20$ với $\varphi = 0.20$ (P-14) [C]).
 6. **SRS-PERM-02:** Vận tốc dài xác lập thực tế của xe con đạt giá trị định mức $v_{\max} = 0.12\text{ m/s} \pm 5.0\%$ ($[0.114;\ 0.126]\text{ m/s}$) theo cả hai chiều di chuyển.
 7. **SRS-PERM-03:** Gia tốc thực tế $\lvert a(t) \rvert \le 0.5\text{ m/s}^2$ (P-10) [A] và độ giật thực tế $\lvert \rho(t) \rvert \le 2.0\text{ m/s}^3$ (P-11) [A] khi treo tải ở chiều cao nâng lớn nhất $h = 12\text{ m}$ (P-06) [A].
-8. **SRS-PERM-04:** Động cơ và biến tần định cỡ thỏa mãn hệ số dự trữ phát nhiệt $k_{dt} \in [1.20;\ 1.50]$ ở chế độ làm việc ngắn hạn lặp lại S3 - 40% (P-17) [C] dưới nguồn lưới dao động $380\text{ V} \pm 10\%$ (P-19) [C] mà không bị quá nhiệt cuộn dây.
+8. **SRS-PERM-04:** Động cơ và biến tần định cỡ thỏa mãn hệ số dự trữ phát nhiệt $k_{dt} \ge 1.20$ ở chế độ làm việc ngắn hạn lặp lại S3 - 40% (P-17) [C] dưới nguồn lưới dao động $380\text{ V} \pm 10\%$ (P-19) [C] mà không bị quá nhiệt cuộn dây.
 
 #### D. Khối Yếu tố nhiễu (Noise Factors — 4 loại)
 - **N-01 (Biến thiên tải trọng nâng):** Khối lượng toàn hệ thống thay đổi từ trạng thái không tải $m_{\text{tĩnh}} = 2,022\text{ kg}$ (P-05) [B] đến đầy tải $M_\Sigma = 14,244\text{ kg}$ (P-04) [B], tương ứng tải hàng hóa $Q$ thay đổi từ $0\text{ kg}$ đến $12,222\text{ kg}$ (P-01) [A] (quán tính biến thiên xấp xỉ $7.04\text{ lần}$).

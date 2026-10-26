@@ -5,6 +5,8 @@
 **Nhóm sinh viên thực hiện:** Nhóm 8.5-EMG (Đề số 8, STT 22, tham số $x = 2$)  
 **Tiêu chuẩn áp dụng:** NASA SP-2016-6105 / ISO/IEC/IEEE 29148 / TCVN 4244:2005 / IEC 61800-2 / IEC 60034-1
 
+> **Ghi chú hiệu đính 26/10/2026 (Người dùng duyệt nhóm A):** các chỗ $k_{dt}$ trong báo cáo này đã đổi sang $k_{dt} \ge 1.20$ theo SRS Baseline A.1 (CR-01, bỏ cận trên 1.50); tiêu chí FAIL của DV-08 theo CR-02. Phần còn lại giữ nguyên như tại cổng SRR-EVT.
+
 ---
 
 # MỤC LỤC
@@ -206,7 +208,7 @@ Nhiều sinh viên nhầm lẫn rằng "cứ mở máy tính lên là mô phỏn
 * **Tại sao Chế độ nhiệt $S3 - 40\%$ lại là `A + I`?**  
   Nhóm không có bàn thử đốt nóng động cơ thực tế. Vì vậy:
   1. *Giải tích (A)* tính ra công suất phát nhiệt tương đương $P_{\text{đt}}$ theo đồ thị phụ tải tĩnh và động.
-  2. *Tra cứu Catalogue (I)* chọn mã động cơ có công suất định mức $P_{\text{đm}} \ge k_{dt} \cdot P_{\text{đt}}$ (với $k_{dt} \in [1.20;\ 1.50]$) từ tài liệu chính hãng có chứng nhận IEC 60034-1.
+  2. *Tra cứu Catalogue (I)* chọn mã động cơ có công suất định mức $P_{\text{đm}} \ge k_{dt} \cdot P_{\text{đt}}$ (với $k_{dt} \ge 1.20$) từ tài liệu chính hãng có chứng nhận IEC 60034-1.
 
 ---
 
@@ -225,7 +227,7 @@ Tuân thủ ISO/IEC/IEEE 29148:2018, nhóm đã tinh gọn thành **8 yêu cầu
 | **SRS-PERM-01** | Lực kéo & Chống trượt ray | Sản sinh đủ mô-men thắng lực cản tĩnh đầy tải $2,096\text{ N}$ và lực quán tính tăng tốc mà không bị trượt bánh xe trên ray. | $F_{c.\text{đầy}} = 2,096\text{ N} \pm 5\%$<br>Hệ số an toàn bám $k_{\text{bám}} \ge 1.20$ | **A + S** | • TCVN 4244:2005 `[2]`<br>• Thầy Đỉnh Bài 4 ($\varphi = 0.20$) `[4]` |
 | **SRS-PERM-02** | Vận tốc di chuyển định mức | Đưa xe con đạt vận tốc dài xác lập danh định theo cả hai chiều di chuyển ở mọi trạng thái tải trọng. | $v_{\max} = 0.12\text{ m/s} \pm 5.0\%$<br>($[0.114 \div 0.126]\text{ m/s}$) | **S** | • Đề bài $x=2$ `[1]`<br>• IEC 61800-2 `[3]` |
 | **SRS-PERM-03** | Gia tốc & Độ giật chuyển động thực | Khống chế gia tốc và độ giật thực tế của xe con mang tải treo cáp dài nhất $12\text{ m}$ luôn nằm trong ngưỡng an toàn. | $\lvert a(t) \rvert \le 0.50\text{ m/s}^2$ ($+0\%$)<br>$\lvert \rho(t) \rvert \le 2.00\text{ m/s}^3$ ($+0\%$) | **A + S** | • Đề bài $x=2$ `[1]`<br>• TCVN 4244:2005 `[2]` |
-| **SRS-PERM-04** | Chế độ làm việc nhiệt S3 - 40% | Động cơ và biến tần làm việc tin cậy ở chế độ ngắn hạn lặp lại S3 dưới nguồn lưới $380\text{V} \pm 10\%$ không quá nhiệt cuộn dây. | Hệ số dự trữ công suất nhiệt<br>$k_{dt} \in [1.20;\ 1.50]$ | **A + I** | • IEC 60034-1 `[3]`<br>• TCVN 4244:2005 `[2]` |
+| **SRS-PERM-04** | Chế độ làm việc nhiệt S3 - 40% | Động cơ và biến tần làm việc tin cậy ở chế độ ngắn hạn lặp lại S3 dưới nguồn lưới $380\text{V} \pm 10\%$ không quá nhiệt cuộn dây. | Hệ số dự trữ công suất nhiệt<br>$k_{dt} \ge 1.20$ | **A + I** | • IEC 60034-1 `[3]`<br>• TCVN 4244:2005 `[2]` |
 
 ---
 
@@ -259,7 +261,7 @@ Thay vì chạy mô hình rời rạc, nhóm xây dựng **01 mô hình Simulink
 | **DV-05** | SRS-PERM-01 | **A+S** | AN-02, TS-01, TS-04 | Xe con khởi động thắng lực cản $2,096\text{ N}$; Phép tính AN-02 xác nhận $k_{\text{bám}} = F_{\text{bám}} / F_{\max} \ge 1.20$. | Khối 3 & Khối 5 |
 | **DV-06** | SRS-PERM-02 | **S** | TS-02 | Vận tốc dài xác lập thực tế đạt $v \in [0.114;\ 0.126]\text{ m/s}$ theo cả hai chiều Tiến và Lùi. | Khối 5 (SOW-5.1) |
 | **DV-07** | SRS-PERM-03 | **A+S** | TS-01, TS-03 | Độ lớn gia tốc thực $\lvert a(t) \rvert \le 0.50\text{ m/s}^2$ và độ giật thực $\lvert \rho(t) \rvert \le 2.00\text{ m/s}^3$ (sau bộ lọc thông thấp). | Khối 5 (SOW-5.1) |
-| **DV-08** | SRS-PERM-04 | **A+I** | AN-04 | Công suất định mức động cơ tra catalogue thỏa mãn $P_{\text{đm}} \ge k_{dt} \cdot P_{\text{đt}}$ với $k_{dt} \in [1.20;\ 1.50]$ ở chế độ S3 - 40%. | Khối 2 & Khối 5 |
+| **DV-08** | SRS-PERM-04 | **A+I** | AN-04 | Công suất định mức động cơ tra catalogue thỏa mãn $P_{\text{đm}} \ge k_{dt} \cdot P_{\text{đt}}$ với $k_{dt} \ge 1.20$ ở chế độ S3 - 40%. | Khối 2 & Khối 5 |
 
 ---
 

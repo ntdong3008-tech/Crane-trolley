@@ -201,7 +201,7 @@ Ký hiệu: **P** = phân hệ chịu trách nhiệm chính; **c** = phân hệ 
 | 3 | DC-link & ngưỡng Chopper | $U_{dc} \le 780\text{ V}$; Chopper ON $700 \pm 20\text{ V}$; trip $800 \pm 10\text{ V}$ | SS-2, SS-3, SS-4 | Chọn $R_h \in [R_{\min}; R_{\max}]$ của biến tần + ngưỡng chopper trong mô hình | `SRS-D05` | DV-04 (A/S) |
 | 4 | Thời gian đáp ứng mô-men | $\Delta t_{\text{torque}} \le 10\text{ ms}$ | SS-4, SS-2 | PI dòng – MO; catalogue ACS380 *"Torque step rise time < 10 ms"* [W-05] tr.10 | `SRS-D09` | DV-01 (S) + I |
 | 5 | Mô-men giữ & ngưỡng tốc độ logic | $M_{\text{hold}} \in [100\%; 150\%] M_{\text{đm}}$; đóng phanh $\lvert v \rvert \le 0.005$; cấm đảo chiều $\lvert v \rvert > 0.002\text{ m/s}$ | SS-4, SS-5 | Tham số FSM + phân giải encoder §3.4 | `SRS-D10`, `SRS-D11` | DV-02 (S) |
-| 6 | Lực kéo cực đại tăng tốc | $F_{\max} = 9,218\text{ N}$ (nghiệm thu $9.25 \pm 0.45\text{ kN}$) | SS-5, SS-6 | Định cỡ $M_{\max}$ động cơ, $k_{\text{bám}}$ | `SRS-D01` | DV-05 (A) |
+| 6 | Lực kéo cực đại tăng tốc | $F_{\max} = 9,218\text{ N}$ (dải nghiệm thu $[8.80;\ 9.70]\text{ kN}$) | SS-5, SS-6 | Định cỡ $M_{\max}$ động cơ, $k_{\text{bám}}$ | `SRS-D01` | DV-05 (A) |
 | 7 | Bội số mô-men cực đại | $\lambda_{\max} \ge 2.0$ | SS-5 | Tra $M_K/M_N$ catalogue SEW [W-01] | `SRS-D02` | DV-08 (I) |
 | 8 | Tốc độ bò | $v_{\text{creep}} = 0.030 \div 0.036\text{ m/s}$ | SS-4 | Mức đặt thứ 2 của FSM/S-curve | `SRS-D12` | DV-06 (S) |
 

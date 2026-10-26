@@ -1,7 +1,7 @@
 # SRS BASELINE A.1 (ĐÃ KÝ 24/10/2026) — YÊU CẦU DẪN XUẤT `SRS-Dxx`, RTM/DVP CẤP PHÂN HỆ, V-MODEL & WCCA RÚT GỌN
 
 **Mã tài liệu:** `SRS-A1-8.5EMG-TROLLEY-v1.0` — Gói `SOW-3.5` (Phạm Văn Hưng & Nghiêm Trọng Đông) — Khối 3  
-**Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G4 (`CDR-EVT`) đóng ngày 24/10/2026**. **SRS Baseline A.1 CÓ HIỆU LỰC từ 24/10/2026** (Người dùng ký CR-01..CR-07), thay thế Baseline A v1.2 đối với các ID nêu ở §1; các ID khác giữ nguyên nội dung v1.2. Tệp Block 1 v1.2 vẫn giữ nguyên làm hồ sơ lịch sử.  
+**Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G4 (`CDR-EVT`) đóng ngày 24/10/2026**. **SRS Baseline A.1 CÓ HIỆU LỰC từ 24/10/2026** (Người dùng ký CR-01..CR-07), thay thế Baseline A v1.2 đối với các ID nêu ở §1; các ID khác giữ nguyên nội dung v1.2. ~~Tệp Block 1 v1.2 vẫn giữ nguyên làm hồ sơ lịch sử.~~ **Cập nhật 26/10/2026 (Người dùng duyệt nhóm A):** CR-01, CR-02, CR-03 đã được tích hợp vào Block 0/1 — PRD v3.2, SOW v1.3, BCA-QFD v1.2, slide MCR v2.1, SRS Baseline A v1.3, SRS chi tiết v1.3, RTM/DVP v1.3 (tên tệp giữ hậu tố cũ); bản trước khi sửa lưu trong lịch sử phiên bản của từng tệp.  
 **Nguồn số:** `00_Tinh_toan_Xe_con_x2_v1.2.xlsx` sheet `Dẫn xuất`, `Kiểm tra`, `WCCA`  
 **Lịch sử:** v1.2 (25/10/2026) nhập $i_{\text{thực}}$ = 155.34 (SEW R87), xác minh BE1 7 N·m, R_h, QF1/KM1; số liệu tính lại · v1.0 (24/10/2026) bản đầu · v1.1 (24/10/2026) xử lý Checker: K11-1 mở rộng CR-01/CR-03, K8-1/K8-2 (cha của D02, quy ước mã con), K7-1 (D10, D13 theo bước thử mô-men), K7-2 (tiêu chí DVP-SS), K6-2/K6-4 (WCCA theo $U_N$ = 400 V, có trong Excel)
 

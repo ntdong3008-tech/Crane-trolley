@@ -7,6 +7,8 @@
 > **Nhóm thực hiện:** Nhóm 8.5-EMG (Nguyễn Bá Hưng, Đặng Nguyên Bình, Trần Đỗ Khải, Phạm Văn Hưng, Nguyễn Hải Trung, Nghiêm Trọng Đông — STT 22 $\Rightarrow x = 2$)  
 > **Trạng thái:** `Đã đồng bộ hóa 100% theo SRS Baseline A v1.2 và RTM/DVP v1.2 (Frozen)`
 
+> **Ghi chú hiệu đính 26/10/2026 (Người dùng duyệt nhóm A):** các chỗ $k_{dt}$ trong báo cáo này đã đổi sang $k_{dt} \ge 1.20$ theo SRS Baseline A.1 (CR-01, bỏ cận trên 1.50); tiêu chí FAIL của DV-08 theo CR-02. Phần còn lại giữ nguyên như tại cổng SRR-EVT.
+
 ---
 
 ## 1. TỔNG QUAN KẾT QUẢ HOÀN THÀNH KHỐI 1 (`WBS 1.0`)
@@ -47,4 +49,4 @@ Tiếp nối bộ hồ sơ **Khối 0 (`Gate MCR`)** đã khóa cứng thông s�
      - **Độ chính xác xác lập & Quá độ:** Sai lệch tĩnh $e_{xl} \le 5.0\%$ ($+0\%$), độ quá điều chỉnh $M_p \le 10.0\%$ ($+0\%$, $v_{\text{peak}} \le 0.132\text{ m/s}$) theo Downstream Allocation Khối 3.
      - **Mạch hãm DC-Link:** $U_{\text{dc}}(t) \le 780\text{ V DC}$ (băm Chopper tại $700\text{V} \pm 20\text{V}$, trip bảo vệ tại $800\text{V} \pm 10\text{V}$) theo Downstream Allocation Khối 2/3.
      - **Phối hợp phanh & Vùng chết logic:** Mở phanh tại $M_{\text{hold}}(0\text{ rpm}) \in [100\%;\ 150\%] M_{\text{đm}}$, đóng phanh tại $|v(t)| \le 0.005\text{ m/s}$, độ trôi dừng xe $\Delta s \le \pm 10\text{ mm}$ (danh định $\Delta s = 0\text{ m}$); cấm đảo chiều khi $|v(t)| > 0.002\text{ m/s}$.
-     - **Chế độ nhiệt $S3$ & Điện lưới:** $CD = 40\% \pm 2.0\%$, $T_{\text{ck}} = 10\text{ phút} \pm 30\text{ s}$, $k_{dt} \in [1.20;\ 1.50]$, $\lambda_{\max} \ge 2.0$ dưới nguồn $380\text{V} \pm 10.0\% / 50\text{Hz} \pm 2.0\%$.
+     - **Chế độ nhiệt $S3$ & Điện lưới:** $CD = 40\% \pm 2.0\%$, $T_{\text{ck}} = 10\text{ phút} \pm 30\text{ s}$, $k_{dt} \ge 1.20$, $\lambda_{\max} \ge 2.0$ dưới nguồn $380\text{V} \pm 10.0\% / 50\text{Hz} \pm 2.0\%$.
