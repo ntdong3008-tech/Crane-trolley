@@ -44,13 +44,16 @@ Lưu đồ dự án/
 │   └── 05_Bao_cao_Checker_G3_G4.md               # Báo cáo Checker K6–K12 (lượt kiểm riêng)
 │
 ├── Block 3/                 # Khối 3: Thiết kế Chi tiết — Cổng G4 CDR-EVT [ĐÃ DUYỆT & ĐÓNG 24/10/2026]
-│   ├── 00_Tinh_toan_Xe_con_x2_v1.3.xlsx          # CDRL-02 hiện hành: như v1.2 + khối O–R & sheet Mo_phong (bộ thông số mô phỏng)
+│   ├── 00_Tinh_toan_Xe_con_x2_v1.4.xlsx          # CDRL-02 hiện hành: như v1.3 + E_đ theo ω_m, KT-42/43, khối S, sheet Tong_hop & Quy_dao (Checker lượt 1–2 ngày 27/10/2026: không XUNG ĐỘT/CẢNH BÁO)
+│   ├── 00_Tinh_toan_Xe_con_x2_v1.3.xlsx          # CDRL-02 bản trước: như v1.2 + khối O–R & sheet Mo_phong (bộ thông số mô phỏng)
 │   ├── 00_Tinh_toan_Xe_con_x2_v1.2.xlsx          # CDRL-02 bản trước (lưu lịch sử; số liệu tính chọn giống v1.3)
 │   ├── 01_Thuyet_minh_Tinh_chon_Phan_luc_v1.0.md # Động cơ, hộp số, biến tần, R_h, phanh, WCCA
 │   ├── 02_So_do_Nguyen_ly_Mach_luc_v1.0.svg      # Bản vẽ nguyên lý mạch động lực
 │   ├── 02_So_do_Mach_luc_va_BOM_Chinh_thuc_v1.0.md # Thuyết minh sơ đồ + BOM chính thức
 │   ├── 03_SDD_Thiet_ke_Dieu_khien_va_Logic_v1.0.md # Tham số ĐC, S-curve, PI MO/SO, FSM 4Q
-│   └── 04_SRS_A1_Dan_xuat_RTM_DVP_WCCA_v1.0.md   # SRS Baseline A.1 (đã ký), SRS-D01..D13, RTM/DVP phân hệ, V-model
+│   ├── 04_SRS_A1_Dan_xuat_RTM_DVP_WCCA_v1.0.md   # SRS Baseline A.1 (đã ký), SRS-D01..D15 (+ D05d), RTM/DVP phân hệ, V-model
+│   ├── 05_Bao_cao_Checker_Excel_v1.4_luot1.md    # Checker K6–K12 cho Excel v1.4 (lượt 1, 27/10/2026)
+│   └── 06_Bao_cao_Checker_Excel_v1.4_luot2.md    # Checker K6–K12 kiểm lại sau khi sửa (lượt 2)
 │
 └── Tài liệu tham khảo/      # Kho tiêu chuẩn, bài giảng và Case Studies gốc đã xác minh
     ├── Catalogue web/                            # [W-01..W-10] Catalogue SEW, ABB, Danotherm cho Khối 2–3 (+ danh mục nguồn)

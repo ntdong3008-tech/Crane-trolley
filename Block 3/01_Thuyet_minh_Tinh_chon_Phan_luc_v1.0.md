@@ -2,7 +2,7 @@
 
 **Mã tài liệu:** `CALC-PWR-8.5EMG-TROLLEY-v1.0` — Gói `SOW-3.1` (Khối 3) — Phụ trách: Đặng Nguyên Bình (PE-HW)  
 **Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G4 (`CDR-EVT`) đóng ngày 24/10/2026** — thiết bị chốt: DRN80M4 + ACS380-04xS-03A3-4 (QĐ-04)  
-**File tính toán đi kèm (nguồn số duy nhất):** `00_Tinh_toan_Xe_con_x2_v1.2.xlsx` (sheet `Params`, `GiaDinh_K3`, `Catalogue`, `Tính chọn`, `Kiểm tra`, `Dẫn xuất`)  
+**File tính toán đi kèm (nguồn số duy nhất):** `00_Tinh_toan_Xe_con_x2_v1.4.xlsx` (sheet `Info`, `Tong_hop`, `Params`, `GiaDinh_K3`, `Catalogue`, `Tính chọn`, `Kiểm tra`, `Dẫn xuất`, `Mo_phong`, `WCCA`, `Quy_dao`)  
 **Kế thừa:** SSoT v1.2, SRS Baseline A v1.2 (đề xuất A.1 cho `SRS-PERM-04`), SAD/ICD/BOM/DFMEA Khối 2 v1.0  
 **Tiền điều kiện cổng:** Khối 2 (G3) đã được duyệt ngày 24/10/2026, trước khi đóng G4.
 
@@ -10,7 +10,7 @@
 >
 > **Cập nhật v1.2 (25/10/2026) — đóng các mục TBD catalogue:** hộp số **SEW R87, tỷ số truyền tổng $i_{\text{thực}} = 155.34$**, mô-men ra cho phép 1,550 N·m, tải hướng kính 17,100 N (`[W-06]` SEW Drive Selection); phanh **BE1 cấp 7 N·m** có trong danh mục cấp 10/7/5 N·m (`[W-07]`); điện trở hãm **Danotherm CBH 360 C T 406 210R** 200 W (`[W-05]` tr.24, `[W-09]`); bảo vệ đầu vào **cầu chì gG 6 A OFAF000H6** (`[W-08]`); contactor **ABB AF09-30-10-13** (`[W-10]`); bảng định mức ACS380 đã đối chiếu ảnh trang gốc (`[W-05]` tr.12). Mọi số trong tài liệu được tính lại với $i = 155.34$ (Excel `00_Tinh_toan_Xe_con_x2_v1.2.xlsx`); biên quá tải ở tổ hợp xấu nhất WC-5 đổi từ 1.03 thành **1.02** (vẫn ≥ 1). Nguồn lưu tại `Tài liệu tham khảo/Catalogue web/`.
 >
-> **Lịch sử:** v1.0 (24/10/2026) bản đầu · **v1.1 (24/10/2026)** xử lý báo cáo Checker (`Block 2/05_Bao_cao_Checker_G3_G4.md`): K6-2 quy $\lambda$ về $U_N = 400$ V của động cơ; K6-3 kể quán tính khi phanh; K6-4 WCCA bằng công thức; K7-1 thêm bước thử mô-men giữ khi phanh còn kẹp ⇒ $M_B$ = 7 N·m; K6-5 ghi chú quy ước mô-men giảm tốc.
+> **Lịch sử:** v1.0 (24/10/2026) bản đầu · **v1.1 (24/10/2026)** xử lý báo cáo Checker (`Block 2/05_Bao_cao_Checker_G3_G4.md`): K6-2 quy $\lambda$ về $U_N = 400$ V của động cơ; K6-3 kể quán tính khi phanh; K6-4 WCCA bằng công thức; K7-1 thêm bước thử mô-men giữ khi phanh còn kẹp ⇒ $M_B$ = 7 N·m; K6-5 ghi chú quy ước mô-men giảm tốc. · **v1.3 (27/10/2026, nguồn số Excel v1.4, góp ý đồng nghiệp PE-HW — file v3):** $E_đ$ tính phần rotor theo $\omega_m$ tại $v_{\max}$ ⇒ $E_{Rh}$ 59.9 → 59.4 J (§8.1); thêm KT-42 ($P_{Rh}$ ≥ $P_{Rh,tb}$, `SRS-D05d`), KT-43 ($M_c \le M_N$) và dòng tham khảo công suất hãm kể $\delta$, $J_B$ (724 W); sửa theo Checker lượt 1 (27/10/2026): K12-1 công suất $R_h$ 200 W `[W-09]` đã xác minh (§8.1), K12-2 BE1 7 N·m đã xác minh `[W-07]` (§8.2), K12-3 danh sách sheet; các số khác không đổi.
 
 ---
 
@@ -92,7 +92,7 @@ $a^* = 0.45\text{ m/s}^2$, $\rho^* = 1.8\text{ m/s}^3$ (`SRS-D06`, dự trữ 10
 
 $M_{\max} = \dfrac{(F_c + \delta M_\Sigma a_{\max})k_{qđ}}{\eta} + J_{\text{BMot}}\dfrac{a_{\max}}{k_{qđ}}$ (tính ở $a_{\max} = 0.5$ để bao Downstream #6, dù quỹ đạo thật chỉ dùng $a^* = 0.45$).
 
-> Cả hai ứng viên dùng chung hộp số SEW R87, $i_{	ext{thực}}$ = 155.34 (ô `i_in` của Excel áp dụng cho cả hai). Với DRN90S4 (1455 vg/ph) xe chạy nhanh hơn định mức **+2.2%** ở 50 Hz (trong ±5%, biến tần bù tần số). Cột DRN90S4 là kết quả Excel v1.2 khi đặt `sel = 2`.
+> Cả hai ứng viên dùng chung hộp số SEW R87, $i_{\text{thực}}$ = 155.34 (ô `i_in` của Excel áp dụng cho cả hai). Với DRN90S4 (1455 vg/ph) xe chạy nhanh hơn định mức **+2.2%** ở 50 Hz (trong ±5%, biến tần bù tần số). Cột DRN90S4 là kết quả Excel v1.2 khi đặt `sel = 2`.
 
 | Tiêu chí | DRN80M4 (0.75 kW) | DRN90S4 (1.1 kW) | Ngưỡng / Nguồn |
 | :--- | :---: | :---: | :--- |
@@ -158,12 +158,14 @@ Dòng đỉnh khi tăng tốc đầy tải ước lượng: $I_0 = I_N(\sin\varp
 | Dải cho phép của chopper ACS380-03A3-4 | $[R_{\min}; R_{\max}]$ | [99; 428] Ω |
 | **$R_h$ chọn** (`SRS-D05a`) | — | **210 Ω** (KT-13, 14 ✓) |
 | Dòng chopper / công suất tức thời khi dẫn tại 700 V | $U/R_h$, $U^2/R_h$ | 3.33 A / 2,333 W ≥ 436.5 W ✓ |
-| Năng lượng vào $R_h$ mỗi lần dừng đầy tải | $(E_đ - F_c s_{acc})\eta\eta_{đc}\eta_{inv}$ | 59.9 J |
+| Năng lượng vào $R_h$ mỗi lần dừng đầy tải | $(E_đ - F_c s_{acc})\eta\eta_{đc}\eta_{inv}$, $E_đ = \tfrac12\delta M_\Sigma v^2 + \tfrac12 J_B\omega_m^2$ ($\omega_m$ tại $v_{\max}$); gần đúng — phần rotor cũng nhân $\eta$ hộp số, tách riêng thì ≈ 61.8 J (+4%), không đổi kết luận KT-39/KT-42 | 59.4 J |
+| Công suất R_h định mức ≥ công suất trung bình | 200 W ≥ 0.20 W | KT-42 ✓ |
+| *Tham khảo:* công suất hãm đỉnh kể $\delta$ và $J_B$ | $(F_{h,\delta} v\eta + J_B\varepsilon\omega_m)\eta_{đc}\eta_{inv}$ | 724 W ≤ 1,130 W (biên 1.56) |
 | Công suất trung bình chu kỳ (bảo thủ) | $E_{Rh} n_{ht}/T_{ck}$ | 0.20 W |
 | $P_{BR,\max}$ biến tần ≥ $P_{dc}$ | 1.13 kW ≥ 0.437 kW | KT-15 ✓ |
 | $U_{dc}$ không tải khi lưới +10% | $\sqrt{2}\cdot 418$ | 591 V < 680 V (chopper không băm khi đứng yên) — KT-16 ✓ |
 
-**Giải thích ngắn:** công suất hãm rất nhỏ so với khả năng chopper vì vận tốc thấp; điều kiện ràng buộc thực chất là **$R_h \ge R_{\min}$ của IGBT hãm** (bảo vệ dòng). Công suất định mức của điện trở 210 Ω (ví dụ loại Danotherm trong [W-05] tr.25) **chưa xác minh** — đề xuất chọn loại ≥ 100 W có tiếp điểm nhiệt (dư rất lớn so với 0.2 W trung bình, chủ yếu để chịu xung 2.3 kW trong ≈ 0.5 s).
+**Giải thích ngắn:** công suất hãm rất nhỏ so với khả năng chopper vì vận tốc thấp; điều kiện ràng buộc thực chất là **$R_h \ge R_{\min}$ của IGBT hãm** (bảo vệ dòng). Điện trở chọn Danotherm CBH 360 C T 406 210R có công suất định mức **200 W @40 °C** và chịu xung **2.6 kW trong 10 s mỗi 120 s** (`[W-09]`, điện trở mẫu ABB cho ACS380 `[W-05]` tr.24) — dư rất lớn so với 0.2 W trung bình (KT-42, `SRS-D05d`) và so với xung 2.3 kW trong ≈ 0.5 s mỗi lần dừng (năng lượng xung cho phép ≈ 26 kJ ≫ $E_{Rh}$ ≈ 59 J); có công tắc nhiệt.
 
 > ⚠ Ngưỡng chopper ON 700 ± 20 V, $U_{dc} \le 780$ V, trip 800 ± 10 V (Downstream #3) là **tham số thiết kế cho mô hình Simulink**; ngưỡng thật trong firmware ACS380 **chưa xác minh** (cần ACS380 Firmware manual). Nếu khác, ghi `XUNG ĐỘT K11` và cập nhật `SRS-D05c`.
 
@@ -176,7 +178,7 @@ Dòng đỉnh khi tăng tốc đầy tải ước lượng: $I_0 = I_N(\sin\varp
 | Mô-men phanh tối thiểu | $\max(k_p M_{c,\text{đầy}};\ 1.2\,M_{hold})$, $k_p = 1.25$, $M_{hold} = M_N$ | max(2.32; **5.94**) = 5.94 N·m |
 | Mô-men phanh tối đa không trượt — đầy tải | $F_{\text{bám}} k_{qđ}\eta$ | 10.12 N·m |
 | Mô-men phanh tối đa không trượt — không tải | $F_{\text{bám},0} k_{qđ}\eta$ | 1.44 N·m (chỉ liên quan dừng khẩn khi đang chạy — Không áp dụng, QĐ-07) |
-| **$M_B$ chọn** (`SRS-D13`, ô quyết định) | — | **7 N·m** (cấp BE1 — *chưa xác minh catalogue*) |
+| **$M_B$ chọn** (`SRS-D13`, ô quyết định) | — | **7 N·m** (cấp BE1 10/7/5 N·m — đã xác minh `[W-07]`) |
 | Gia tốc dừng bằng phanh — đầy tải / không tải | $\dfrac{M_B/(k_{qđ}\eta) + F_c}{\delta M + J_B/(k_{qđ}^2\eta)}$ (kể quán tính quay — Checker K6-3) | 0.563 / 1.128 m/s² (không tải: trượt, giới hạn bởi bám) |
 | Quãng dừng nếu phanh kẹp khi đang chạy 0.12 m/s, đầy tải (tham khảo — Không áp dụng, QĐ-07) | $v^2/(2a_B) + v t_{kẹp}$ | 18.8 mm |
 | Độ trôi danh nghĩa sau lệnh đóng phanh | $\lvert v\rvert_{\text{đóng}} t_{kẹp}$ | 0.25 mm ≤ 10 mm ✓ (KT-30) |

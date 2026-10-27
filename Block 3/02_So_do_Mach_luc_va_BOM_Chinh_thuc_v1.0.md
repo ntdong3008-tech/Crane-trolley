@@ -3,7 +3,7 @@
 **Mã tài liệu:** `BOM-F-8.5EMG-TROLLEY-v1.2` (25/10/2026: chốt hộp số, phanh, R_h, F1, KM1) + `DWG-PWR-8.5EMG-v1.0` — Gói `SOW-3.2` (Khối 3) — hồ sơ `CDRL-03`  
 **Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G4 (`CDR-EVT`) đóng ngày 24/10/2026**  
 **Bản vẽ:** [`02_So_do_Nguyen_ly_Mach_luc_v1.0.svg`](02_So_do_Nguyen_ly_Mach_luc_v1.0.svg) (nguyên lý — không phải bản vẽ lắp đặt)  
-**Căn cứ số liệu:** `00_Tinh_toan_Xe_con_x2_v1.2.xlsx` (sheet `Catalogue`, `Tính chọn`), thuyết minh `01_Thuyet_minh_Tinh_chon_Phan_luc_v1.0.md`
+**Căn cứ số liệu:** `00_Tinh_toan_Xe_con_x2_v1.4.xlsx` (sheet `Catalogue`, `GiaDinh_K3`, `Tính chọn`; 27/10/2026 đổi nguồn từ v1.2 theo Checker K10-3 — mọi số trích trong BOM không đổi), thuyết minh `01_Thuyet_minh_Tinh_chon_Phan_luc_v1.0.md`
 
 ---
 

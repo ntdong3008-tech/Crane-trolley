@@ -211,9 +211,9 @@ Ký hiệu: **P** = phân hệ chịu trách nhiệm chính; **c** = phân hệ 
 
 ## 5. TÍNH TOÁN ĐỊNH CỠ SƠ BỘ (làm căn cứ chọn dải thiết bị)
 
-> **Cập nhật sau G4 (25/10/2026):** hộp số đã chốt **SEW R87, $i_{	ext{thực}}$ = 155.34** ($M_{a,\max}$ 1,550 N·m) cùng động cơ DRN80M4 (QĐ-04); số liệu chính thức xem `Block 3/00_Tinh_toan_Xe_con_x2_v1.2.xlsx` ($M_{\max}/M_N$ = 2.19, $k_{dt}$ = 3.61; DRN90S4 dự phòng: 1.78, 5.15). Các số dưới đây là tính sơ bộ tại cổng G3 với $i pprox 157$, giữ nguyên làm hồ sơ lịch sử.
+> **Cập nhật sau G4 (25/10/2026):** hộp số đã chốt **SEW R87, $i_{\text{thực}}$ = 155.34** ($M_{a,\max}$ 1,550 N·m) cùng động cơ DRN80M4 (QĐ-04); số liệu chính thức xem `Block 3/00_Tinh_toan_Xe_con_x2_v1.4.xlsx` ($M_{\max}/M_N$ = 2.19, $k_{dt}$ = 3.61 — như v1.2; DRN90S4 dự phòng: 1.78, 5.15 — kết quả v1.2 khi đặt `sel` = 2). *(27/10/2026: đổi nguồn sang Excel v1.4 theo Checker K10-3; không đổi số.)* Các số dưới đây là tính sơ bộ tại cổng G3 với $i \approx 157$, giữ nguyên làm hồ sơ lịch sử.
 
-Công thức theo `WORKFLOW_RULES.md` §4.2 (A, B, C). Tính chi tiết có công thức Excel ở `Block 3/00_Tinh_toan_Xe_con_x2_v1.2.xlsx`.
+Công thức theo `WORKFLOW_RULES.md` §4.2 (A, B, C). Tính chi tiết có công thức Excel ở `Block 3/00_Tinh_toan_Xe_con_x2_v1.4.xlsx` (bản hiện hành; các bản v1.2, v1.3 lưu làm lịch sử).
 
 ### 5.1. Phụ tải tĩnh & động (kế thừa SSoT)
 

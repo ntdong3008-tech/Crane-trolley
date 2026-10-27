@@ -1,8 +1,8 @@
 # ĐẶC TẢ THIẾT KẾ ĐIỀU KHIỂN & LOGIC (SDD) — RFOC + S-CURVE 7 ĐOẠN + FSM 4 GÓC PHẦN TƯ ($x = 2$)
 
 **Mã tài liệu:** `SDD-8.5EMG-TROLLEY-v1.0` — Gói `SOW-3.3` (Trần Đỗ Khải) & `SOW-3.4` (Nguyễn Bá Hưng) — Khối 3  
-**Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G4 (`CDR-EVT`) đóng ngày 24/10/2026** — **v1.1** (24/10/2026: xử lý Checker K7-1 thử mô-men giữ khi phanh còn kẹp; K9 tên biến/thời gian giữ; QĐ-05, QĐ-07; v1.0 cùng ngày là bản đầu) — **v1.2** (25/10/2026: số liệu tính lại với hộp số SEW R87, $i_{	ext{thực}}$ = 155.34) — **v1.3** (26/10/2026: bộ thông số mô phỏng nhóm C — mô hình 2 khối lượng §2.1, giảm từ thông theo giới hạn điện áp §4.1, đo tốc độ trong mô phỏng §4.4, mô hình biến tần trung bình & kịch bản rút gọn §7; Người dùng duyệt 26/10/2026)  
-**Nguồn số:** `00_Tinh_toan_Xe_con_x2_v1.3.xlsx` (sheet `Tính chọn` khối E, J, K, L, M, N, O, P, Q, R; sheet `Mo_phong`) — ứng viên `sel = 1` (DRN80M4)  
+**Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G4 (`CDR-EVT`) đóng ngày 24/10/2026** — **v1.1** (24/10/2026: xử lý Checker K7-1 thử mô-men giữ khi phanh còn kẹp; K9 tên biến/thời gian giữ; QĐ-05, QĐ-07; v1.0 cùng ngày là bản đầu) — **v1.2** (25/10/2026: số liệu tính lại với hộp số SEW R87, $i_{\text{thực}}$ = 155.34) — **v1.3** (26/10/2026: bộ thông số mô phỏng nhóm C — mô hình 2 khối lượng §2.1, giảm từ thông theo giới hạn điện áp §4.1, đo tốc độ trong mô phỏng §4.4, mô hình biến tần trung bình & kịch bản rút gọn §7; Người dùng duyệt 26/10/2026) — **v1.4** (27/10/2026: chỉ đổi nguồn số sang Excel v1.4 — không đổi giá trị nào của khối E, J–R và sheet `Mo_phong`; §7.2 ghi $E_{Rh}$ ≈ 59 J theo khối H mới; theo Checker lượt 1 K10-1, K10-3)  
+**Nguồn số:** `00_Tinh_toan_Xe_con_x2_v1.4.xlsx` (sheet `Tính chọn` khối E, J, K, L, M, N, O, P, Q, R; sheet `Mo_phong` — v1.4 không đổi số nào của các khối này so với v1.3) — ứng viên `sel = 1` (DRN80M4)  
 **Ký hiệu/tên biến:** khóa theo `Block 2/02_ICD_Kiem_soat_Giao_dien_v1.0.md` (Checker `K9`)  
 **Tài liệu lý thuyết:** Bài giảng 2-1 (tối ưu module/đối xứng, slide 26–30), Bài giảng 2-3 (FOC, mạch vòng $I_{sd}, I_{sq}$, slide 29–42), [R9-06] Shevchenko §2.3 (mạch thay thế), [R9-11] Tho et al. 2020 (S-curve), [R9-01] Mita & Kanai (con lắc).
 
@@ -293,7 +293,7 @@ $$FAULT = flt\_ov \vee flt\_oc$$
 | Đo | `Ts_sim`, `Ts_I`, `Ts_w`, `Tf_w`, `Tf_jerk`, `N_enc`, `enc_model` | 5e-5, 2.5e-4, 1e-3, 1e-3, 0.005, 1024, 0 | `GiaDinh_K3` |
 | Kịch bản (v1.3) | `t_cmd`, `T_run`, `T_dwell`, `t_unl`, `t_cmd2`, `T_end`, `t_rev2`, `T_end2` | 0.5, 10, 10, 22.43, 22.93, 44.87, 4.82, 15.43 | `GiaDinh_K3`, `Tính chọn` R |
 
-> Tên biến trong bảng này được đăng ký vào ICD §4.1 (v1.1, bổ sung v1.2). Toàn bộ giá trị gom sẵn ở sheet `Mo_phong` của Excel v1.3.
+> Tên biến trong bảng này được đăng ký vào ICD §4.1 (v1.1, bổ sung v1.2). Toàn bộ giá trị gom sẵn ở sheet `Mo_phong` của Excel v1.4 (giá trị như v1.3; cột G sinh sẵn dòng lệnh MATLAB, chép vùng G2:G76).
 >
 > `init_params.m` thuộc `SOW-4.1` (Cổng G5) — chưa lập trong Khối 3. Mọi số trên phải được đọc từ Excel (sheet `Mo_phong`), không gõ tay (`WORKFLOW_RULES.md` §7.1).
 
@@ -313,7 +313,7 @@ $$C_{dc}\frac{dU_{dc}}{dt} = i_{rect} - i_{inv} - i_{chop},\quad i_{rect} = \max
 - `R_src` = 13.4 Ω chọn để $U_{dc}$ ≈ 1.35·U ở tải định mức `[C]`; `C_dc` = 220 µF `[C]`, `chưa xác minh` (catalogue ACS380 không ghi).
 - Chopper: ON khi $U_{dc} \ge$ 700 V, OFF khi $U_{dc} \le$ 680 V; $i_{chop} = U_{dc}/R_h$.
 - Tụ hấp thụ được 15.5 J khi $U_{dc}$ tăng từ 591 V (lưới +10%, không tải) lên 700 V.
-  - **Khối cứng** (`mech_model` = 1, tải gắn cứng như Excel): năng lượng trả về mỗi lần dừng đầy tải ≈ 60 J (khối H) > 15.5 J ⇒ chopper tác động (KT-39). Đây là trường hợp bảo thủ dùng cho **DV-04**.
+  - **Khối cứng** (`mech_model` = 1, tải gắn cứng như Excel): năng lượng trả về mỗi lần dừng đầy tải ≈ 59 J (khối H, Excel v1.4) > 15.5 J ⇒ chopper tác động (KT-39). Đây là trường hợp bảo thủ dùng cho **DV-04**.
   - **2 khối lượng** (`mech_model` = 0, mặc định): tải đang lắc nên chỉ xe con và rotor trả năng lượng về; ước lượng giải tích cho 0–28 J mỗi lần dừng, tùy pha lắc lúc bắt đầu giảm tốc (≈ 8 J với `T_run` = 10 s) ⇒ chopper **có thể không đóng**. Ghi nhận đúng như vậy, không chỉnh `C_dc` để ép kết quả.
 
 ### 7.3. Kịch bản TS-01 rút gọn (một lần chạy, DV-01..07)
