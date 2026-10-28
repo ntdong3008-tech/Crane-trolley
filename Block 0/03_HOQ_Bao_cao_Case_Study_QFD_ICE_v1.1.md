@@ -10,6 +10,8 @@
 
 **Giảng viên hướng dẫn:** TS. Nguyễn Duy Đỉnh
 
+**Trạng thái phạm vi (28/10/2026):** tài liệu giữ nguyên làm hồ sơ Cổng MCR. Phạm vi nghiệm thu hiện hành theo PRD v3.3, SOW v1.4 và SRS Baseline A v1.4 (CR-08..CR-15): không gán dung sai cho số liệu đầu vào; gia tốc và độ giật chỉ giữ cận trên; góc lắc chỉ quan sát, không nghiệm thu; $k_{dt}$ tính ở lưới danh định.
+
 ---
 
 ### BẢNG LỊCH SỬ PHIÊN BẢN (DOCUMENT REVISION HISTORY)

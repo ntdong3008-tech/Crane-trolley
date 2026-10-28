@@ -74,6 +74,27 @@ Bảng công thức tuần tự xuất phát từ các giá trị điện áp ph
 | **13** | Điện cảm Rotor | $L_r$ | $L_r = T_r \cdot R_r$ | $\text{H}$ | Tổng điện cảm cuộn dây Rotor quy đổi ($L_r = X_s / (2\pi f_n)$). |
 | **14** | Điện cảm hỗ cảm (Từ hóa) | $L_m$ | $L_m = \sqrt{L_s \cdot L_r \cdot (1 - \sigma)}$ | $\text{H}$ | Khả năng tương tác từ trường qua khe hở không khí giữa vỏ và ruột. |
 
+### 1.5. Giới hạn của bộ 14 công thức
+1. **CT 13 có hai định nghĩa không trùng nhau:** $L_r = T_r R_r$ và $L_r = X_s/(2\pi f_n)$. Với DRN80M4 hai giá trị là 0.709 H và 0.726 H.
+2. **CT 10 giả thiết $R_s \approx R_r$** và không dùng hiệu suất định mức $\eta_N$ của catalogue, nên tổn hao đồng không được đối chiếu với cân bằng công suất.
+3. **Dải $\sigma \approx 0.05 \div 0.08$ chỉ đúng với động cơ công suất lớn.** Động cơ 0.75 kW cho $\sigma$ = 0.136.
+
+### 1.6. Áp dụng cho động cơ đã chọn (SEW DRN80M4, 0.75 kW, 400 V Y, 1.75 A, 1440 vg/ph, $\cos\varphi_N$ = 0.74, $\lambda_K$ = 3.4)
+
+| Tham số | $R_s$ | $R_r$ | $L_s$ | $L_r$ | $L_m$ | $\sigma$ | $T_r$ | $\psi_r$ |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Kết quả 14 công thức | 5.40 Ω | 5.28 Ω | 0.726 H | 0.709 H | 0.667 H | 0.136 | 0.134 s | 0.84 Wb |
+
+**Kiểm chứng với catalogue** (mạch thay thế hình T ở 400 V, $s_N$ = 0.04):
+
+| Bộ tham số | $I_N$ (1.75 A) | $\cos\varphi_N$ (0.74) | $M$ tại $s_N$ (4.95 N·m) | $\lambda_K$ (3.4) |
+| :--- | :---: | :---: | :---: | :---: |
+| 14 công thức | 1.875 A (+7%) | 0.745 | 5.80 N·m (+17%) | 2.47 (−27%) |
+| Sơ đồ vòng tròn (Excel v1.4, khối J) | 1.535 A (−12%) | 0.752 | 4.72 N·m (−5%) | 2.68 (−21%) |
+| Hiệu chỉnh: $R_s$ = 8.386 Ω, $R_r$ = 6.641 Ω, $L_{\sigma s} = L_{\sigma r}$ = 0.0294 H, $L_m$ = 0.603 H | 1.722 A (−2%) | 0.725 (−2%) | 5.03 N·m (+2%) | 3.40 (0%) |
+
+**Phương pháp thống nhất (Người dùng duyệt 28/10/2026):** 14 công thức là phương pháp ước lượng chính theo bài giảng; kết quả được kiểm chứng theo 4 chỉ tiêu $I_N$, $\cos\varphi_N$, $M_N$, $\lambda_K$; bộ tham số dùng cho mô phỏng là bộ hiệu chỉnh (sai số ≤ 2%, loại `[B]`), vì bộ 14 công thức cho mô-men tới hạn thấp hơn catalogue 27%, làm sai kết quả vùng giảm từ thông ở lưới −10%.
+
 ---
 
 <a name="chuyen-de-2"></a>
@@ -101,8 +122,9 @@ Bảng công thức tuần tự xuất phát từ các giá trị điện áp ph
 |  CÓ TỪ HÓA TRƯỚC (CHUẨN CÔNG NGHIỆP):                                          |
 |  t = 0 -> 0.2s: Phanh cơ VẪN KẸP CỨNG TRỤC                                     |
 |          Bơm dòng DC: Isd = Isd,n ; Isq = 0; omega = 0                         |
-|          -> Từ thông nạp đầy: Psi_r -> 0.85 Wb và KHÓA GÓC Theta_0 = 0         |
-|  t = 0.2s: Biến tần báo Ready -> NHẢ PHANH CƠ -> Bơm Isq -> Xe chuyển động êm! |
+|          -> Từ thông nạp đầy: Psi_r -> Psi_rN và KHÓA GÓC Theta_0 = 0          |
+|  t = t_mag = 0.5 s (>= 3T_r): thử mô-men giữ khi phanh còn kẹp -> NHẢ PHANH    |
+|          -> Bơm Isq -> Xe chuyển động êm! (trình tự FSM: SDD §5)               |
 +---------------------------------------------------------------------------------+
 ```
 
@@ -243,10 +265,10 @@ Toàn bộ 4 chuyên đề lý thuyết trên sẽ được tích hợp thống 
 [Đề bài x = 2] -> [Tính lực cản lăn w0 = 0.015 & Lực quán tính đề-pa 14.2t]
                       │
                       ▼
-[Chọn Động cơ Siemens 1.5 kW từ Catalogue -> Lấy 6 thông số Nameplate]
+[Chọn Động cơ SEW DRN80M4 0.75 kW + hộp số R87 (i = 155.34) -> Lấy thông số Nameplate]
                       │
                       ▼
-[Chuyên đề 1: 14 công thức ước lượng ra Rs, Rr, Ls, Lr, Lm, Tr, sigma]
+[Chuyên đề 1: 14 công thức ước lượng ra Rs, Rr, Ls, Lr, Lm, Tr, sigma -> kiểm chứng với catalogue -> hiệu chỉnh (§1.6)]
                       │
                       ▼
 [Chuyên đề 3: Lập luận kỹ thuật chọn FOC (loại bỏ DTC để chống lắc cáp 12m)]
@@ -258,15 +280,15 @@ Toàn bộ 4 chuyên đề lý thuyết trên sẽ được tích hợp thống 
 [Tính bộ điều khiển PI dòng điện theo MO & PI tốc độ theo SO]
                       │
                       ▼
-[Chuyên đề 2: Thiết lập thời gian từ hóa trước 200ms & Logic nhả phanh cơ]
+[Chuyên đề 2: Thiết lập thời gian từ hóa trước t_mag = 0.5 s & Logic nhả phanh cơ]
                       │
                       ▼
 [Mô phỏng Simulink linh kiện thực tế (Simscape) -> Nghiệm thu đồ thị]
 ```
 
-### Bố cục cụ thể khi đưa vào 5 Sheet của File Excel Master:
-1. **Sheet 1 (`De_Bai_x2`):** Nhập $x = 2$, tự động tính ra các thông số cơ khí: $Q = 12,222\text{ kg}, M_\Sigma = 14,244\text{ kg}, v = 0.12\text{ m/s}, a = 0.5\text{ m/s}^2, \rho = 2\text{ m/s}^3, h = 12\text{ m}$.
-2. **Sheet 2 (`Tinh_Chon_Phan_Luc`):** Tính phụ tải tĩnh ($F_c = 2,096\text{ N}$), phụ tải động ($F_{\max} = 9,218\text{ N}$), công suất đỉnh ($P_{\max} = 1.23\text{ kW}$), công suất đẳng trị S3-40% chu trình 6 đoạn ($P_{\text{đt}}$), chọn động cơ và tỷ số truyền $i = 156$.
-3. **Sheet 3 (`Uoc_Luong_Tham_So`):** **Áp dụng nguyên văn 14 công thức của Chuyên đề 1**, nhập 6 số nhãn máy Nameplate $\to$ tự động tính ra 14 thông số điện từ của động cơ.
-4. **Sheet 4 (`Thiet_Ke_FOC_PI`):** Tự động tính các hệ số $K_{pi}, K_{ii}$ (MO), $K_{p\omega}, K_{i\omega}$ (SO), hệ số **Bù xen kênh của Chuyên đề 4** và thời gian S-Curve 7 đoạn.
-5. **Sheet 5 (`Xuat_Simulink`):** Tổng hợp biến số xuất ra workspace để nạp vào mô hình Simulink Simscape linh kiện thực thụ.
+### Ánh xạ vào file tính toán `Block 3/00_Tinh_toan_Xe_con_x2_v1.4.xlsx`:
+1. **`Params`:** thông số gốc P-01..P-20 ($Q = 12,222\text{ kg}, M_\Sigma = 14,244\text{ kg}, v = 0.12\text{ m/s}, a = 0.5\text{ m/s}^2, \rho = 2\text{ m/s}^3, h = 12\text{ m}$).
+2. **`Tính chọn` khối A–I:** phụ tải tĩnh ($F_c = 2,096\text{ N}$), phụ tải động ($F_{\max} = 9,218\text{ N}$), công suất đỉnh ($P_{\max} = 1.23\text{ kW}$), nhiệt S3-40% ($k_{dt}$ = 3.61), DRN80M4, $i_{\text{thực}}$ = 155.34, biến tần, $R_h$, phanh.
+3. **`Tính chọn` khối J:** ước lượng tham số động cơ theo Chuyên đề 1 (14 công thức → kiểm chứng catalogue → bộ hiệu chỉnh, §1.6).
+4. **`Tính chọn` khối K, L, P:** PI dòng (MO), PI tốc độ (SO), bù xen kênh (Chuyên đề 4), giảm từ thông; khối E: S-curve 7 đoạn.
+5. **`Mo_phong`:** tổng hợp biến xuất sang `init_params.m` cho mô hình Simulink.

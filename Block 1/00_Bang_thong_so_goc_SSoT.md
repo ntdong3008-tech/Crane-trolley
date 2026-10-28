@@ -74,7 +74,7 @@
 | 28 | **$4\text{ góc phần tư}$** | Mục 3.2 (SRS-FUNC-01) | **GIỮ** | Yêu cầu chức năng công nghệ bắt buộc đối với hệ truyền động đảo chiều có hãm tái sinh. |
 | 29 | **$v(t) = 0\text{ m/s}$** | Mục 3.2 (SRS-FUNC-02) & Mục 3.2 (SRS-FUNC-07) | **GIỮ** | Điều kiện logic an toàn cấm đảo chiều khi cơ cấu chưa dừng hẳn và điều kiện đóng phanh cơ theo TCVN 4244. |
 | 30 | **$7\text{ đoạn}$ (S-curve)** | Mục 3.2 (SRS-FUNC-03) | **GIỮ** | Quy luật tạo quỹ đạo tốc độ 7 đoạn để đảm bảo gia tốc biến thiên liên tục và triệt tiêu độ giật vô hạn. |
-| 31 | **$D \ge 10:1$** | Mục 3.2 (SRS-FUNC-04) | **SỬA** (Chuyển sang yêu cầu kiểm chứng biến tần ở Khối 3) | Dải điều chỉnh tốc độ là chỉ tiêu chất lượng của hệ truyền động biến tần, kiểm chứng qua mô phỏng. |
+| 31 | **$D \ge 10:1$** | Mục 3.2 (SRS-FUNC-04) | **XÓA** (CR-18, 28/10/2026) | Không thuộc 8 yêu cầu SRS; chức năng điều chỉnh tốc độ đã thể hiện qua cấp tốc độ bò (`SRS-D12`). |
 | 32 | **$01\text{ bộ mã hóa xung (Encoder)}$** | Mục 3.2 (SRS-FUNC-05) | **GIỮ** | Cấu hình cảm biến đo tốc độ trục động cơ để thực hiện điều khiển vector tựa từ thông FOC vòng kín. |
 | 33 | **$0\text{ cảm biến trên cáp treo}$** | Mục 3.2 (SRS-FUNC-05) | **GIỮ** | Xác định rõ ranh giới thiết kế không sử dụng cảm biến góc lắc trên dây cáp ngoài hiện trường. |
 | 34 | **$0\text{ rpm}$ & $M_{\text{hold}} \in [100\%; 150\%]\ M_{\text{đm}}$** | Mục 3.2 (SRS-FUNC-07) | **SỬA** (Giữ yêu cầu chức năng tạo đủ mô-men trước khi mở phanh) | Tránh ép số liệu chi tiết phần trăm khi chưa thiết kế thuật toán ở Khối 3. |

@@ -1,7 +1,7 @@
 # DANH MỤC THIẾT BỊ & VẬT TƯ SƠ BỘ 3 CẤP (BOM SƠ BỘ) — XE CON CẦU TRỤC ($x = 2$)
 
 **Mã tài liệu:** `BOM-P-8.5EMG-TROLLEY-v1.0` — Gói `SOW-2.2` (Khối 2) — Phụ trách: Đặng Nguyên Bình (PE-HW)  
-**Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026** (Người dùng duyệt kiến trúc: 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder ES7C)  
+**Ngày:** 24/10/2026 (v1.1: 28/10/2026 — L3-16 theo QĐ-07) — **Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026** (Người dùng duyệt kiến trúc: 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder ES7C)  
 **Căn cứ:** `01_SAD_Kien_truc_He_thong_v1.0.md` (§2, §3, §5), SSoT v1.2, nguồn catalogue `[W-01..W-05]` (SAD §8.1)  
 **Ghi chú:** BOM sơ bộ chỉ chốt **loại thiết bị + dải định cỡ + ứng viên**; mã đặt hàng chính thức nằm ở BOM chính thức Khối 3 (`SOW-3.2`). Cột "Trạng thái nguồn": **XM** = đã xác minh từ catalogue `[W-xx]`; **CXM** = chưa xác minh; **TBD** = chưa xác định.
 
@@ -40,7 +40,7 @@
 | `L3-13` | Module giao tiếp encoder | 1 | HTL/TTL, cấp nguồn encoder | ABB **BTAC-02** (option +L535) | XM [W-05] tr.24 |
 | `L3-14` | Bộ điều khiển trung tâm CU (S-curve, RFOC, FSM) | 1 | Chu kỳ dòng ≤ 250 µs, tốc độ ≤ 1 ms | Firmware biến tần + logic (đồ án: **hiện thực trên Simulink**) | — |
 | `L3-15` | Tay bấm 5 nút (FWD/REV/FAST/STOP/RESET) | 1 | 24 V DC; E-STOP: Không áp dụng (QĐ-07) | TBD | TBD |
-| `L3-16` | Rơ-le nhiệt/tiếp điểm nhiệt cho $R_h$ và ĐC (TF/TH) | 1 bộ | Vào cờ `flt_oh` | TBD | TBD |
+| `L3-16` | Rơ-le nhiệt/tiếp điểm nhiệt cho $R_h$ và ĐC (TF/TH) | 1 bộ | Bảo vệ nhiệt phần cứng; không đưa vào FSM (`flt_oh` Không áp dụng, QĐ-07) | Công tắc nhiệt có sẵn trên $R_h$ Danotherm [W-09] | XM ($R_h$) |
 
 ---
 

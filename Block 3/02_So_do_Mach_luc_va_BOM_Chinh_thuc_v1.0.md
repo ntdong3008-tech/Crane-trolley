@@ -3,7 +3,7 @@
 **Mã tài liệu:** `BOM-F-8.5EMG-TROLLEY-v1.2` (25/10/2026: chốt hộp số, phanh, R_h, F1, KM1) + `DWG-PWR-8.5EMG-v1.0` — Gói `SOW-3.2` (Khối 3) — hồ sơ `CDRL-03`  
 **Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G4 (`CDR-EVT`) đóng ngày 24/10/2026**  
 **Bản vẽ:** [`02_So_do_Nguyen_ly_Mach_luc_v1.0.svg`](02_So_do_Nguyen_ly_Mach_luc_v1.0.svg) (nguyên lý — không phải bản vẽ lắp đặt)  
-**Căn cứ số liệu:** `00_Tinh_toan_Xe_con_x2_v1.4.xlsx` (sheet `Catalogue`, `GiaDinh_K3`, `Tính chọn`; 27/10/2026 đổi nguồn từ v1.2 theo Checker K10-3 — mọi số trích trong BOM không đổi), thuyết minh `01_Thuyet_minh_Tinh_chon_Phan_luc_v1.0.md`
+**Căn cứ số liệu:** `00_Tinh_toan_Xe_con_x2_v1.5.xlsx` (sheet `Catalogue`, `GiaDinh_K3`, `Tính chọn`; 28/10/2026 đổi nguồn sang v1.5 — mọi số trích trong BOM không đổi), thuyết minh `01_Thuyet_minh_Tinh_chon_Phan_luc_v1.0.md`
 
 ---
 
@@ -27,7 +27,7 @@ An toàn: **E-STOP / STO / SS1 — Không áp dụng vì điều kiện vận h�
 
 ## 2. BOM CHÍNH THỨC 3 CẤP (phương án đã chốt `sel = 1` — QĐ-04)
 
-**QĐ-04 (Người dùng, 24/10/2026): CHỐT ứng viên 1 — SEW DRN80M4 0.75 kW + ABB ACS380-04xS-03A3-4; chấp nhận biên quá tải 1.03 ở tổ hợp xấu nhất WC-5** (lưới −10%, $w_0$ = 0.018, $m_{xc}$ +20%, $\eta$ = 0.85).
+**QĐ-04 (Người dùng, 24/10/2026): CHỐT ứng viên 1 — SEW DRN80M4 0.75 kW + ABB ACS380-04xS-03A3-4.** Biên quá tải ở lưới −10% là 1.14 (WCCA WC-1, CR-14).
 
 Cột trạng thái: **XM** — đã xác minh thông số từ nguồn `[W-xx]`; **XM\*** — đã xác minh nhưng bảng PDF trích văn bản lệch cột, cần đối chiếu bản gốc; **CXM** — chưa xác minh; **TBD** — chưa xác định.
 

@@ -4,7 +4,7 @@
 **Giảng viên hướng dẫn:** TS. Nguyễn Duy Đỉnh  
 **Nhóm thực hiện:** Nhóm 8.5-EMG (STT 22, $x = 2$)  
 **Mã tài liệu:** `SAD-8.5EMG-TROLLEY-v1.0` — Gói công việc `SOW-2.1` (Khối 2 — `WBS 2.0`)  
-**Ngày phát hành:** 24/10/2026  
+**Ngày phát hành:** 24/10/2026 — **v1.1 (28/10/2026, Người dùng duyệt):** đồng bộ phạm vi môn học (CR-13, CR-16, CR-17): SRS-PERM-04 ở lưới danh định; $F_{\max}$ là giá trị tính toán, bỏ dải nghiệm thu; ngưỡng chopper 700 / 780 / 800 V là tham số mô hình, bỏ dung sai; E-STOP Không áp dụng (QĐ-07)  
 **Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026** (Người dùng duyệt kiến trúc: 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder ES7C)  
 **Baseline kế thừa (Frozen, không sửa):** `SSoT-8.5EMG-v1.2` (`P-01..P-20`), `SRS-8.5EMG-TROLLEY-v1.2` (Baseline A), `RTM-DVP-8.5EMG-v1.2`, `HOQ v1.1` (`Solution C`)  
 **Tài liệu cùng bộ Khối 2:** `02_ICD_Kiem_soat_Giao_dien_v1.0.md`, `03_BOM_So_bo_3_cap_v1.0.md`, `04_DFMEA_L1_v1.0.md`
@@ -50,7 +50,7 @@ Phạm vi In-Scope / Out-of-Scope kế thừa nguyên vẹn `SRS Baseline A v1.2
 
 | Mã phân hệ | Tên phân hệ | Thuộc lớp PDS | Thành phần chính | Chức năng chính |
 | :---: | :--- | :---: | :--- | :--- |
-| **SS-1** | Nguồn & Khí cụ đóng cắt – bảo vệ | CDM (phần cấp nguồn) | Aptomat MCCB `QF1`, contactor nguồn `KM1`, cuộn kháng/bộ lọc EMC đầu vào (tùy chọn), nút dừng khẩn `E-STOP` | Cấp nguồn $380\text{ V} \pm 10\%$/50 Hz (`P-19`), cắt ngắn mạch/quá tải, cách ly khi sự cố |
+| **SS-1** | Nguồn & Khí cụ đóng cắt – bảo vệ | CDM (phần cấp nguồn) | Aptomat MCCB `QF1`, contactor nguồn `KM1`, cuộn kháng/bộ lọc EMC đầu vào (tùy chọn), nút dừng khẩn `E-STOP` (Không áp dụng — QĐ-07) | Cấp nguồn $380\text{ V} \pm 10\%$/50 Hz (`P-19`), cắt ngắn mạch/quá tải, cách ly khi sự cố |
 | **SS-2** | Mô-đun biến đổi cơ bản (BDM) | BDM | Chỉnh lưu cầu diode 3 pha, DC-link tụ $C$, nghịch lưu áp IGBT (SVPWM), **Braking Chopper tích hợp** | Biến đổi năng lượng 4 góc phần tư; chặn quá áp DC-link khi hãm tái sinh |
 | **SS-3** | Điện trở xả hãm $R_h$ | CDM (phụ trợ) | Điện trở hãm ngoài + rơ-le nhiệt/tiếp điểm nhiệt | Tiêu tán năng lượng hãm (góc II, IV) — `SRS-FUNC-04` |
 | **SS-4** | Khối điều khiển trung tâm (CU) | CDM (điều khiển) | (a) Bộ tạo quỹ đạo **S-curve 7 đoạn**; (b) **RFOC**: mạch vòng dòng $i_{sd}, i_{sq}$ (PI–MO), mạch vòng tốc độ (PI–SO), mô hình từ thông; (c) **FSM 4 góc phần tư** + logic phanh + khóa chéo đảo chiều; (d) bảo vệ & giám sát | Biến lệnh người vận hành thành mô-men điện từ có kiểm soát |
@@ -190,7 +190,7 @@ Ký hiệu: **P** = phân hệ chịu trách nhiệm chính; **c** = phân hệ 
 | SRS-PERM-01 | Thắng $F_{c.\text{đầy}} = 2,096\text{ N}$; $k_{\text{bám}} \ge 1.20$ | | c (dòng) | | c (giới hạn $i_{sq}$) | **P** (mô-men) | **P** ($i$, $D_{bx}$, bánh dẫn) | `SOW-3.1` | DV-05 |
 | SRS-PERM-02 | $v_{\max} = 0.12\text{ m/s} \pm 5\%$ hai chiều | | c | | **P** (PI–SO) | c (Encoder) | c ($i_{\text{thực}}$) | `SOW-3.1`, `SOW-3.3` | DV-06 |
 | SRS-PERM-03 | $\lvert a(t) \rvert \le 0.5$, $\lvert \rho(t) \rvert \le 2.0$ thực tế, $h = 12\text{ m}$ | | | | **P** (S-curve + SO) | c | c (con lắc) | `SOW-3.3` | DV-07 |
-| SRS-PERM-04 | Định cỡ nhiệt S3-40%, $k_{dt}$ (*đề xuất A.1: $\ge 1.20$*) dưới $380\text{ V} \pm 10\%$ | c | **P** (định cỡ biến tần) | | | **P** (định cỡ động cơ) | | `SOW-3.1` | DV-08 |
+| SRS-PERM-04 | Định cỡ nhiệt S3-40%, $k_{dt} \ge 1.20$ (SRS A.1) ở lưới danh định 380 V (CR-13) | c | **P** (định cỡ biến tần) | | | **P** (định cỡ động cơ) | | `SOW-3.1` | DV-08 |
 
 ### 4.2. Phân bổ 8 thông số Downstream Design Allocation (`SRS Baseline A v1.2` §4)
 
@@ -198,10 +198,10 @@ Ký hiệu: **P** = phân hệ chịu trách nhiệm chính; **c** = phân hệ 
 | :---: | :--- | :--- | :---: | :--- | :---: | :---: |
 | 1 | Độ quá điều chỉnh tốc độ | $M_p \le 10.0\%$ | SS-4 | PI–SO + lọc lượng đặt / S-curve | `SRS-D07` | DV-06 (S) |
 | 2 | Sai lệch tốc độ xác lập | $e_{xl} \le 5.0\%$ | SS-4 | Khâu I của PI–SO ($e_{xl} \to 0$) | `SRS-D08` | DV-06 (S) |
-| 3 | DC-link & ngưỡng Chopper | $U_{dc} \le 780\text{ V}$; Chopper ON $700 \pm 20\text{ V}$; trip $800 \pm 10\text{ V}$ | SS-2, SS-3, SS-4 | Chọn $R_h \in [R_{\min}; R_{\max}]$ của biến tần + ngưỡng chopper trong mô hình | `SRS-D05` | DV-04 (A/S) |
+| 3 | DC-link & ngưỡng Chopper | $U_{dc} \le 780\text{ V}$; Chopper ON $700\text{ V}$; trip $800\text{ V}$ | SS-2, SS-3, SS-4 | Chọn $R_h \in [R_{\min}; R_{\max}]$ của biến tần + ngưỡng chopper trong mô hình | `SRS-D05` | DV-04 (A/S) |
 | 4 | Thời gian đáp ứng mô-men | $\Delta t_{\text{torque}} \le 10\text{ ms}$ | SS-4, SS-2 | PI dòng – MO; catalogue ACS380 *"Torque step rise time < 10 ms"* [W-05] tr.10 | `SRS-D09` | DV-01 (S) + I |
 | 5 | Mô-men giữ & ngưỡng tốc độ logic | $M_{\text{hold}} \in [100\%; 150\%] M_{\text{đm}}$; đóng phanh $\lvert v \rvert \le 0.005$; cấm đảo chiều $\lvert v \rvert > 0.002\text{ m/s}$ | SS-4, SS-5 | Tham số FSM + phân giải encoder §3.4 | `SRS-D10`, `SRS-D11` | DV-02 (S) |
-| 6 | Lực kéo cực đại tăng tốc | $F_{\max} = 9,218\text{ N}$ (dải nghiệm thu $[8.80;\ 9.70]\text{ kN}$) | SS-5, SS-6 | Định cỡ $M_{\max}$ động cơ, $k_{\text{bám}}$ | `SRS-D01` | DV-05 (A) |
+| 6 | Lực kéo cực đại tăng tốc | $F_{\max} = 9,218\text{ N}$ | SS-5, SS-6 | Định cỡ $M_{\max}$ động cơ, $k_{\text{bám}}$ | `SRS-D01` | DV-05 (A) |
 | 7 | Bội số mô-men cực đại | $\lambda_{\max} \ge 2.0$ | SS-5 | Tra $M_K/M_N$ catalogue SEW [W-01] | `SRS-D02` | DV-08 (I) |
 | 8 | Tốc độ bò | $v_{\text{creep}} = 0.030 \div 0.036\text{ m/s}$ | SS-4 | Mức đặt thứ 2 của FSM/S-curve | `SRS-D12` | DV-06 (S) |
 

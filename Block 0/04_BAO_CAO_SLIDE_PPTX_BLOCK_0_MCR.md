@@ -2,6 +2,7 @@
 
 **Tên đề tài:** Thiết Kế Hệ Truyền Động Cơ Cấu Xe Con Cầu Trục ($x = 2$)  
 **Lịch sử:** v2.0 — bản trình bày Cổng MCR · **v2.1 (26/10/2026, Người dùng duyệt nhóm A)** — hiệu đính số liệu theo SSoT v1.2 và SRS Baseline A.1: $\mu = 0.20$ → $w_0 = 0.015$ ($F_c$ 27,947 → 2,096 N; 3,967 → 298 N), $\eta$ 0.96 → 0.90, $k_{dt} \in [1.20;\ 1.50]$ → $k_{dt} \ge 1.20$, `QCD-C01` theo QĐ-08, dải công suất 1.5 ÷ 3.7 kW → kết quả 0.75 kW; viết lại câu vấn đáp về hệ số cản. Các nhãn nguồn `[Nội bộ: … v3.0 / v1.0]` trong lời dẫn giữ nguyên vì ghi lại nguồn tại thời điểm MCR.  
+**Trạng thái phạm vi (28/10/2026):** tài liệu giữ nguyên làm hồ sơ Cổng MCR. Phạm vi nghiệm thu hiện hành theo PRD v3.3, SOW v1.4 và SRS Baseline A v1.4 (CR-08..CR-15): không gán dung sai cho số liệu đầu vào; gia tốc và độ giật chỉ giữ cận trên; góc lắc chỉ quan sát, không nghiệm thu; $k_{dt}$ tính ở lưới danh định.  
 **Mã bộ Slide:** `DECK-B0-MCR-8.5EMG-v2.1` | **Cổng xét duyệt:** **Cổng 1 — `MCR` (*Mission / Management Concept Review* — Thẩm quyền: CTO / GVHD)**  
 **Nhóm thực hiện:** Nhóm 8.5-EMG (STT 22: Nghiêm Trọng Đông — Đề $x = 2$) | **Giảng viên hướng dẫn:** TS. Nguyễn Duy Đỉnh  
 **Template PowerPoint gốc bắt buộc:** `D:\Tài liệu học tập\Kỳ 2026.1\Thiết Kế TĐĐ\Project\Báo cáo hàng tuần\Mô tả nguyên lý công nghệ.pptx` (16:9, `13.33" × 7.50"`, Font Tiếng Việt chống lỗi dấu: **`Arial`** hoặc **`Segoe UI`**)  

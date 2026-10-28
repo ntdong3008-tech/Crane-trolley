@@ -2,7 +2,7 @@
 
 **Mã tài liệu:** `CALC-PWR-8.5EMG-TROLLEY-v1.0` — Gói `SOW-3.1` (Khối 3) — Phụ trách: Đặng Nguyên Bình (PE-HW)  
 **Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G4 (`CDR-EVT`) đóng ngày 24/10/2026** — thiết bị chốt: DRN80M4 + ACS380-04xS-03A3-4 (QĐ-04)  
-**File tính toán đi kèm (nguồn số duy nhất):** `00_Tinh_toan_Xe_con_x2_v1.4.xlsx` (sheet `Info`, `Tong_hop`, `Params`, `GiaDinh_K3`, `Catalogue`, `Tính chọn`, `Kiểm tra`, `Dẫn xuất`, `Mo_phong`, `WCCA`, `Quy_dao`)  
+**File tính toán đi kèm (nguồn số duy nhất):** `00_Tinh_toan_Xe_con_x2_v1.5.xlsx` (sheet `Info`, `Tong_hop`, `Params`, `GiaDinh_K3`, `Catalogue`, `Tính chọn`, `Kiểm tra`, `Dẫn xuất`, `Mo_phong`, `WCCA`, `Quy_dao`, `UocLuong_TS`)  
 **Kế thừa:** SSoT v1.2, SRS Baseline A v1.2 (đề xuất A.1 cho `SRS-PERM-04`), SAD/ICD/BOM/DFMEA Khối 2 v1.0  
 **Tiền điều kiện cổng:** Khối 2 (G3) đã được duyệt ngày 24/10/2026, trước khi đóng G4.
 
@@ -10,7 +10,7 @@
 >
 > **Cập nhật v1.2 (25/10/2026) — đóng các mục TBD catalogue:** hộp số **SEW R87, tỷ số truyền tổng $i_{\text{thực}} = 155.34$**, mô-men ra cho phép 1,550 N·m, tải hướng kính 17,100 N (`[W-06]` SEW Drive Selection); phanh **BE1 cấp 7 N·m** có trong danh mục cấp 10/7/5 N·m (`[W-07]`); điện trở hãm **Danotherm CBH 360 C T 406 210R** 200 W (`[W-05]` tr.24, `[W-09]`); bảo vệ đầu vào **cầu chì gG 6 A OFAF000H6** (`[W-08]`); contactor **ABB AF09-30-10-13** (`[W-10]`); bảng định mức ACS380 đã đối chiếu ảnh trang gốc (`[W-05]` tr.12). Mọi số trong tài liệu được tính lại với $i = 155.34$ (Excel `00_Tinh_toan_Xe_con_x2_v1.2.xlsx`); biên quá tải ở tổ hợp xấu nhất WC-5 đổi từ 1.03 thành **1.02** (vẫn ≥ 1). Nguồn lưu tại `Tài liệu tham khảo/Catalogue web/`.
 >
-> **Lịch sử:** v1.0 (24/10/2026) bản đầu · **v1.1 (24/10/2026)** xử lý báo cáo Checker (`Block 2/05_Bao_cao_Checker_G3_G4.md`): K6-2 quy $\lambda$ về $U_N = 400$ V của động cơ; K6-3 kể quán tính khi phanh; K6-4 WCCA bằng công thức; K7-1 thêm bước thử mô-men giữ khi phanh còn kẹp ⇒ $M_B$ = 7 N·m; K6-5 ghi chú quy ước mô-men giảm tốc. · **v1.3 (27/10/2026, nguồn số Excel v1.4, góp ý đồng nghiệp PE-HW — file v3):** $E_đ$ tính phần rotor theo $\omega_m$ tại $v_{\max}$ ⇒ $E_{Rh}$ 59.9 → 59.4 J (§8.1); thêm KT-42 ($P_{Rh}$ ≥ $P_{Rh,tb}$, `SRS-D05d`), KT-43 ($M_c \le M_N$) và dòng tham khảo công suất hãm kể $\delta$, $J_B$ (724 W); sửa theo Checker lượt 1 (27/10/2026): K12-1 công suất $R_h$ 200 W `[W-09]` đã xác minh (§8.1), K12-2 BE1 7 N·m đã xác minh `[W-07]` (§8.2), K12-3 danh sách sheet; các số khác không đổi.
+> **Lịch sử:** **v1.4 (28/10/2026, Người dùng duyệt, nguồn số Excel v1.5)** theo phạm vi môn học CR-08..CR-18: $k_{dt}$ tính ở lưới danh định (§4); lưu ý điện áp 400 V/380 V chốt theo hướng giảm từ thông (§5); dòng đỉnh đối chiếu với tham số động cơ đã hiệu chỉnh (§7); ngưỡng chopper là tham số mô hình (§8.1); WCCA còn 2 trường hợp (§9); số liệu tính chọn không đổi. · v1.0 (24/10/2026) bản đầu · **v1.1 (24/10/2026)** xử lý báo cáo Checker (`Block 2/05_Bao_cao_Checker_G3_G4.md`): K6-2 quy $\lambda$ về $U_N = 400$ V của động cơ; K6-3 kể quán tính khi phanh; K6-4 WCCA bằng công thức; K7-1 thêm bước thử mô-men giữ khi phanh còn kẹp ⇒ $M_B$ = 7 N·m; K6-5 ghi chú quy ước mô-men giảm tốc. · **v1.3 (27/10/2026, nguồn số Excel v1.4, góp ý đồng nghiệp PE-HW — file v3):** $E_đ$ tính phần rotor theo $\omega_m$ tại $v_{\max}$ ⇒ $E_{Rh}$ 59.9 → 59.4 J (§8.1); thêm KT-42 ($P_{Rh}$ ≥ $P_{Rh,tb}$, `SRS-D05d`), KT-43 ($M_c \le M_N$) và dòng tham khảo công suất hãm kể $\delta$, $J_B$ (724 W); sửa theo Checker lượt 1 (27/10/2026): K12-1 công suất $R_h$ 200 W `[W-09]` đã xác minh (§8.1), K12-2 BE1 7 N·m đã xác minh `[W-07]` (§8.2), K12-3 danh sách sheet; các số khác không đổi.
 
 ---
 
@@ -84,7 +84,7 @@ $a^* = 0.45\text{ m/s}^2$, $\rho^* = 1.8\text{ m/s}^3$ (`SRS-D06`, dự trữ 10
 | Hệ số dự trữ nhiệt | $k_{dt} = P_{đm}/P_{đt}$ | **3.61** | 5.15 |
 | (Tham khảo) tương đương S1 | $P_{đt}\sqrt{CD}$ | 131 W | 132 W |
 
-→ `KT-07` ($k_{dt} \ge 1.20$, A.1) **Đạt**; `KT-08` ($k_{dt} \le 1.50$, v1.2) **Không đạt — XUNG ĐỘT đã trình và được Người dùng xử lý tại QĐ-02**. Ghi chú: $P_{đm}$ dùng giá trị S1 của catalogue (bảo thủ, vì công suất cho phép ở S3-40% của cùng động cơ lớn hơn).
+→ Tính ở lưới danh định 380 V (CR-13; quá tải mô-men ở lưới −10% kiểm tại §5). `KT-07` ($k_{dt} \ge 1.20$, A.1) **Đạt**; `KT-08` ($k_{dt} \le 1.50$, v1.2) **Không đạt — XUNG ĐỘT đã trình và được Người dùng xử lý tại QĐ-02**. Ghi chú: $P_{đm}$ dùng giá trị S1 của catalogue (bảo thủ, vì công suất cho phép ở S3-40% của cùng động cơ lớn hơn).
 
 ---
 
@@ -107,11 +107,11 @@ $M_{\max} = \dfrac{(F_c + \delta M_\Sigma a_{\max})k_{qđ}}{\eta} + J_{\text{BMo
 | Phanh tiêu chuẩn | BE1 (cấp 10/7/5 N·m `[W-07]`) | BE2 (cấp 20/14/10/7/5 N·m `[W-07]`) | §8 |
 | $P_N \le \min(2.2;\ 1.5 P_{\max})$ = 1.84 kW (QCD-C01, cách hiểu QĐ-08: so với $P_{\max}$ = 1.23 kW) | ✓ (61%) | ✓ (89%) | KT-09 |
 
-**QĐ-04 (Người dùng, 24/10/2026): CHỐT ứng viên 1 — SEW DRN80M4 0.75 kW + ABB ACS380-04xS-03A3-4; chấp nhận biên quá tải 1.03 ở tổ hợp xấu nhất WC-5** (lưới −10%, $w_0$ = 0.018, $m_{xc}$ +20%, $\eta$ = 0.85).
+**QĐ-04 (Người dùng, 24/10/2026): CHỐT ứng viên 1 — SEW DRN80M4 0.75 kW + ABB ACS380-04xS-03A3-4.** Biên quá tải ở lưới −10% là 1.14 (WCCA WC-1, §9).
 
 **Đề xuất ban đầu của Writer:** **Ứng viên 1 — SEW DRN80M4** (nhỏ nhất vẫn đạt $\lambda$ ở tổ hợp xấu nhất WCCA, §9; phanh BE1 có khả năng chọn cấp mô-men thấp nằm trong cửa sổ cho phép). Ứng viên 2 dự phòng khi `P-03 [C]` tăng mạnh hoặc khi cấp mô-men BE1 không phù hợp.
 
-> **Lưu ý điện áp (Checker K6-2, K11-7):** động cơ SEW trong [W-01] định mức **400 V/50 Hz**, còn lưới là 380 V ±10% (`P-19`). Vì vậy $\lambda$ khả dụng được quy về $U_N = 400$ V (342 V ⇒ hệ số 0.731 thay cho 0.81). Biến tần cấp từ 380 V không xuất được 400 V ở 50 Hz: gần $v_{\max}$ động cơ làm việc với từ thông giảm tối đa còn ≈ 85.5% (khi lưới −10%). Điều này chấp nhận được vì đỉnh gia tốc của S-curve xảy ra ở khoảng giữa dải tốc độ (đủ điện áp), còn khi chạy đều chỉ cần 1.87 N·m (38% $M_N$). Phương án triệt để: đặt động cơ có cuộn dây 380 V/50 Hz (chưa xác minh SEW có cung cấp) — **Người dùng chọn tại G4**; DVP-SS-06 kiểm chứng trường hợp này bằng mô phỏng.
+> **Điện áp động cơ 400 V trên lưới 380 V (Checker K6-2, K11-7):** $\lambda$ khả dụng được quy về $U_N = 400$ V (342 V ⇒ hệ số 0.731). Biến tần cấp từ lưới 380 V không xuất được 400 V ở 50 Hz, nên gần $v_{\max}$ bộ điều khiển giảm từ thông còn $k_\psi$ = 0.893 ở lưới danh định (`SRS-D14`, SDD §4.1); dòng cần 2.38 A ≤ $i_{sq,\lim}$ = 3.86 A (KT-37). Thiết kế giữ cuộn dây 400 V tiêu chuẩn.
 
 > **Lưu ý `K11`:** `SOW-3.1` ghi "chọn dải 1.5 ÷ 2.2 kW" — cả hai ứng viên đều nhỏ hơn dải này. Đây là hệ quả trực tiếp của tính toán độc lập (đúng tinh thần `RRM-04`: *"không sao chép công suất Case Study"*); ghi nhận độ lệch SOW trong `04_SRS_A1_...` §1.
 
@@ -124,6 +124,7 @@ $M_{\max} = \dfrac{(F_c + \delta M_\Sigma a_{\max})k_{qđ}}{\eta} + J_{\text{BMo
 | Kiểu | Hộp giảm tốc bánh răng trụ đồng trục **SEW R87** (lắp chân đế, trục đặc 50×100 mm), liền khối với DRN80M4 — tổ hợp R87 + khung DRN80 cần SEW xác nhận khi đặt hàng | XM (hộp số) / CXM (tổ hợp) |
 | Tỷ số truyền | **$i_{\text{thực}} = 155.34$** (R87, `[W-06]`); yêu cầu $i_{\text{yc}} = 157.1$, dải chấp nhận [149.6; 165.3] ✓ | **XM** `[W-06]` |
 | Mô-men ra | Đỉnh khi tăng tốc $(F_c + \delta M_\Sigma a_{\max}) D_{bx}/2$ = 1,286 N·m ≤ $M_{a,\max}$ = **1,550 N·m** (KT-33 ✓; SEW tính 1,280 N·m, mức sử dụng 83%); tải hướng kính cho phép 17,100 N | **XM** `[W-06]` |
+| Tải hướng kính trục ra | Trục ra nối trục truyền ngang qua khớp nối; bánh xe có ổ đỡ riêng (SAD TO-02), nên trục ra không chịu tải bánh xe (≈ 34.9 kN/bánh). Tải hướng kính cho phép 17,100 N chỉ áp dụng nếu lắp bánh trực tiếp lên trục ra — không dùng | **XM** `[W-06]` |
 | Hiệu suất | Dùng $\eta = 0.90$ (`P-15 [C]`) cho toàn chuỗi; giá trị riêng hộp số SEW chưa xác minh | CXM |
 
 ---
@@ -142,7 +143,7 @@ Dòng đỉnh khi tăng tốc đầy tải ước lượng: $I_0 = I_N(\sin\varp
 | Chopper tích hợp / module encoder | Có / BTAC-02 (HTL/TTL) | Có / BTAC-02 | [W-05] tr.10, 24 |
 | Thời gian tăng mô-men (bước định mức) | < 10 ms | < 10 ms | [W-05] tr.10 → Downstream #4 (I) |
 
-> ⚠ Bảng định mức ACS380 được trích từ PDF bằng công cụ chuyển văn bản bị lệch cột; giá trị đã được đối chiếu chéo (vd. $P_{BR,\text{cont}} = P_{Hd}$ cho cùng mã) nhưng **cần kiểm lại trên bản PDF gốc** trước khi chốt BOM chính thức.
+> Bảng định mức ACS380 đã đối chiếu với ảnh trang gốc `[W-05]` tr.12. Đối chiếu với tham số động cơ đã hiệu chỉnh (SDD §2): tại $M_{\max}$ = 10.82 N·m, $i_{sq}$ = 4.02 A, $i_{sd}$ = 1.56 A ⇒ $I_s$ = 3.05 A hiệu dụng ≤ 3.9 A; giá trị 3.32 A theo sơ đồ vòng tròn ở trên là cận bảo thủ.
 
 ---
 
@@ -167,7 +168,7 @@ Dòng đỉnh khi tăng tốc đầy tải ước lượng: $I_0 = I_N(\sin\varp
 
 **Giải thích ngắn:** công suất hãm rất nhỏ so với khả năng chopper vì vận tốc thấp; điều kiện ràng buộc thực chất là **$R_h \ge R_{\min}$ của IGBT hãm** (bảo vệ dòng). Điện trở chọn Danotherm CBH 360 C T 406 210R có công suất định mức **200 W @40 °C** và chịu xung **2.6 kW trong 10 s mỗi 120 s** (`[W-09]`, điện trở mẫu ABB cho ACS380 `[W-05]` tr.24) — dư rất lớn so với 0.2 W trung bình (KT-42, `SRS-D05d`) và so với xung 2.3 kW trong ≈ 0.5 s mỗi lần dừng (năng lượng xung cho phép ≈ 26 kJ ≫ $E_{Rh}$ ≈ 59 J); có công tắc nhiệt.
 
-> ⚠ Ngưỡng chopper ON 700 ± 20 V, $U_{dc} \le 780$ V, trip 800 ± 10 V (Downstream #3) là **tham số thiết kế cho mô hình Simulink**; ngưỡng thật trong firmware ACS380 **chưa xác minh** (cần ACS380 Firmware manual). Nếu khác, ghi `XUNG ĐỘT K11` và cập nhật `SRS-D05c`.
+> Ngưỡng chopper ON 700 V, $U_{dc} \le 780$ V, ngắt 800 V (Downstream #3) là **tham số mô hình Simulink**, không gán dung sai (CR-17); ngưỡng thật trong firmware ACS380 **chưa xác minh** (cần ACS380 Firmware manual). Nếu khác, ghi `XUNG ĐỘT K11` và cập nhật `SRS-D05c`.
 
 ### 8.2. Phanh cơ điện từ thường đóng
 
@@ -187,23 +188,16 @@ Dòng đỉnh khi tăng tốc đầy tải ước lượng: $I_0 = I_N(\sin\varp
 
 ---
 
-## 9. PHÂN TÍCH TRƯỜNG HỢP XẤU NHẤT RÚT GỌN (WCCA — DRN80M4)
+## 9. PHÂN TÍCH TRƯỜNG HỢP XẤU NHẤT RÚT GỌN (WCCA — DRN80M4, CR-14)
 
-Nguồn: sheet `WCCA` (công thức). $\lambda$ khả dụng $= \lambda_K\,[U_{\text{lưới}}(1+\Delta U)/U_N]^2$ với $U_N = 400$ V; $k_{dt}$ ước lượng $\approx k_{dt,0}\,F_{c,0}/F_c \cdot \min(1;\ U/U_N)$ (gần đúng).
+Nguồn: sheet `WCCA` (công thức). Hai trường hợp: WC-0 lưới danh định và WC-1 lưới −10%; các thông số khác lấy giá trị danh định. $\lambda$ khả dụng $= \lambda_K\,[U_{\text{lưới}}(1+\Delta U)/U_N]^2$ với $U_N = 400$ V. Nhiệt $k_{dt}$ tính ở lưới danh định (§4, CR-13); $U_{dc}$ khi lưới +10% kiểm ở KT-16.
 
-| Kịch bản | $M_{\max}/M_N$ | $\lambda$ khả dụng | Biên | $k_{\text{bám}}$ tại $a$ = 0.5 / $a^*$ = 0.45 | $P_{dc,\text{hãm}}$ (W) | $U_{dc0}$ (V) | $k_{dt}$ ước lượng |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| WC-0: Danh định (380 V) | 2.187 | 3.069 | 1.40 | 1.516 / 1.643 | 436.5 | 537 | 3.43 |
-| WC-1: lưới −10% | 2.187 | 2.485 | 1.14 | 1.516 / 1.643 | 436.5 | 484 | 3.09 |
-| WC-2: $w_0 = 0.018$ (cận trên SOW) | 2.263 | 3.069 | 1.36 | 1.450 / 1.566 | 400.1 | 537 | 2.86 |
-| WC-3: $m_{xc}$ +20% (2,160 kg) | 2.234 | 3.069 | 1.37 | 1.516 / 1.643 | 447.5 | 537 | 3.34 |
-| WC-4: $\eta = 0.85$ | 2.296 | 3.069 | 1.34 | 1.516 / 1.643 | 412.2 | 537 | 3.43 |
-| **WC-5: tổ hợp kéo** (WC-1+2+3+4) | **2.428** | **2.485** | **1.02 ✓ (sát)** | 1.450 / 1.566 | 387.4 | 484 | 2.51 |
-| WC-6: $\varphi = 0.15$ (ray ẩm, độ nhạy) | 2.187 | 3.069 | 1.40 | **1.137** / 1.232 ✓ | 436.5 | 537 | 3.43 |
-| WC-7: tổ hợp hãm ($w_0$ = 0.012, $\eta$ = 0.95, lưới +10%) | 2.017 | 3.713 | 1.84 | 1.588 / 1.728 | **499.2** (≪ $P_{BR,\max}$ 1,130) | **591** (< 680) | 4.51 |
+| Kịch bản | $M_{\max}/M_N$ | $\lambda$ khả dụng | Biên quá tải | $k_{\text{bám}}$ tại $a$ = 0.5 / $a^*$ = 0.45 | $P_{dc,\text{hãm}}$ (W) | $U_{dc0}$ (V) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| WC-0: Danh định (380 V) | 2.187 | 3.069 | 1.40 | 1.516 / 1.643 | 436.5 | 537 |
+| WC-1: lưới −10% (342 V) | 2.187 | 2.485 | **1.14** | 1.516 / 1.643 | 436.5 | 484 |
 
-**Kết luận WCCA:** sheet `WCCA` trả "Đạt" cho cả 8 kịch bản. Hai điểm nhạy: (1) **biên quá tải ở WC-5 chỉ còn 1.02** (1.03 với $i$ = 157.08 lúc chốt QĐ-04) do động cơ định mức 400 V trên lưới 380 V −10% — nếu Người dùng muốn biên ≥ 1.2 thì chọn DRN90S4 (biên ≈ 1.24 ở WC-5) hoặc cuộn dây 380 V; (2) hệ số bám $\varphi$ (`P-14 [C]`) — dùng $a^* = 0.45$ thay vì 0.5 cho dự trữ đủ tới $\varphi \approx 0.15$.
-
+**Kết luận WCCA:** cả hai trường hợp Đạt. Biên quá tải nhỏ nhất 1.14 ở lưới −10% do động cơ định mức 400 V làm việc trên lưới 380 V. Các tổ hợp nhiều tham số của bản v1.4 (biên 1.02 ở WC-5) nằm ngoài phạm vi môn học và đã bỏ (CR-14).
 ---
 
 ## 10. GIẢI THÍCH NGẮN: VÌ SAO TÍNH NHƯ VẬY (để bảo vệ từng con số)
@@ -212,4 +206,4 @@ Nguồn: sheet `WCCA` (công thức). $\lambda$ khả dụng $= \lambda_K\,[U_{\
 2. **Vì sao $k_{dt}$ lớn (3.61)?** Nhiệt chỉ phụ thuộc mô-men hiệu dụng; 99% thời gian chạy đều chỉ cần 1.87 N·m (38% $M_N$). Ép $k_{dt} \le 1.5$ buộc dùng động cơ 0.25 kW không đủ mô-men khởi động — đó là xung đột đã xử lý ở QĐ-02.
 3. **Vì sao $R_h = 210\ \Omega$ mà không phải giá trị nhỏ?** Giá trị nhỏ làm tăng dòng IGBT hãm; giá trị lớn quá thì không hấp thụ đủ công suất. Cửa sổ thực tế là [99; 428] Ω, chọn ở giữa.
 4. **Vì sao kiểm tra λ ở $(342/400)^2$?** Mô-men tới hạn tỷ lệ bình phương điện áp; động cơ định mức 400 V nên khi lưới sụt còn 342 V, mô-men tới hạn còn 73.1%.
-5. **Vì sao phanh 7 N·m?** Phải ≥ 5.94 N·m để chịu được mô-men thử $1.2 M_{hold}$ khi phanh còn kẹp (bước TORQUE_PROVE, SDD §5) và ≥ 2.32 N·m để giữ xe; phải ≤ 10 N·m để không trượt bánh khi phanh khẩn đầy tải. Cấp cụ thể phụ thuộc catalogue BE1 (TBD).
+5. **Vì sao phanh 7 N·m?** Phải ≥ 5.94 N·m để chịu được mô-men thử $1.2 M_{hold}$ khi phanh còn kẹp (bước TORQUE_PROVE, SDD §5) và ≥ 2.32 N·m để giữ xe; phải ≤ 10.12 N·m để không trượt bánh đầy tải. Chọn cấp 7 N·m của BE1 (`[W-07]`, đã xác minh).

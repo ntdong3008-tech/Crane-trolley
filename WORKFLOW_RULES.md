@@ -34,10 +34,10 @@ Căn cứ: `FLOW_REVIEW.md` (6 khối – 7 cổng), toàn bộ hồ sơ đã kh
   - Kế thừa trực tiếp **8 thông số Downstream Design Allocation** đã chuyển từ Mục 4 của `01_SRS_Baseline_A_v1.2.md` xuống Khối 2 và Khối 3:
     1. Độ quá điều chỉnh tốc độ: $M_p \le 10.0\%$ (`Khối 3 - SOW-3.3`)
     2. Sai lệch tốc độ xác lập tĩnh: $e_{xl} \le 5.0\%$ (`Khối 3 - SOW-3.3`)
-    3. Điện áp DC-link & Ngưỡng băm Chopper: $U_{\text{dc}} \le 780\text{ V DC}$, đóng Chopper tại $700 \pm 20\text{ V}$, trip tại $800 \pm 10\text{ V}$ (`Khối 2 & 3 - SOW-2.1, SOW-3.1`)
+    3. Điện áp DC-link & Ngưỡng băm Chopper: $U_{\text{dc}} \le 780\text{ V DC}$, đóng Chopper tại $700\text{ V}$, trip tại $800\text{ V}$ (`Khối 2 & 3 - SOW-2.1, SOW-3.1`)
     4. Thời gian đáp ứng mô-men: $\Delta t_{\text{torque}} \le 10\text{ ms}$ (`Khối 3 - SOW-3.3`)
     5. Mô-men giữ mở phanh & Ngưỡng tốc độ logic: $M_{\text{hold}}(0\text{ rpm}) \in [100\%; 150\%] M_{\text{đm}}$, đóng phanh tại $|v| \le 0.005\text{ m/s}$, cấm đảo chiều khi $|v| > 0.002\text{ m/s}$ (`Khối 3 - SOW-3.4`)
-    6. Lực kéo cực đại khi tăng tốc: $F_{\max} = 9,218\text{ N} \approx 9.22\text{ kN}$ (dải nghiệm thu $[8.80;\ 9.70]\text{ kN}$) (`Khối 2 & 3 - SOW-2.1, SOW-3.1`)
+    6. Lực kéo cực đại khi tăng tốc: $F_{\max} = 9,218\text{ N} \approx 9.22\text{ kN}$ (`Khối 2 & 3 - SOW-2.1, SOW-3.1`)
     7. Bội số mô-men cực đại động cơ: $\lambda_{\max} = M_{\max}/M_{\text{đm}} \ge 2.0$ (`Khối 2 & 3 - SOW-2.1, SOW-3.1`)
     8. Cấp tốc độ bò định vị (Creep speed): $v_{\text{creep}} = (25\% \div 30\%) v_{\max} = 0.030 \div 0.036\text{ m/s}$ (`Khối 3 - SOW-3.3`)
   - Các ràng buộc thiết kế mới phát sinh khi tính chọn ở Khối 2 & 3 được gán mã `SRS-Dxx`, **bắt buộc có yêu cầu cha** (`Cha: SRS-FUNC/PERM-xx`) và bước tính sinh ra nó.
