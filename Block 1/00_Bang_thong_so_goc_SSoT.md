@@ -29,7 +29,7 @@
 | **P-10** | Gia tốc cực đại cho phép | $a_{\max}$ | 0.5 | m/s$^2$ | **[A]** | Đề bài cho giới hạn gia tốc chuyển động $a \le 0.5\text{ m/s}^2$. | Đề bài tập dài TKTĐĐ (Đề 0~9) |
 | **P-11** | Độ giật cực đại cho phép | $\rho_{\max}$ | 2.0 | m/s$^3$ | **[A]** | Đề bài cho giới hạn đạo hàm gia tốc $\rho \le 2.0\text{ m/s}^3$. | Đề bài tập dài TKTĐĐ (Đề 0~9) |
 | **P-12** | Đường kính bánh xe di chuyển | $D_{bx}$ | 0.25 | m | **[C]** | Chọn đường kính tiêu chuẩn $250\text{ mm}$ cho tải trọng trục khoảng $3.5\text{ tấn/bánh}$; kiểm tra lại ở Khối 2. | TCVN 4244 / Giáo trình Thiết bị nâng chuyển |
-| **P-13** | Suất cản lăn riêng tương đương | $w_0$ | 0.015 | - | **[C]** | Bánh thép lăn trên ray thép có ổ lăn đỡ trục, lấy giá trị trung bình trong dải $0.01 \div 0.03$; kiểm tra lại ở Khối 2. | Bài giảng TKTĐĐ (TS. Nguyễn Duy Đỉnh, Bài 4) / TCVN 4244 |
+| **P-13** | Suất cản lăn riêng tương đương | $w_0$ | 0.015 | - | **[C]** | Bánh thép lăn trên ray thép có ổ lăn đỡ trục; tính kiểm bằng công thức cản di chuyển ở Phần 1b cho dải $0.013 \div 0.018$, chọn 0.015. | TCVN 4244 §2.4.7.2.2 (thành phần lực cản di chuyển) [R1]; phép tính kiểm Phần 1b |
 | **P-14** | Hệ số bám dính bánh thép trên ray | $\varphi$ | 0.20 | - | **[C]** | Hệ số ma sát bám ray thép khô dùng kiểm tra điều kiện chống trượt bánh xe khi tăng/giảm tốc; kiểm tra lại ở Khối 2. | Bài giảng TKTĐĐ (TS. Nguyễn Duy Đỉnh, Bài 4, tr. 43) |
 | **P-15** | Hiệu suất truyền động cơ khí | $\eta$ | 0.90 | - | **[C]** | Hiệu suất tổ hợp hộp giảm tốc bánh răng trụ 3 cấp kèm khớp nối và ổ lăn ngâm dầu; kiểm tra lại ở Khối 2. | Giáo trình Cơ sở thiết kế máy / Bài giảng TKTĐĐ |
 | **P-16** | Tỷ số truyền sơ bộ hộp giảm tốc | $i$ | 150 | - | **[C]** | Ước tính từ tốc độ động cơ 4 cực ($1440\text{ vg/ph}$) và tốc độ bánh xe ($9.17\text{ vg/ph}$); kiểm tra lại ở Khối 2. | Tính sơ bộ từ P-09, P-12 |
@@ -37,6 +37,30 @@
 | **P-18** | Gia tốc trọng trường | $g$ | 9.81 | m/s$^2$ | **[C]** | Hằng số trọng trường quy chuẩn tại Việt Nam; kiểm tra lại ở Khối 2. | Sổ tay Vật lý / TCVN |
 | **P-19** | Nguồn điện lưới cấp vào | $U_{\text{lưới}}$ | 380 ± 10% / 50 | V / Hz | **[C]** | Nguồn hạ thế 3 pha công nghiệp tiêu chuẩn tại các nhà máy; kiểm tra lại ở Khối 2. | Tiêu chuẩn điện lực Việt Nam |
 | **P-20** | Lực cản chuyển động tĩnh đầy tải | $F_{c.\text{đầy}}$ | 2,096 | N | **[B]** | $F_{c.\text{đầy}} = M_{\Sigma} \cdot g \cdot w_0 = 14,244 \cdot 9.81 \cdot 0.015 \approx 2,096\text{ N}$ | Tính từ P-04, P-13, P-18 |
+
+---
+
+## PHẦN 1b: CĂN CỨ CHO HAI GIẢ ĐỊNH ẢNH HƯỞNG LỚN (bổ sung 28/10/2026)
+
+### a) Tính kiểm suất cản lăn $w_0$ (P-13)
+
+$w_0$ là nguồn duy nhất của phụ tải tĩnh $F_c = M g w_0$ (P-20), từ đó ra mô-men tĩnh, công suất tĩnh, phần tính nhiệt $k_{dt}$ và năng lượng hãm — nên phải giữ. TCVN 4244:2005 §2.4.7.2.2 `[R1]` (tr.99) yêu cầu kể đến biến dạng mặt lăn và ma sát gờ bánh với ray; công thức cản di chuyển thông dụng của cơ cấu di chuyển máy trục:
+
+$$w_0 = k_r \cdot \frac{\mu d + 2f}{D_{bx}}$$
+
+| Đại lượng | Ký hiệu | Giá trị giả định `[C]` | Ghi chú |
+| :--- | :---: | :---: | :--- |
+| Hệ số ma sát ổ lăn quy về ngõng trục | $\mu$ | 0.015 | Ổ lăn |
+| Đường kính ngõng trục bánh xe | $d$ | 0.08 m | ≈ $0.3 D_{bx}$ |
+| Cánh tay đòn ma sát lăn bánh thép/ray thép | $f$ | 0.0005 m | 0.3 ÷ 0.6 mm |
+| Hệ số kể ma sát gờ bánh và moay-ơ | $k_r$ | 1.5 ÷ 2.0 | Xe con trên ray |
+| Đường kính bánh xe | $D_{bx}$ | 0.25 m | P-12 |
+
+Kết quả: $\frac{0.015 \cdot 0.08 + 2 \cdot 0.0005}{0.25} = 0.0088$; nhân $k_r = 1.5 \div 2.0$ được $w_0 \approx 0.013 \div 0.018$. Giá trị chọn **0.015** nằm giữa dải. Các hệ số trong bảng là giả định nhóm, cần đối chiếu với giáo trình máy trục khi có tài liệu.
+
+### b) Chu trình làm việc giả định cho chế độ S3-40% (P-17)
+
+Chu kỳ chuẩn $T_{ck} = 600\text{ s}$, thời gian đóng điện $0.4 \cdot 600 = 240\text{ s}$: **1 hành trình đầy tải (Tiến) + 1 hành trình không tải (Lùi), mỗi hành trình 120 s**, nghỉ 360 s. Chiều dài hành trình suy ra $L_{ht} \approx 14.3\text{ m}$ (Excel v1.5, sheet `Tính chọn`). Đây là giả định `[C]` quyết định toàn bộ phép tính $M_{\text{đt}}$, $k_{dt}$; đồ thị phụ tải ở `Block 2/01_SAD_...` §5.4.
 
 ---
 

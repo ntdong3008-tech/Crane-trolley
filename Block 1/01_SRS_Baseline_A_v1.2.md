@@ -6,7 +6,7 @@
 **Nhóm sinh viên thực hiện:** Nhóm 8.5-EMG (Đề bài ứng với STT 22, tham số $x = 2$)  
 **Nguồn số liệu duy nhất:** `Block 1/00_Bang_thong_so_goc.md` (Đã duyệt)  
 **Công cụ kiểm chứng:** Phân tích giải tích / Excel (A), Mô phỏng MATLAB/Simulink (S), Kiểm tra catalogue nhà sản xuất (I).  
-**Lịch sử:** v1.2 (24/10/2026) Baseline A đóng băng tại SRR · **v1.3 (26/10/2026, Người dùng duyệt nhóm A)** tích hợp SRS Baseline A.1 đã ký: `SRS-PERM-04` $k_{dt} \ge 1.20$ (CR-01, bỏ cận trên 1.50); Downstream #6 $F_{\max}$ = 9.22 kN (số 9.25 kN cũ suy từ lực cản tính sai 2,120 N; dải [8.80; 9.70] kN giữ nguyên). **v1.4 (28/10/2026, Người dùng duyệt)** chốt phạm vi môn học: bổ sung hai mục Ngoài phạm vi ở §1.2 (CR-08..CR-12); `SRS-PERM-04`: $k_{dt}$ tính ở lưới danh định 380 V, quá tải mô-men kiểm ở lưới −10% (CR-13); Downstream #3, #6 bỏ dung sai (CR-16, CR-17). Nhật ký CR đầy đủ: `Block 3/04_SRS_A1_Dan_xuat_RTM_DVP_WCCA_v1.0.md` §1. *(Tên tệp giữ hậu tố v1.2 để không gãy liên kết.)*
+**Lịch sử:** v1.2 (24/10/2026) Baseline A đóng băng tại SRR · **v1.3 (26/10/2026, nhóm A duyệt)** tích hợp SRS Baseline A.1 đã ký: `SRS-PERM-04` $k_{dt} \ge 1.20$ (CR-01, bỏ cận trên 1.50); Downstream #6 $F_{\max}$ = 9.22 kN (số 9.25 kN cũ suy từ lực cản tính sai 2,120 N; dải [8.80; 9.70] kN giữ nguyên). **v1.4 (28/10/2026, nhóm duyệt)** chốt phạm vi môn học: bổ sung hai mục Ngoài phạm vi ở §1.2 (CR-08..CR-12); `SRS-PERM-04`: $k_{dt}$ tính ở lưới danh định 380 V, quá tải mô-men kiểm ở lưới −10% (CR-13); Downstream #3, #6 bỏ dung sai (CR-16, CR-17). Nhật ký CR đầy đủ: `Block 3/04_SRS_A1_Dan_xuat_RTM_DVP_WCCA_v1.0.md` §1. *(Tên tệp giữ hậu tố v1.2 để không gãy liên kết.)*
 
 ---
 

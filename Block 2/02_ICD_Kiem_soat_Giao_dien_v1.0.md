@@ -1,10 +1,10 @@
 # TÀI LIỆU KIỂM SOÁT GIAO DIỆN (ICD) — HỆ TRUYỀN ĐỘNG XE CON CẦU TRỤC DẦM ĐÔI ($x = 2$)
 
 **Mã tài liệu:** `ICD-8.5EMG-TROLLEY-v1.2` — Gói `SOW-2.1` (Khối 2) — *(tên tệp giữ hậu tố v1.0 để không gãy liên kết)*  
-**Ngày:** 26/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026** (Người dùng duyệt kiến trúc: 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder ES7C); v1.2 do Người dùng duyệt ngày 26/10/2026  
-**Lịch sử:** **v1.3 (28/10/2026, Người dùng duyệt)** đồng bộ phạm vi môn học: IF-08 điền $M_{\max}$; IF-16 chỉ giữ `flt_ov`, `flt_oc` (QĐ-07); ngưỡng chopper bỏ dung sai (CR-17) · v1.0 (24/10/2026) bản đầu · v1.1 (24/10/2026) xử lý Checker K6-1 (định nghĩa $U_{dc}$), K6-2/K9 (IF-04 theo lưới 380 V), K9 (thêm `cmd_reset`, bỏ `ramp_enable`, `Ts_ctrl` → `Ts_I`, đăng ký tên biến §4.1) · v1.2 (26/10/2026) bộ thông số mô phỏng nhóm C: IF-04 giới hạn điện áp nghịch lưu & giảm từ thông, IF-05 mô hình DC-link trung bình, IF-10 mô hình 2 khối lượng & quy ước dấu $\theta$, §4.1 đăng ký thêm biến mô phỏng (nguồn: Excel v1.3 sheet `Mo_phong`) · ghi chú 27/10/2026 (không nâng phiên bản theo §6 vì không đổi ký hiệu/đơn vị/dải): nguồn giá trị §4.1 chuyển sang Excel v1.4 sheet `Mo_phong` — tên biến và giá trị giữ nguyên như v1.3, thêm cột G sinh dòng lệnh MATLAB (Checker lượt 1 K10-1)  
+**Ngày:** 26/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026** (nhóm duyệt kiến trúc: 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder ES7C); v1.2 do nhóm duyệt ngày 26/10/2026  
+**Lịch sử:** **v1.3 (28/10/2026, nhóm duyệt)** đồng bộ phạm vi môn học: IF-08 điền $M_{\max}$; IF-16 chỉ giữ `flt_ov`, `flt_oc` (QĐ-07); ngưỡng chopper bỏ dung sai (CR-17) · v1.0 (24/10/2026) bản đầu · v1.1 (24/10/2026) xử lý rà soát K6-1 (định nghĩa $U_{dc}$), K6-2/K9 (IF-04 theo lưới 380 V), K9 (thêm `cmd_reset`, bỏ `ramp_enable`, `Ts_ctrl` → `Ts_I`, đăng ký tên biến §4.1) · v1.2 (26/10/2026) bộ thông số mô phỏng nhóm C: IF-04 giới hạn điện áp nghịch lưu & giảm từ thông, IF-05 mô hình DC-link trung bình, IF-10 mô hình 2 khối lượng & quy ước dấu $\theta$, §4.1 đăng ký thêm biến mô phỏng (nguồn: Excel v1.3 sheet `Mo_phong`) · ghi chú 27/10/2026 (không nâng phiên bản theo §6 vì không đổi ký hiệu/đơn vị/dải): nguồn giá trị §4.1 chuyển sang Excel v1.4 sheet `Mo_phong` — tên biến và giá trị giữ nguyên như v1.3, thêm cột G sinh dòng lệnh MATLAB (rà soát lượt 1 K10-1)  
 **Kế thừa:** `02_Boundary_va_P_Diagram.md` (IF-01..IF-10), `SSoT v1.2`, `SRS Baseline A v1.2`; kiến trúc `01_SAD_Kien_truc_He_thong_v1.0.md`  
-**Mục đích:** Khóa **ký hiệu – đơn vị – chiều – dải giá trị** của mọi tín hiệu giữa Phần lực, Phần điều khiển và Cơ khí để Khối 3 (công thức, SDD, FSM) và Khối 4 (Simulink, `init_params.m`) dùng thống nhất (Checker `K9`, rủi ro `RRM-05`).
+**Mục đích:** Khóa **ký hiệu – đơn vị – chiều – dải giá trị** của mọi tín hiệu giữa Phần lực, Phần điều khiển và Cơ khí để Khối 3 (công thức, SDD, FSM) và Khối 4 (Simulink, `init_params.m`) dùng thống nhất (rà soát `K9`, rủi ro `RRM-05`).
 
 ---
 
@@ -103,4 +103,4 @@
 ## 6. KIỂM SOÁT THAY ĐỔI GIAO DIỆN
 
 - Mọi thay đổi ký hiệu/đơn vị/dải trong bảng trên phải nâng phiên bản ICD (`v1.0 → v1.1`) và cập nhật đồng bộ: Excel `Params`/`Dẫn xuất`, SDD, `init_params.m`, RTM/DVP (`WORKFLOW_RULES.md` §10).
-- Các mục `TBD@G4` sẽ được điền tại Khối 3 sau khi Người dùng chốt thiết bị ở cổng G4.
+- Các mục `TBD@G4` sẽ được điền tại Khối 3 sau khi nhóm chốt thiết bị ở cổng G4.

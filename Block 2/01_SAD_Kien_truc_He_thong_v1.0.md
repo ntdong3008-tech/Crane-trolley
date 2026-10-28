@@ -4,18 +4,18 @@
 **Giảng viên hướng dẫn:** TS. Nguyễn Duy Đỉnh  
 **Nhóm thực hiện:** Nhóm 8.5-EMG (STT 22, $x = 2$)  
 **Mã tài liệu:** `SAD-8.5EMG-TROLLEY-v1.0` — Gói công việc `SOW-2.1` (Khối 2 — `WBS 2.0`)  
-**Ngày phát hành:** 24/10/2026 — **v1.1 (28/10/2026, Người dùng duyệt):** đồng bộ phạm vi môn học (CR-13, CR-16, CR-17): SRS-PERM-04 ở lưới danh định; $F_{\max}$ là giá trị tính toán, bỏ dải nghiệm thu; ngưỡng chopper 700 / 780 / 800 V là tham số mô hình, bỏ dung sai; E-STOP Không áp dụng (QĐ-07)  
-**Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026** (Người dùng duyệt kiến trúc: 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder ES7C)  
+**Ngày phát hành:** 24/10/2026 — **v1.1 (28/10/2026, nhóm duyệt):** đồng bộ phạm vi môn học (CR-13, CR-16, CR-17): SRS-PERM-04 ở lưới danh định; $F_{\max}$ là giá trị tính toán, bỏ dải nghiệm thu; ngưỡng chopper 700 / 780 / 800 V là tham số mô hình, bỏ dung sai; E-STOP Không áp dụng (QĐ-07)  
+**Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026** (nhóm duyệt kiến trúc: 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder ES7C)  
 **Baseline kế thừa (Frozen, không sửa):** `SSoT-8.5EMG-v1.2` (`P-01..P-20`), `SRS-8.5EMG-TROLLEY-v1.2` (Baseline A), `RTM-DVP-8.5EMG-v1.2`, `HOQ v1.1` (`Solution C`)  
 **Tài liệu cùng bộ Khối 2:** `02_ICD_Kiem_soat_Giao_dien_v1.0.md`, `03_BOM_So_bo_3_cap_v1.0.md`, `04_DFMEA_L1_v1.0.md`
 
 ---
 
-## 0. QUYẾT ĐỊNH ĐẦU VÀO CỦA NGƯỜI DÙNG (ghi nhận ngày 24/10/2026)
+## 0. QUYẾT ĐỊNH ĐẦU VÀO CỦA NHÓM (ghi nhận ngày 24/10/2026)
 
-Theo `WORKFLOW_RULES.md` §0.5 và §11, các điểm mở sau đã được Người dùng chốt trước khi viết Khối 2:
+Theo `WORKFLOW_RULES.md` §0.5 và §11, các điểm mở sau đã được nhóm chốt trước khi viết Khối 2:
 
-| # | Điểm mở | Quyết định của Người dùng | Ảnh hưởng |
+| # | Điểm mở | Quyết định của nhóm | Ảnh hưởng |
 | :---: | :--- | :--- | :--- |
 | QĐ-01 | Cấu hình truyền động cơ khí (`P-16 [C]`, câu hỏi mở số 3 của SSoT) | **Động cơ liền hộp giảm tốc (Geared motor) liền khối** — động cơ, phanh đĩa, encoder gắn sẵn | Trade-off `TO-01` (§3.1); BOM `L3-05` |
 | QĐ-02 | Xung đột $k_{dt} \in [1.20; 1.50]$ (`SRS-PERM-04`) với $\lambda_{\max} \ge 2.0$ khi $a \approx 0.5\text{ m/s}^2$ (phát hiện bởi tính toán sơ bộ §5) | **Định cỡ động cơ theo khả năng quá tải mô-men ($\lambda$)**; đề xuất cập nhật `SRS-PERM-04` thành $k_{dt} \ge 1.20$ trong **SRS Baseline A.1** (thực hiện ở Khối 3) | §5.3; `Block 3/04_SRS_A1_...` |
@@ -25,9 +25,9 @@ Theo `WORKFLOW_RULES.md` §0.5 và §11, các điểm mở sau đã được Ng�
 | QĐ-05 | Trình tự nhả phanh (G4) | Giữ bước thử mô-men giữ khi phanh còn kẹp, $M_B$ = 7 N·m | `Block 3/03_SDD_...` §5 |
 | QĐ-06 | Rủi ro trượt bánh KT-29 | Đã bị QĐ-07 thay thế | — |
 | QĐ-08 | Cách hiểu QCD-C01 | "150% công suất tính toán" so với $P_{\max}$ = 1.23 kW (trần 1.84 kW) | Excel KT-09 |
-| Duyệt cổng | G3 và G4 | **Người dùng duyệt kiến trúc G3 và ký SRS Baseline A.1 (CR-01..CR-07) — đóng G3, G4 ngày 24/10/2026** | `Block 2/05_...` Phụ lục B |
+| Duyệt cổng | G3 và G4 | **Nhóm duyệt kiến trúc G3 và ký SRS Baseline A.1 (CR-01..CR-07) — đóng G3, G4 ngày 24/10/2026** | `Block 2/05_...` Phụ lục B |
 
-Các quyết định mặc định do Writer đề xuất (Người dùng có thể đổi tại cổng G3): tách thư mục `Block 2/` và `Block 3/` như `Block 0/`, `Block 1/`; yêu cầu dẫn xuất `SRS-Dxx` ghi trong tài liệu riêng `SRS Baseline A.1` ở `Block 3/` (không sửa bản SRS v1.2 đã đóng băng).
+Các quyết định mặc định do người soạn đề xuất (nhóm có thể đổi tại cổng G3): tách thư mục `Block 2/` và `Block 3/` như `Block 0/`, `Block 1/`; yêu cầu dẫn xuất `SRS-Dxx` ghi trong tài liệu riêng `SRS Baseline A.1` ở `Block 3/` (không sửa bản SRS v1.2 đã đóng băng).
 
 ---
 
@@ -37,7 +37,7 @@ Tài liệu SAD xác lập **kiến trúc vật lý và chức năng** của h�
 
 1. Phân rã hệ thống thành các phân hệ theo cấu trúc **PDS (Power Drive System)** — thuật ngữ `BDM / CDM / PDS` của IEC 61800-2 (xem lưu ý nguồn ở §8.2).
 2. Phân tích lựa chọn cấu hình (*Architecture Trade-off*) cho 5 điểm cấu hình chi tiết.
-3. Bảng phân bổ **8 yêu cầu `SRS Baseline A`** và **8 thông số Downstream Design Allocation** vào các phân hệ (đáp ứng Checker `K7`).
+3. Bảng phân bổ **8 yêu cầu `SRS Baseline A`** và **8 thông số Downstream Design Allocation** vào các phân hệ (đáp ứng rà soát `K7`).
 4. Tính toán định cỡ sơ bộ (để chốt dải thiết bị cho BOM sơ bộ; tính chi tiết ở Khối 3 — `SOW-3.1`).
 
 Phạm vi In-Scope / Out-of-Scope kế thừa nguyên vẹn `SRS Baseline A v1.2` §1 và `02_Boundary_va_P_Diagram.md` Phần 1.
@@ -120,7 +120,7 @@ Lệnh HMI ──► [FSM 4 góc phần tư + khóa chéo + logic phanh] ──�
 
 ## 3. PHÂN TÍCH LỰA CHỌN CẤU HÌNH (ARCHITECTURE TRADE-OFF)
 
-Thang điểm 1–5 (5 = tốt nhất); trọng số lấy theo mức ưu tiên HoQ (`EC-01` điều khiển tốc độ chính xác 22.3%, `EC-06` công suất – nhiệt 10.1%, …) và tiêu chí khả thi mô phỏng của SOW. **Writer chỉ đề xuất; phương án cuối do Người dùng duyệt tại G3** (`WORKFLOW_RULES.md` §0.5).
+Thang điểm 1–5 (5 = tốt nhất); trọng số lấy theo mức ưu tiên HoQ (`EC-01` điều khiển tốc độ chính xác 22.3%, `EC-06` công suất – nhiệt 10.1%, …) và tiêu chí khả thi mô phỏng của SOW. **Người soạn chỉ đề xuất; phương án cuối do nhóm duyệt tại G3** (`WORKFLOW_RULES.md` §0.5).
 
 ### 3.1. `TO-01` — Động cơ liền hộp số (Geared motor) hay Động cơ rời + Hộp giảm tốc 3 cấp
 
@@ -133,7 +133,7 @@ Thang điểm 1–5 (5 = tốt nhất); trọng số lấy theo mức ưu tiên 
 | Chi phí / tính phổ biến | 0.15 | 4 | 4 |
 | **Tổng có trọng số** | 1.00 | **4.50** | **3.15** |
 
-**Kết quả:** chọn **A — Geared motor** (đã được Người dùng chốt, QĐ-01). Hiệu suất cơ khí vẫn giữ $\eta = 0.90$ (`P-15 [C]`) cho toàn chuỗi (hộp số + ổ bánh xe + khớp nối trục ngang) — giá trị bảo thủ; hiệu suất riêng của hộp số liền khối tra catalogue ở Khối 3 (`TBD`).
+**Kết quả:** chọn **A — Geared motor** (đã được nhóm chốt, QĐ-01). Hiệu suất cơ khí vẫn giữ $\eta = 0.90$ (`P-15 [C]`) cho toàn chuỗi (hộp số + ổ bánh xe + khớp nối trục ngang) — giá trị bảo thủ; hiệu suất riêng của hộp số liền khối tra catalogue ở Khối 3 (`TBD`).
 
 ### 3.2. `TO-02` — Phương án bố trí dẫn động bánh xe
 
@@ -146,7 +146,7 @@ Thang điểm 1–5 (5 = tốt nhất); trọng số lấy theo mức ưu tiên 
 | Dự phòng (redundancy) | 0.10 | 2 | 3 | 4 |
 | **Tổng** | 1.00 | **4.55** | **2.40** | **3.05** |
 
-**Đề xuất:** **A** — giữ nguyên giả thiết `2/4 bánh dẫn, k_dẫn = 0.5` của `WORKFLOW_RULES.md` §4.2-B3. *(Cần Người dùng duyệt.)*
+**Đề xuất:** **A** — giữ nguyên giả thiết `2/4 bánh dẫn, k_dẫn = 0.5` của `WORKFLOW_RULES.md` §4.2-B3. *(Cần nhóm duyệt.)*
 
 ### 3.3. `TO-03` — Phương án xử lý năng lượng hãm tái sinh
 
@@ -171,11 +171,11 @@ Tiêu chí quyết định: phân giải tốc độ ở **tốc độ bò** và
 
 > **Cập nhật sau G4:** đã chốt DRN80M4 0.75 kW + hộp số R87, $i$ = 155.34 (QĐ-04, `Block 3/02_So_do_Mach_luc_va_BOM_Chinh_thuc_v1.0.md`).
 
-Tính sơ bộ §5 cho thấy động cơ phải định cỡ theo **mô-men cực đại khi tăng tốc**, không theo nhiệt. Hai ứng viên SEW DRN (IE3, 400 V/50 Hz, 4 cực) [W-01] được mang sang Khối 3: **DRN80M4 (0.75 kW)** và **DRN90S4 (1.1 kW)**. Khối 3 sẽ trình bày so sánh, **Người dùng chốt tại G4**.
+Tính sơ bộ §5 cho thấy động cơ phải định cỡ theo **mô-men cực đại khi tăng tốc**, không theo nhiệt. Hai ứng viên SEW DRN (IE3, 400 V/50 Hz, 4 cực) [W-01] được mang sang Khối 3: **DRN80M4 (0.75 kW)** và **DRN90S4 (1.1 kW)**. Khối 3 sẽ trình bày so sánh, **Nhóm chốt tại G4**.
 
 ---
 
-## 4. BẢNG PHÂN BỔ YÊU CẦU VÀO PHÂN HỆ (ALLOCATION MATRIX — Checker K7)
+## 4. BẢNG PHÂN BỔ YÊU CẦU VÀO PHÂN HỆ (ALLOCATION MATRIX — rà soát K7)
 
 Ký hiệu: **P** = phân hệ chịu trách nhiệm chính; **c** = phân hệ đóng góp; (trống) = không liên quan.
 
@@ -205,13 +205,13 @@ Ký hiệu: **P** = phân hệ chịu trách nhiệm chính; **c** = phân hệ 
 | 7 | Bội số mô-men cực đại | $\lambda_{\max} \ge 2.0$ | SS-5 | Tra $M_K/M_N$ catalogue SEW [W-01] | `SRS-D02` | DV-08 (I) |
 | 8 | Tốc độ bò | $v_{\text{creep}} = 0.030 \div 0.036\text{ m/s}$ | SS-4 | Mức đặt thứ 2 của FSM/S-curve | `SRS-D12` | DV-06 (S) |
 
-> Mọi 8/8 SRS và 8/8 Downstream đều có phân hệ chủ trì (**P**) và bài kiểm chứng đối ứng → điều kiện `K7` ở cấp kiến trúc được đáp ứng (chờ Checker xác nhận).
+> Mọi 8/8 SRS và 8/8 Downstream đều có phân hệ chủ trì (**P**) và bài kiểm chứng đối ứng → điều kiện `K7` ở cấp kiến trúc được đáp ứng (chờ rà soát xác nhận).
 
 ---
 
 ## 5. TÍNH TOÁN ĐỊNH CỠ SƠ BỘ (làm căn cứ chọn dải thiết bị)
 
-> **Cập nhật sau G4 (25/10/2026):** hộp số đã chốt **SEW R87, $i_{\text{thực}}$ = 155.34** ($M_{a,\max}$ 1,550 N·m) cùng động cơ DRN80M4 (QĐ-04); số liệu chính thức xem `Block 3/00_Tinh_toan_Xe_con_x2_v1.4.xlsx` ($M_{\max}/M_N$ = 2.19, $k_{dt}$ = 3.61 — như v1.2; DRN90S4 dự phòng: 1.78, 5.15 — kết quả v1.2 khi đặt `sel` = 2). *(27/10/2026: đổi nguồn sang Excel v1.4 theo Checker K10-3; không đổi số.)* Các số dưới đây là tính sơ bộ tại cổng G3 với $i \approx 157$, giữ nguyên làm hồ sơ lịch sử.
+> **Cập nhật sau G4 (25/10/2026):** hộp số đã chốt **SEW R87, $i_{\text{thực}}$ = 155.34** ($M_{a,\max}$ 1,550 N·m) cùng động cơ DRN80M4 (QĐ-04); số liệu chính thức xem `Block 3/00_Tinh_toan_Xe_con_x2_v1.4.xlsx` ($M_{\max}/M_N$ = 2.19, $k_{dt}$ = 3.61 — như v1.2; DRN90S4 dự phòng: 1.78, 5.15 — kết quả v1.2 khi đặt `sel` = 2). *(27/10/2026: đổi nguồn sang Excel v1.4 theo rà soát K10-3; không đổi số.)* Các số dưới đây là tính sơ bộ tại cổng G3 với $i \approx 157$, giữ nguyên làm hồ sơ lịch sử.
 
 Công thức theo `WORKFLOW_RULES.md` §4.2 (A, B, C). Tính chi tiết có công thức Excel ở `Block 3/00_Tinh_toan_Xe_con_x2_v1.4.xlsx` (bản hiện hành; các bản v1.2, v1.3 lưu làm lịch sử).
 
@@ -232,9 +232,9 @@ Công thức theo `WORKFLOW_RULES.md` §4.2 (A, B, C). Tính chi tiết có côn
 
 - Hệ số quy đổi $k_{qđ} = \frac{D_{bx}}{2i} = 7.958 \times 10^{-4}\text{ m/rad}$; $M_{c,\text{kéo}} = \frac{F_c k_{qđ}}{\eta} = 1.853\text{ N·m}$.
 - Mô-men cực đại khi tăng tốc với $a_{\max} = 0.5\text{ m/s}^2$ ($\delta = 1.15$, $J_{\text{ĐC+phanh}} = 26.2 \times 10^{-4}\text{ kg·m}^2$ [W-02]): $M_{\max} = \frac{(F_c + \delta M_\Sigma a)k_{qđ}}{\eta} + J_{\text{ĐC}}\frac{a}{k_{qđ}} \approx 10.74\text{ N·m}$.
-- Bội số yêu cầu $M_{\max}/M_N = 10.74/4.95 = 2.17$; khả năng ở sụt áp −10%, quy về điện áp định mức 400 V của động cơ: $\lambda_{K}(342/400)^2 = 3.4 \times 0.731 = 2.485 \ge 2.17$ ✓ *(v1.0 ghi $0.9^2$ → 2.75; đã sửa theo Checker K6-2)*.
+- Bội số yêu cầu $M_{\max}/M_N = 10.74/4.95 = 2.17$; khả năng ở sụt áp −10%, quy về điện áp định mức 400 V của động cơ: $\lambda_{K}(342/400)^2 = 3.4 \times 0.731 = 2.485 \ge 2.17$ ✓ *(v1.0 ghi $0.9^2$ → 2.75; đã sửa theo rà soát K6-2)*.
 
-### 5.3. Phát hiện XUNG ĐỘT `K11` (đã trình Người dùng — QĐ-02)
+### 5.3. Phát hiện XUNG ĐỘT `K11` (đã trình nhóm — QĐ-02)
 
 Với chu trình S3-40% giả định (2 hành trình 14 m đầy tải/không tải trong 600 s), mô-men đẳng trị nhiệt chỉ $M_{đt} \approx 1.36\text{ N·m}$ ($P_{đt} \approx 0.21\text{ kW}$) vì pha gia tốc chỉ ≈ 0.52 s mỗi lần. Do đó:
 
@@ -244,9 +244,28 @@ Với chu trình S3-40% giả định (2 hành trình 14 m đầy tải/không t
 | $\lambda_{\max} \ge 2.0$, $a \approx 0.5$ (Downstream #6, #7) | DRN80M4 0.75 kW / DRN90S4 1.1 kW | **3.65 / 5.24** |
 | SOW-3.1 "chọn dải 1.5 ÷ 2.2 kW" | DRN90L4 / DRN100LS4 | ≈ 7 ÷ 10 |
 
-**Quyết định Người dùng (QĐ-02):** định cỡ theo $\lambda$; cập nhật `SRS-PERM-04` → $k_{dt} \ge 1.20$ (không giới hạn trên) trong **SRS Baseline A.1** — phù hợp với đề xuất đã có tại `00_Bang_thong_so_goc_SSoT.md` Phần 2 dòng 12 (*"Bỏ việc ép cứng cận trên 1.50"*). Ghi chú ảnh hưởng: `SOW-3.1` (dải 1.5–2.2 kW) và `QCD-C01` (biên kinh tế) cần ghi nhận độ lệch; `DV-08` đổi tiêu chí FAIL "$k_{dt} > 1.50$". Không sửa Block 0/1 — mọi thay đổi ghi ở `Block 3/04_SRS_A1_...`.
+**Quyết định của nhóm (QĐ-02):** định cỡ theo $\lambda$; cập nhật `SRS-PERM-04` → $k_{dt} \ge 1.20$ (không giới hạn trên) trong **SRS Baseline A.1** — phù hợp với đề xuất đã có tại `00_Bang_thong_so_goc_SSoT.md` Phần 2 dòng 12 (*"Bỏ việc ép cứng cận trên 1.50"*). Ghi chú ảnh hưởng: `SOW-3.1` (dải 1.5–2.2 kW) và `QCD-C01` (biên kinh tế) cần ghi nhận độ lệch; `DV-08` đổi tiêu chí FAIL "$k_{dt} > 1.50$". Không sửa Block 0/1 — mọi thay đổi ghi ở `Block 3/04_SRS_A1_...`.
 
 ---
+
+### 5.4. Đồ thị phụ tải và chu trình làm việc S3-40% (bổ sung 28/10/2026)
+
+Theo bước 1 của quy trình thiết kế trong bài giảng `[R5]` (`Bài 1.pdf`: xác định phụ tải, lập đồ thị phụ tải, tính công suất yêu cầu). Số liệu lấy từ `Block 3/00_Tinh_toan_Xe_con_x2_v1.5.xlsx` (sheet `Quy_dao`, khối F của sheet `Tính chọn`); mô hình khối cứng, lượng đặt S-curve $a^* = 0.45\text{ m/s}^2$, $\rho^* = 1.8\text{ m/s}^3$.
+
+![Đồ thị phụ tải một hành trình](06_Do_thi_phu_tai_mot_hanh_trinh.png)
+
+**Chu trình giả định `[C]`** (chu kỳ chuẩn $T_{ck} = 600\text{ s}$, $CD = 40\%$): 1 hành trình đầy tải (Tiến) + 1 hành trình không tải (Lùi), mỗi hành trình 120 s, nghỉ 360 s. Chiều dài hành trình suy ra $L_{ht} \approx 14.3\text{ m}$.
+
+| Pha trong một hành trình | Thời gian (s) | $M$ đầy tải (N·m) | $M$ không tải (N·m) | Góc phần tư (chạy Tiến) |
+| :--- | :---: | :---: | :---: | :---: |
+| Tăng tốc (S-curve) | 0.52 | 1.87 → 9.93 → 1.87 | 0.27 → 2.67 → 0.27 | I |
+| Chạy đều $v = 0.12\text{ m/s}$ | ≈ 118.97 | 1.87 | 0.27 | I |
+| Giảm tốc (S-curve) | 0.52 | 1.87 → −5.29 → 1.87 | 0.27 → −2.01 → 0.27 | II khi $M < 0$ (hãm tái sinh) |
+| Nghỉ (phanh cơ kẹp) | 360 (cả chu kỳ) | 0 | 0 | — |
+
+Kết quả: $M_{\text{đt}} = 1.38\text{ N·m}$, $P_{\text{đt}} \approx 0.21\text{ kW}$, $k_{dt} = 3.61$ với DRN80M4 0.75 kW (Excel KT-07). Mô-men đỉnh khi định cỡ theo trường hợp xấu nhất $a_{\max} = 0.5\text{ m/s}^2$ là $10.82\text{ N·m}$ (Excel v1.5 với $i$ = 155.34; tính sơ bộ ở §5.2 với $i$ = 157.1 ra 10.74 N·m). Pha tăng/giảm tốc chỉ ≈ 0.5 s trên 120 s nên phụ tải nhiệt nhỏ; động cơ được chọn theo mô-men đỉnh (bội số quá tải $\lambda$), đó là lý do $k_{dt}$ lớn hơn nhiều so với 1.20 (§5.3).
+
+> Ghi chú: hệ số $\delta = 1.15$ chỉ kể quán tính hộp số và khớp nối (Excel sheet `GiaDinh_K3`); quán tính động cơ + phanh $J_{\text{BMot}}$ cộng riêng, nên không tính trùng.
 
 ## 6. CÁC CHẾ ĐỘ VẬN HÀNH (Operating Modes) — đầu vào cho FSM Khối 3
 
@@ -270,7 +289,7 @@ Với chu trình S3-40% giả định (2 hành trình 14 m đầy tải/không t
 
 ---
 
-## 8. NGUỒN TÀI LIỆU & GHI CHÚ XÁC MINH (Checker K12)
+## 8. NGUỒN TÀI LIỆU & GHI CHÚ XÁC MINH (rà soát K12)
 
 ### 8.1. Nguồn web bổ sung ở Khối 2–3 (đã lưu tại `Tài liệu tham khảo/Catalogue web/` ngày 25/10/2026 — xem `00_Danh_muc_nguon_catalogue_web.md`)
 
@@ -288,9 +307,9 @@ Với chu trình S3-40% giả định (2 hành trình 14 m đầy tải/không t
 | `[W-09]` | Danotherm CBH 360 C T 406 210R (Partco) | Trang sản phẩm | 210 Ω ±10%, 200 W @40 °C, công tắc nhiệt |
 | `[W-10]` | ABB AF09-30-10-13 (plc-direct, theo catalog ABB 1SBC100214C0202) | Trang sản phẩm | AC-3 9 A @400 V, AC-1 25 A |
 
-### 8.2. Ghi chú trung thực về Baseline (chỉ cảnh báo — không sửa Block 0/1)
+### 8.2. Ghi chú xác minh nguồn
 
-1. `A54.pdf` trong kho thực chất là bài báo **Valtchev et al., IEEE DAS 2024** (*Increasing the Damping Capacity of Crane Electric Drive Systems…*), **không phải tiêu chuẩn DIN 536/ray A54** như mã `[R9-10]` ghi trong README/WORKFLOW → giá trị $w_0 = 0.015$, $D_{bx} = 0.25\text{ m}$ hiện **chưa có nguồn xác minh trong kho** (vẫn là giả định `[C]` của SSoT).
-2. `[R4]` *TIÊU CHUẨN VN VÀ QUỐC TẾ.pdf*: tr.23 đúng là mục chế độ làm việc S1–S10 (IEC 60034-1); **tr.85–92 là nội dung EMC**, trong toàn văn **không có IEC 61800-2** → thuật ngữ PDS/BDM/CDM trong tài liệu này dùng theo hiểu biết chung về IEC 61800-2, **`chưa xác minh` trong kho**.
+1. `A54.pdf` trong kho thực chất là bài báo **Valtchev et al., DAS 2024**, không phải tiêu chuẩn DIN 536/ray A54. **Đã xử lý (28/10/2026):** mã `[R9-10]` được gỡ, bài Valtchev mang mã `[R9-04]`; $w_0 = 0.015$, $D_{bx} = 0.25\text{ m}$ là giả định `[C]`, $w_0$ được tính kiểm bằng công thức ở SSoT P-13. Danh mục thống nhất: `Tài liệu tham khảo/00_Danh_muc_tai_lieu_tham_khao.md`.
+2. `[R4]` *TIÊU CHUẨN VN VÀ QUỐC TẾ.pdf*: tr.23 đúng là mục chế độ làm việc S1–S10 (IEC 60034-1); **tr.85–92 là nội dung EMC**, không có IEC 61800-2 → thuật ngữ PDS/BDM/CDM trong tài liệu này dùng theo hiểu biết chung về IEC 61800-2, không trích `[R4]`.
 3. Bài giảng của Thầy Đỉnh: nội dung FOC, tổng hợp mạch vòng dòng $I_{sd}, I_{sq}$ và hãm điện trở nằm ở **`Bài 2.3.pdf`** (slide 29–42, 56–59); tối ưu module/đối xứng ở **`Bài 2.1.pdf`** (slide 26–30); `Bài 3.pdf` là *Tải của truyền động điện* (quy đổi $M, J$); `Bài 4.pdf` là *Phương pháp thiết kế* (slide 43–44: truyền động kéo xe con, hãm điện trở). Ánh xạ `[R5-B3]`, `[R5-B4]` trong WORKFLOW lệch với nội dung tệp → Khối 2/3 trích theo **tên tệp + slide thật**.
-4. `tcvn-4244-2005.pdf` là bản scan ảnh (không trích được văn bản) → các điều khoản §1.5.3.3, §1.5.7.2.9, §2.4.5.5.2 được dùng **theo trích dẫn của Baseline**, chưa đối chiếu lại được trong tài liệu này.
+4. `tcvn-4244-2005.pdf` là bản scan ảnh. **Đã đối chiếu bằng ảnh trang (28/10/2026):** §1.5.3.3 phanh (tr.15), §1.5.7.2.9 cấm chuyển hướng chuyển động khi cơ cấu chưa ngừng hẳn (tr.21), §2.4.5.5.2 phanh cơ chỉ tác dụng sau phanh điện (tr.94) đúng nội dung được trích.

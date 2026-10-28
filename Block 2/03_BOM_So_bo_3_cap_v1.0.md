@@ -1,7 +1,7 @@
 # DANH MỤC THIẾT BỊ & VẬT TƯ SƠ BỘ 3 CẤP (BOM SƠ BỘ) — XE CON CẦU TRỤC ($x = 2$)
 
 **Mã tài liệu:** `BOM-P-8.5EMG-TROLLEY-v1.0` — Gói `SOW-2.2` (Khối 2) — Phụ trách: Đặng Nguyên Bình (PE-HW)  
-**Ngày:** 24/10/2026 (v1.1: 28/10/2026 — L3-16 theo QĐ-07) — **Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026** (Người dùng duyệt kiến trúc: 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder ES7C)  
+**Ngày:** 24/10/2026 (v1.1: 28/10/2026 — L3-16 theo QĐ-07) — **Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026** (nhóm duyệt kiến trúc: 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder ES7C)  
 **Căn cứ:** `01_SAD_Kien_truc_He_thong_v1.0.md` (§2, §3, §5), SSoT v1.2, nguồn catalogue `[W-01..W-05]` (SAD §8.1)  
 **Ghi chú:** BOM sơ bộ chỉ chốt **loại thiết bị + dải định cỡ + ứng viên**; mã đặt hàng chính thức nằm ở BOM chính thức Khối 3 (`SOW-3.2`). Cột "Trạng thái nguồn": **XM** = đã xác minh từ catalogue `[W-xx]`; **CXM** = chưa xác minh; **TBD** = chưa xác định.
 

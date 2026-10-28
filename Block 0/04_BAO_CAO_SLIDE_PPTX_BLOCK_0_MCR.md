@@ -1,7 +1,7 @@
 # BÁO CÁO KỊCH BẢN & BẢN THIẾT KẾ SLIDE POWERPOINT KHỐI 0 — TIỀN KHẢ THI (`PRE-A`) & CỔNG SOÁT XÉT `MCR` (CHUẨN TEMPLATE ĐHBKHN)
 
 **Tên đề tài:** Thiết Kế Hệ Truyền Động Cơ Cấu Xe Con Cầu Trục ($x = 2$)  
-**Lịch sử:** v2.0 — bản trình bày Cổng MCR · **v2.1 (26/10/2026, Người dùng duyệt nhóm A)** — hiệu đính số liệu theo SSoT v1.2 và SRS Baseline A.1: $\mu = 0.20$ → $w_0 = 0.015$ ($F_c$ 27,947 → 2,096 N; 3,967 → 298 N), $\eta$ 0.96 → 0.90, $k_{dt} \in [1.20;\ 1.50]$ → $k_{dt} \ge 1.20$, `QCD-C01` theo QĐ-08, dải công suất 1.5 ÷ 3.7 kW → kết quả 0.75 kW; viết lại câu vấn đáp về hệ số cản. Các nhãn nguồn `[Nội bộ: … v3.0 / v1.0]` trong lời dẫn giữ nguyên vì ghi lại nguồn tại thời điểm MCR.  
+**Lịch sử:** v2.0 — bản trình bày Cổng MCR · **v2.1 (26/10/2026, nhóm A duyệt)** — hiệu đính số liệu theo SSoT v1.2 và SRS Baseline A.1: $\mu = 0.20$ → $w_0 = 0.015$ ($F_c$ 27,947 → 2,096 N; 3,967 → 298 N), $\eta$ 0.96 → 0.90, $k_{dt} \in [1.20;\ 1.50]$ → $k_{dt} \ge 1.20$, `QCD-C01` theo QĐ-08, dải công suất 1.5 ÷ 3.7 kW → kết quả 0.75 kW; viết lại câu vấn đáp về hệ số cản. Các nhãn nguồn `[Nội bộ: … v3.0 / v1.0]` trong lời dẫn giữ nguyên vì ghi lại nguồn tại thời điểm MCR.  
 **Trạng thái phạm vi (28/10/2026):** tài liệu giữ nguyên làm hồ sơ Cổng MCR. Phạm vi nghiệm thu hiện hành theo PRD v3.3, SOW v1.4 và SRS Baseline A v1.4 (CR-08..CR-15): không gán dung sai cho số liệu đầu vào; gia tốc và độ giật chỉ giữ cận trên; góc lắc chỉ quan sát, không nghiệm thu; $k_{dt}$ tính ở lưới danh định.  
 **Mã bộ Slide:** `DECK-B0-MCR-8.5EMG-v2.1` | **Cổng xét duyệt:** **Cổng 1 — `MCR` (*Mission / Management Concept Review* — Thẩm quyền: CTO / GVHD)**  
 **Nhóm thực hiện:** Nhóm 8.5-EMG (STT 22: Nghiêm Trọng Đông — Đề $x = 2$) | **Giảng viên hướng dẫn:** TS. Nguyễn Duy Đỉnh  
@@ -484,7 +484,7 @@ $$\text{Công thức tính Trọng số Kỹ thuật HoQ (NASA SE Toolbox §7.12
     * **Tầng dưới (`y = 4.10" .. 6.55"`):** Sơ đồ 2 — Cấu trúc điều khiển 3 mạch vòng `RFOC + S-Curve 7 đoạn + Logic Phanh cơ` (kế thừa từ `Shevchenko CS-06`). Cỡ chữ trong các khối sơ đồ `13pt–14pt Bold`.
 * **3. 🖼️ [GHI CHÚ CHÈN HÌNH ẢNH CHO NGƯỜI DÙNG] (Image Placeholder Guide):**
   * **Tùy chọn chèn hình hoặc dùng trực tiếp Sơ đồ khối Native PowerPoint:**
-    * Bạn có thể dùng trực tiếp các hộp chữ nhật bo góc (*Rounded Shapes*) mà AI tạo sẵn theo đúng sơ đồ dưới đây, **HOẶC** chèn ảnh cắt sơ đồ khối từ **Slide 7 (`image7.png` — Khối Hệ truyền động xe con)** của file `Báo cáo hàng tuần\SRS-diagram.pptx` vào khung `pos = (0.34", 1.55"), size = (12.65" × 4.95")`.
+    * Bạn có thể dùng trực tiếp các hộp chữ nhật bo góc (*Rounded Shapes*) đã vẽ sẵn theo đúng sơ đồ dưới đây, **HOẶC** chèn ảnh cắt sơ đồ khối từ **Slide 7 (`image7.png` — Khối Hệ truyền động xe con)** của file `Báo cáo hàng tuần\SRS-diagram.pptx` vào khung `pos = (0.34", 1.55"), size = (12.65" × 4.95")`.
 * **4. Nội dung Hiển thị Trực tiếp trên Mặt Slide (On-Slide Copy-Paste Ready):**
 
 ```text

@@ -1,12 +1,12 @@
-# BÁO CÁO CHECKER — KIỂM KHỚP K6–K12 CHO CỔNG G3 (KHỐI 2) VÀ G4 (KHỐI 3)
+# BÁO CÁO RÀ SOÁT — KIỂM KHỚP K6–K12 CHO CỔNG G3 (KHỐI 2) VÀ G4 (KHỐI 3)
 
-> **Nguồn:** lượt Checker độc lập, chỉ đọc (`WORKFLOW_RULES.md` §1, §8, §9), chạy ngày 24/10/2026 trên các bản **v1.0**. Nội dung dưới đây được lưu **nguyên văn**. Phần xử lý của Writer sau khi nhận báo cáo nằm ở **Phụ lục A** cuối tài liệu (Writer không tự duyệt — Người dùng duyệt tại cổng).
+> **Nguồn:** lượt rà soát độc lập, chỉ đọc (`WORKFLOW_RULES.md` §1, §8, §9), chạy ngày 24/10/2026 trên các bản **v1.0**. Nội dung dưới đây được lưu **nguyên văn**. Phần xử lý của người soạn sau khi nhận báo cáo nằm ở **Phụ lục A** cuối tài liệu (người soạn không tự duyệt — nhóm duyệt tại cổng).
 
 ## 1. Phiên bản đã kiểm
-- **Ngày kiểm:** 24/10/2026. Checker chỉ đọc, chạy lượt riêng, không sửa file nào.
+- **Ngày kiểm:** 24/10/2026. Người rà soát chỉ đọc, chạy lượt riêng, không sửa file nào.
 - **Baseline đối chiếu:** `SSoT-8.5EMG-v1.2` (P-01..P-20), `SRS Baseline A v1.2`, `02_Boundary_va_P_Diagram.md`, `RTM-DVP v1.2`, `SOW v1.2` (SOW-2.x/3.x, QCD-Q02/Q03/Q04/C01).
 - **Khối 2 (G3):** `01_SAD_..._v1.0`, `02_ICD_..._v1.0`, `03_BOM_So_bo_3_cap_v1.0`, `04_DFMEA_L1_v1.0`.
-- **Khối 3 (G4):** `00_Tinh_toan_Xe_con_x2_v1.0.xlsx`. Sheet Info ghi "v1.0 — 24/10/2026". Checker đọc file 2 lần: lấy công thức và lấy giá trị cache, `sel = 1`. Các tài liệu kèm theo: `01_Thuyet_minh_..._v1.0`, `02_So_do_Mach_luc_va_BOM_Chinh_thuc_v1.0` (+ `.svg`), `03_SDD_..._v1.0`, `04_SRS_A1_..._v1.0`.
+- **Khối 3 (G4):** `00_Tinh_toan_Xe_con_x2_v1.0.xlsx`. Sheet Info ghi "v1.0 — 24/10/2026". Người rà soát đọc file 2 lần: lấy công thức và lấy giá trị cache, `sel = 1`. Các tài liệu kèm theo: `01_Thuyet_minh_..._v1.0`, `02_So_do_Mach_luc_va_BOM_Chinh_thuc_v1.0` (+ `.svg`), `03_SDD_..._v1.0`, `04_SRS_A1_..._v1.0`.
 - **Simulink / `init_params.m`:** chưa có (thuộc G5).
 
 ## 2. Ma trận khớp
@@ -30,7 +30,7 @@ Không có ô **trống** ở chiều xuôi. Cột Report cho phương pháp S: 
 **Kết quả tốt (nói ngắn):**
 - Các giá trị Q, M_Σ, m_tĩnh, h, v_max, a_max, ρ_max, D_bx, w₀, φ, η, F_c = 2,096 N, S3-40%, 380 V/50 Hz khớp tuyệt đối giữa Params, SAD, ICD, BOM, Thuyết minh và SDD.
 - Không nhầm w₀ với φ.
-- Checker tự tính lại độc lập (Python), tất cả khớp Excel và văn bản: F_max 9,218 N; k_bám 1.516 (đầy và không tải); i_yc 157.08/158.72; M_max 10.741/12.728 N·m; M_max/M_N 2.170/1.768; M_đt 1.3633/1.3750 N·m; k_dt 3.648/5.250; I_đỉnh 3.293/3.978 A; P_dc,hãm 436.5 W; cửa sổ R_h [99; 428] Ω (U²/P = 1,123 Ω); cửa sổ M_B [2.32; 10.01] N·m, không tải 1.42; 5 tham số ĐC cho cả 2 ứng viên; K_p,I 108.36 V/A, T_i,I 5.55 ms; K_p,ω 0.7053, T_i,ω 7 ms; PM 34.68° ở cả 2 trạng thái tải; κ = 3.18 cho PM 29.50°.
+- Người rà soát tự tính lại độc lập (Python), tất cả khớp Excel và văn bản: F_max 9,218 N; k_bám 1.516 (đầy và không tải); i_yc 157.08/158.72; M_max 10.741/12.728 N·m; M_max/M_N 2.170/1.768; M_đt 1.3633/1.3750 N·m; k_dt 3.648/5.250; I_đỉnh 3.293/3.978 A; P_dc,hãm 436.5 W; cửa sổ R_h [99; 428] Ω (U²/P = 1,123 Ω); cửa sổ M_B [2.32; 10.01] N·m, không tải 1.42; 5 tham số ĐC cho cả 2 ứng viên; K_p,I 108.36 V/A, T_i,I 5.55 ms; K_p,ω 0.7053, T_i,ω 7 ms; PM 34.68° ở cả 2 trạng thái tải; κ = 3.18 cho PM 29.50°.
 - Các bảng WC-1..WC-7 cũng khớp khi tính lại.
 
 **Cảnh báo:**
@@ -61,16 +61,16 @@ Không có ô **trống** ở chiều xuôi. Cột Report cho phương pháp S: 
 1. ⚠ **XUNG ĐỘT k_dt (đã nêu và đã có quyết định QĐ-02).** KT-08 trả về "Không đạt (XUNG ĐỘT đã trình QĐ-02)" với k_dt = 3.65. A.1 CR-01/CR-02 vẫn "chờ ký duyệt".
    - Lỗ hổng còn lại: nhật ký CR chưa liệt kê **QCD-Q02** ("$k_{dt} \in [1.20;\ 1.50]$"), mệnh đề k_dt trong **SOW-3.1**, và WORKFLOW §3/§5.
    - Phương án: (a) bổ sung các mục này vào CR-01/CR-03; (b) giữ nguyên và ghi độ lệch.
-2. ⚠ **SOW-3.1 ghi "chọn dải $1.5 \div 2.2$ kW", còn thiết kế chọn 0.75 kW** (CR-03, chờ Người dùng xác nhận).
+2. ⚠ **SOW-3.1 ghi "chọn dải $1.5 \div 2.2$ kW", còn thiết kế chọn 0.75 kW** (CR-03, chờ nhóm xác nhận).
 3. ⚠ **QCD-C01 ghi "không vượt quá 150% công suất tính toán yêu cầu".** Có 2 cách hiểu: so với P_đt 0.206 kW thì 0.75 kW bằng 364% (vi phạm); so với P_max 1.23 kW thì bằng 61% (đạt). KT-09 chỉ kiểm trần 2.2 kW.
-   - Phương án: Người dùng chốt cách hiểu, hoặc đưa vào CR.
+   - Phương án: nhóm chốt cách hiểu, hoặc đưa vào CR.
 4. ⚠ **P-16: i = 150 so với i_yc = 157.08** (Δv = +4.72%, sát ngưỡng ±5%). i_thực của SEW vẫn TBD (KT-31). CR-04 đã ghi nhận. Cần bảng tổ hợp SEW trước khi khóa.
 5. ⚠ **KT-29 "Không đạt — trượt khi phanh khẩn không tải".** Mâu thuẫn vật lý: giới hạn không trượt khi không tải là 1.42 N·m, nhỏ hơn mức tối thiểu 2.32 N·m.
-   - Phương án: (a) Người dùng chấp nhận rủi ro tồn dư với SS1; (b) phanh 2 cấp hoặc phanh điều khiển được; (c) tăng k_dẫn (dẫn động 4 bánh).
+   - Phương án: (a) nhóm chấp nhận rủi ro tồn dư với SS1; (b) phanh 2 cấp hoặc phanh điều khiển được; (c) tăng k_dẫn (dẫn động 4 bánh).
 6. ⚠ **Phanh BE2 của ứng viên 2:** "cấp đã xác minh 14 / 20 N·m [W-03] > giới hạn không trượt 9.9 N·m" (doc 02). Nếu chọn sel = 2 thì xung đột. Lưu ý thêm: [W-03] là phụ lục cho động cơ 2/6 cực (xem K12).
-7. ⚠ **Mới, Writer chưa nêu: động cơ 400 V trên lưới 380 V ±10%** (xem K6-2).
+7. ⚠ **Mới, người soạn chưa nêu: động cơ 400 V trên lưới 380 V ±10%** (xem K6-2).
    - Phương án: (a) xác minh SEW có cuộn dây 380 V/50 Hz cho DRN80M4; (b) tính lại λ theo (U_min/U_N)²; (c) chấp nhận giảm từ thông gần v_max và đưa vào DVP-SS-06; (d) chuyển sang DRN90S4.
-8. ℹ Ngưỡng chopper 700/780/800 V chưa đối chiếu firmware ACS380 (Writer đã gắn nhãn `chưa xác minh`).
+8. ℹ Ngưỡng chopper 700/780/800 V chưa đối chiếu firmware ACS380 (người soạn đã gắn nhãn `chưa xác minh`).
 9. ℹ P-03 m_xc = 1,800 kg vẫn chưa có catalogue đối chứng (câu hỏi mở số 1 của SSoT). WC-3 (+20%) mới chỉ bao một phần.
 
 ### K7/K8 — Phân bổ và yêu cầu dẫn xuất
@@ -78,7 +78,7 @@ Không có ô **trống** ở chiều xuôi. Cột Report cho phương pháp S: 
 - ⚠ **K7-1 — Thứ tự nhả phanh trong FSM.**
   - SDD §5.2 ghi "S3_TORQUE_PROVE --> S4_RUN: torque_ok ∧ t ≥ t_open (brake_cmd = 1 từ khi vào S3)". Công thức `torque_ok` chỉ kiểm khả năng ($k_M i_{sq,\lim}\psi_r/\psi_r^* \ge M_{hold}$).
   - SRS-FUNC-02 và IF-06 Khối 1 yêu cầu "chỉ mở phanh khi động cơ đã sinh đủ mô-men giữ"; Downstream #5 yêu cầu M_hold(0 rpm) ∈ [100; 150]%. Thiết kế hiện tại nhả phanh trước khi xác nhận mô-men thực.
-  - Hướng sửa: cho phát mô-men thử M_hold khi phanh còn kẹp, đo i_sq, rồi mới đặt brake_cmd = 1. Đây là lựa chọn của Người dùng (câu hỏi 3).
+  - Hướng sửa: cho phát mô-men thử M_hold khi phanh còn kẹp, đo i_sq, rồi mới đặt brake_cmd = 1. Đây là lựa chọn của nhóm (câu hỏi 3).
 - ⚠ **K7-2 — Tiêu chí PASS của DVP cấp phân hệ còn thiếu.**
   - DVP-SS-04 chỉ có "Không đổi `dir` khi |v| > 0.002", thiếu ngưỡng đóng phanh 0.005 m/s và M_hold.
   - Chưa DVP nào kiểm v_creep ∈ [0.030; 0.036] (DVP-SS-03 chỉ kiểm a*, ρ*).
@@ -86,7 +86,7 @@ Không có ô **trống** ở chiều xuôi. Cột Report cho phương pháp S: 
 - ⚠ **K8-1 — Yêu cầu cha của SRS-D02 không khớp.** Excel `'Dẫn xuất'!E3` = "SRS-PERM-01", còn doc 04 ghi "SRS-PERM-01, -04". Mã này gắn DV-08, mà DV-08 lại thuộc SRS-PERM-04.
 - ℹ **K8-2 — Mã con chưa được khai báo quy ước.** Excel dùng D04a/b, D05a/b/c, D06a/b, D07a/b, D09a/b, D11a/b; doc 04 dùng D04..D11 không tách; Thuyết minh/SDD trích D05a, D05c, D06a, D11b. Nên ghi quy ước mã con trong doc 04 §2.
 - ℹ **K8-3 — Hằng số và ngưỡng chưa có nguồn.** `'Dẫn xuất'!C14` gõ số 0.05. Ngưỡng PM ≥ 30° (KT-23/24) chưa có yêu cầu cha; nên định danh thành SRS-Dxx hoặc đánh dấu [C].
-- ℹ **K8-4 — Công thức K_p,ω lệch §4.2-D2 có lý do.** Writer dùng J_tune thay J_Σ (SDD §4.3 đã giải thích). Nên ghi đây là bước dẫn xuất.
+- ℹ **K8-4 — Công thức K_p,ω lệch §4.2-D2 có lý do.** người soạn dùng J_tune thay J_Σ (SDD §4.3 đã giải thích). Nên ghi đây là bước dẫn xuất.
 
 ### K9 — Giao diện ICD
 - ⚠ **Tên biến `J_mot` mơ hồ.** Bảng init SDD §6 ghi `J_mot` = 26.2e-4, nhưng đó là J_BMot. Catalogue C14 "J_Mot" = 24.7e-4. ICD chưa định nghĩa biến này.
@@ -102,13 +102,13 @@ Không có ô **trống** ở chiều xuôi. Cột Report cho phương pháp S: 
 - ℹ Khối 3 được lập khi G3 chưa duyệt (Thuyết minh tự nêu). Cần duyệt G3 trước hoặc cùng lúc với G4.
 
 ### K12 — Nguồn trích dẫn
-- **Kết quả tốt:** Checker kiểm tra PDF và xác nhận đúng các khẳng định của Writer về lỗi trích dẫn trong baseline:
+- **Kết quả tốt:** rà soát kiểm tra PDF và xác nhận đúng các khẳng định của người soạn về lỗi trích dẫn trong baseline:
   - `A54.pdf` là bài Valtchev et al., IEEE DAS 2024 (6 trang), không có DIN 536 hay w₀.
   - [R4]: tr.23 là phần IEC cho động cơ; tr.85–92 là nội dung EMC; toàn văn không có chuỗi "61800".
   - Bài 2.1 slide 26–29 là MO/SO. Bài 2.3 là FOC cho ĐC KĐB (slide 33, 37 mạch vòng dòng; slide 56, 58 hãm). Bài 3 là "Tải của TĐĐ". Bài 4 là "Phương pháp thiết kế" (slide 43–44 truyền động xe con).
   - TCVN 4244 là bản scan, gần như không trích được chữ.
   - [R9-07] tr.4, tr.8, tr.9 (khoảng cách ray 1,400/2,240/2,800 mm) đúng.
-- ⚠ Các PDF [W-01..W-05] **chưa lưu** vào `Tài liệu tham khảo/`, nên Checker không đối chiếu được trị số catalogue. [W-01] lấy từ máy chủ bên thứ ba (kheoos), nên thay bằng bản chính hãng SEW.
+- ⚠ Các PDF [W-01..W-05] **chưa lưu** vào `Tài liệu tham khảo/`, nên rà soát không đối chiếu được trị số catalogue. [W-01] lấy từ máy chủ bên thứ ba (kheoos), nên thay bằng bản chính hãng SEW.
 - ⚠ [W-03] là phụ lục "2- and 6-pole", nhưng được dùng làm căn cứ cấp mô-men BE2 cho động cơ 4 cực DRN90S4. Cần nguồn đúng loại.
 - ⚠ Trạng thái nguồn biến tần lệch nhau: BOM sơ bộ L3-04 ghi "XM [W-05]", còn BOM chính thức U1 ghi "XM\*" (bảng trích lệch cột).
 - ℹ Các mục chưa có mã [W] hoặc chưa kiểm được: ACS380 HW manual 3AXD50000029274 (không có mã [W]); mã BTAC-02 3AXD50000022163; f_sw 1–12 kHz; "Danotherm 210R"; "Torque step rise time < 10 ms". Các mục BE1 5 N·m, R1, G1 và hộp số đã được gắn đúng nhãn CXM/TBD.
@@ -122,27 +122,27 @@ Không có ô **trống** ở chiều xuôi. Cột Report cho phương pháp S: 
 
 ## 5. Kết luận
 - **G3 (Khối 2): Mức khớp: Có chỗ lệch** (mức nhẹ). Kiến trúc, phân bổ K7 và DFMEA (AP và RPN tính đúng) đều tốt. Phần lệch nằm ở ICD (U_dc, IF-04 0–400 V, thiếu RESET) và nguồn [W] chưa lưu, [W-03] dùng sai loại động cơ.
-- **G4 (Khối 3): Mức khớp: Có chỗ lệch.** Số liệu và công thức khớp và tính lại đúng. Phần cần xử lý trước khi khóa: gốc điện áp 400 V so với 380 V, WCCA ngoài Excel, gia tốc phanh, thứ tự nhả phanh trong FSM, yêu cầu cha của SRS-D02. Các xung đột đã biết (k_dt, SOW-3.1, KT-29, i_thực) vẫn chờ Người dùng quyết định.
+- **G4 (Khối 3): Mức khớp: Có chỗ lệch.** Số liệu và công thức khớp và tính lại đúng. Phần cần xử lý trước khi khóa: gốc điện áp 400 V so với 380 V, WCCA ngoài Excel, gia tốc phanh, thứ tự nhả phanh trong FSM, yêu cầu cha của SRS-D02. Các xung đột đã biết (k_dt, SOW-3.1, KT-29, i_thực) vẫn chờ nhóm quyết định.
 
-## 6. Câu hỏi cho Người dùng tại cổng
+## 6. Câu hỏi cho nhóm tại cổng
 1. Động cơ DRN80M4 định mức 400 V chạy trên lưới 380 V ±10%: nhóm sẽ xác minh cuộn dây 380 V/50 Hz, chấp nhận tính lại λ theo (342/400)² (biên WC-5 còn khoảng 1.03), hay chuyển sang DRN90S4?
 2. Khi ký A.1, có mở rộng CR-01/CR-03 sang QCD-Q02 và mệnh đề k_dt của SOW-3.1 không? Hiểu "150% công suất tính toán" trong QCD-C01 là so với P_đt hay P_max? Có chấp nhận rủi ro tồn dư KT-29 với biện pháp SS1 không?
 3. Bước TORQUE_PROVE: giữ như thiết kế (chỉ kiểm khả năng, nhả phanh ngay khi vào S3), hay bắt buộc phát mô-men thử M_hold khi phanh còn kẹp rồi mới nhả, theo đúng câu chữ của SRS-FUNC-02 và IF-06?
 
 ---
 
-## PHỤ LỤC A — PHẢN HỒI CỦA WRITER (24/10/2026, sau lượt Checker)
+## PHỤ LỤC A — PHẢN HỒI CỦA NGƯỜI SOẠN (24/10/2026, sau lượt rà soát)
 
-> Writer không tự duyệt: các mục "Đã sửa" dưới đây **chưa được Checker kiểm lại** (cần một lượt Checker v1.1 trước khi Người dùng ký cổng).
+> người soạn không tự duyệt: các mục "Đã sửa" dưới đây **chưa được rà soát kiểm lại** (cần một lượt rà soát v1.1 trước khi nhóm ký cổng).
 
 | Cảnh báo | Xử lý | Vị trí |
 | :--- | :--- | :--- |
 | K6-1 $U_{dc}$ | Đã sửa: quy ước không tải $\sqrt{2}U$ = [484; 591] V (danh định 537 V), có tải $1.35U$ = [462; 564] V; Excel thêm ô `Udc_ld` | ICD v1.1 IF-05; Excel `Tính chọn` H; SVG |
-| K6-2 / K11-7 (400 V trên lưới 380 V) | Đã sửa tính toán: $\lambda$ khả dụng = $\lambda_K(342/400)^2$ = 2.485 ≥ 2.17 (biên 1.15; WC-5 còn 1.03). **Lựa chọn thiết bị (cuộn 380 V / DRN90S4) để Người dùng quyết** | Excel v1.1; Thuyết minh §5, §9; ICD IF-04; DVP-SS-06 |
+| K6-2 / K11-7 (400 V trên lưới 380 V) | Đã sửa tính toán: $\lambda$ khả dụng = $\lambda_K(342/400)^2$ = 2.485 ≥ 2.17 (biên 1.15; WC-5 còn 1.03). **Lựa chọn thiết bị (cuộn 380 V / DRN90S4) để nhóm quyết** | Excel v1.1; Thuyết minh §5, §9; ICD IF-04; DVP-SS-06 |
 | K6-3 gia tốc phanh | Đã sửa: kể $\delta M$ và $J_B/(k^2\eta)$ → $a_B$ = 0.566 m/s², $s_B$ = 18.7 mm (với $M_B$ = 7 N·m) | Excel `Tính chọn` I; Thuyết minh §8.2 |
 | K6-4 WCCA ngoài Excel | Đã sửa: thêm sheet `WCCA` (8 kịch bản, công thức), file đổi tên `00_Tinh_toan_Xe_con_x2_v1.1.xlsx` | Excel v1.1 |
 | K6-5 quy ước mô-men giảm tốc | Ghi chú lý do (an toàn cho tính nhiệt) | Thuyết minh §4 |
-| K7-1 thứ tự nhả phanh | Đã sửa theo câu chữ SRS-FUNC-02: S3 phát và đo $M_{hold}$ khi phanh còn kẹp, S3B mới nhả phanh. Hệ quả: $M_B \ge 1.2M_{hold}$ = 5.94 N·m → $M_B$ = 7 N·m. **Người dùng đã chốt giữ bước thử (QĐ-05, 24/10/2026)** | SDD v1.1 §5; Excel; SRS-D10, D13 |
+| K7-1 thứ tự nhả phanh | Đã sửa theo câu chữ SRS-FUNC-02: S3 phát và đo $M_{hold}$ khi phanh còn kẹp, S3B mới nhả phanh. Hệ quả: $M_B \ge 1.2M_{hold}$ = 5.94 N·m → $M_B$ = 7 N·m. **Nhóm đã chốt giữ bước thử (QĐ-05, 24/10/2026)** | SDD v1.1 §5; Excel; SRS-D10, D13 |
 | K7-2 tiêu chí DVP | Đã bổ sung PASS cho DVP-SS-03 (mức bò), DVP-SS-04 (ngưỡng 0.005, $M_{hold}$, $\Delta s$), DVP-SS-06 (nhiệt ở 342 V) | Doc 04 §4 |
 | K8-1 cha SRS-D02 | Đã sửa: "SRS-PERM-01, SRS-PERM-04" | Excel `Dẫn xuất` |
 | K8-2 mã con | Đã ghi quy ước `SRS-Dxxa/b/c` | Doc 04 §2 |
@@ -158,9 +158,9 @@ Không có ô **trống** ở chiều xuôi. Cột Report cho phương pháp S: 
 
 ## PHỤ LỤC B — ĐÓNG CỔNG (24/10/2026)
 
-- **G3 (`PDR-EVT`) đã đóng:** Người dùng duyệt kiến trúc 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder SEW ES7C.
-- **G4 (`CDR-EVT`) đã đóng:** Người dùng ký **SRS Baseline A.1** (CR-01..CR-07) cùng các quyết định QĐ-04 (DRN80M4 + ACS380-04xS-03A3-4, biên quá tải 1.03), QĐ-05 (thử mô-men giữ, $M_B$ = 7 N·m), QĐ-07 (phạm vi vận hành lý tưởng), QĐ-08 (QCD-C01 so với $P_{\max}$).
-- **Ghi chú trung thực:** các sửa đổi ở Phụ lục A (bản v1.1) **chưa có lượt Checker kiểm lại**; Người dùng quyết định đóng cổng trên cơ sở báo cáo này. Các mục TBD còn mở được mang sang Khối 4: $i_{\text{thực}}$ hộp số SEW, cấp mô-men BE1, mã/công suất $R_h$, QF1/KM1, lưu PDF `[W-01..W-05]`.
+- **G3 (`PDR-EVT`) đã đóng:** nhóm duyệt kiến trúc 1 động cơ đặt giữa dẫn 2 bánh qua trục ngang, encoder SEW ES7C.
+- **G4 (`CDR-EVT`) đã đóng:** nhóm ký **SRS Baseline A.1** (CR-01..CR-07) cùng các quyết định QĐ-04 (DRN80M4 + ACS380-04xS-03A3-4, biên quá tải 1.03), QĐ-05 (thử mô-men giữ, $M_B$ = 7 N·m), QĐ-07 (phạm vi vận hành lý tưởng), QĐ-08 (QCD-C01 so với $P_{\max}$).
+- **Ghi chú trung thực:** các sửa đổi ở Phụ lục A (bản v1.1) **chưa có lượt rà soát kiểm lại**; nhóm quyết định đóng cổng trên cơ sở báo cáo này. Các mục TBD còn mở được mang sang Khối 4: $i_{\text{thực}}$ hộp số SEW, cấp mô-men BE1, mã/công suất $R_h$, QF1/KM1, lưu PDF `[W-01..W-05]`.
 
 ---
 
@@ -171,4 +171,4 @@ Không có ô **trống** ở chiều xuôi. Cột Report cho phương pháp S: 
 - $R_h$: **Danotherm CBH 360 C T 406 210R**, 200 W (`[W-05]` tr.24, `[W-09]`); bảng định mức ACS380 đối chiếu ảnh trang gốc (`[W-05]` tr.12) → U1 chuyển từ XM\* sang XM.
 - Bảo vệ đầu vào: cầu chì **gG 6 A OFAF000H6** (`[W-08]`); KM1: **ABB AF09-30-10-13** (`[W-10]`).
 - PDF/ghi nhận nguồn lưu tại `Tài liệu tham khảo/Catalogue web/` (bản gốc SEW của [W-01] trả về 403 — giữ bản trích 1 trang).
-- Ảnh hưởng tính toán (Excel v1.2, 0 lỗi): $M_{\max}/M_N$ 2.17 → 2.19; biên quá tải WC-5 1.03 → **1.02**; $k_{dt}$ 3.65 → 3.61; $K_{p,\omega}$ 0.705 → 0.714 A·s/rad; PM 34.6°. Các thay đổi này **chưa có lượt Checker kiểm lại**.
+- Ảnh hưởng tính toán (Excel v1.2, 0 lỗi): $M_{\max}/M_N$ 2.17 → 2.19; biên quá tải WC-5 1.03 → **1.02**; $k_{dt}$ 3.65 → 3.61; $K_{p,\omega}$ 0.705 → 0.714 A·s/rad; PM 34.6°. Các thay đổi này **chưa có lượt rà soát kiểm lại**.

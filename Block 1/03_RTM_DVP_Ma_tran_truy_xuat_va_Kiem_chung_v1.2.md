@@ -6,7 +6,7 @@
 **Nhóm sinh viên thực hiện:** Nhóm 8.5-EMG (Đề bài ứng với STT 22, tham số $x = 2$)  
 **Nguồn số liệu duy nhất:** `Block 1/00_Bang_thong_so_goc.md` và `Block 1/01_SRS_Baseline_A.md` (Đã duyệt)  
 **Công cụ kiểm chứng:** Phân tích giải tích / Excel (A), Mô phỏng MATLAB/Simulink (S), Tra cứu catalogue nhà sản xuất (I).  
-**Lịch sử:** **v1.4 (28/10/2026, Người dùng duyệt)** chốt phạm vi môn học (CR-08..CR-13); DV-08 tính $k_{dt}$ ở lưới danh định · v1.2 (24/10/2026) đóng băng tại SRR · **v1.3 (26/10/2026, Người dùng duyệt nhóm A)** tích hợp SRS Baseline A.1: RTM và DV-08 dùng $k_{dt} \ge 1.20$ (CR-01), tiêu chí FAIL của DV-08 theo CR-02. *(Tên tệp giữ hậu tố v1.2.)*
+**Lịch sử:** **v1.4 (28/10/2026, nhóm duyệt)** chốt phạm vi môn học (CR-08..CR-13); DV-08 tính $k_{dt}$ ở lưới danh định · v1.2 (24/10/2026) đóng băng tại SRR · **v1.3 (26/10/2026, nhóm A duyệt)** tích hợp SRS Baseline A.1: RTM và DV-08 dùng $k_{dt} \ge 1.20$ (CR-01), tiêu chí FAIL của DV-08 theo CR-02. *(Tên tệp giữ hậu tố v1.2.)*
 
 ---
 

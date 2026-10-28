@@ -6,7 +6,7 @@
 **Nhóm sinh viên thực hiện:** Nhóm 8.5-EMG (Đề bài ứng với STT 22, tham số $x = 2$)  
 **Nguồn số liệu duy nhất:** `Block 1/00_Bang_thong_so_goc.md` và `Block 1/01_SRS_Baseline_A.md` (Đã duyệt)  
 **Công cụ kiểm chứng:** Phân tích giải tích (A), Mô phỏng MATLAB/Simulink (S), Tra cứu catalogue (I).  
-**Lịch sử:** 26/10/2026 (Người dùng duyệt nhóm A) — đầu ra `SRS-PERM-04` đổi sang $k_{dt} \ge 1.20$ theo SRS Baseline A.1 (CR-01).
+**Lịch sử:** 26/10/2026 (nhóm A duyệt) — đầu ra `SRS-PERM-04` đổi sang $k_{dt} \ge 1.20$ theo SRS Baseline A.1 (CR-01).
 
 ---
 

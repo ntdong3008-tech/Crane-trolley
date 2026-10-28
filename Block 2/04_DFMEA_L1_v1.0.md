@@ -1,7 +1,7 @@
 # PHÂN TÍCH DẠNG LỖI THIẾT KẾ CẤP HỆ THỐNG (DFMEA L1) — XE CON CẦU TRỤC ($x = 2$)
 
 **Mã tài liệu:** `DFMEA-L1-8.5EMG-TROLLEY-v1.1` — Gói `SOW-2.3` (Khối 2) — Chủ trì: Nghiêm Trọng Đông & Phạm Văn Hưng *(tên tệp giữ hậu tố v1.0 để không gãy liên kết)*  
-**Ngày:** 28/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026**; v1.1 do Người dùng duyệt ngày 28/10/2026  
+**Ngày:** 28/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G3 (`PDR-EVT`) đóng ngày 24/10/2026**; v1.1 do nhóm duyệt ngày 28/10/2026  
 **Lịch sử:** v1.0 (24/10/2026) bản đầu, có cập nhật QĐ-07 · **v1.1 (28/10/2026)** trình bày lại theo phạm vi môn học (CR-08..CR-18): FM-01 đổi từ "lắc tải" sang "xung giật cơ cấu" (CR-10); FM-02 sửa cửa sổ $R_h$ theo biến tần đã chốt; FM-05 bỏ cờ `flt_oh` (QĐ-07); FM-09 chỉnh SO theo quán tính chốt ở Khối 3; FM-07, FM-12 tách sang §3  
 **Đầu vào:** `RRM-01..05` (HOQ §8.4), `E-01..E-04` & `N-01..N-04` (P-Diagram Khối 1), rủi ro kiến trúc `RA-01..02` (SAD §7)  
 **Tiêu chí cổng (SOW-2.3):** mọi dạng lỗi có `AP = Cao (H)` phải được hạ xuống `Trung bình (M)` hoặc `Thấp (L)` bằng biện pháp thiết kế trước PDR-EVT.
@@ -32,7 +32,7 @@
 | **FM-06** | Kéo không trượt — SRS-PERM-01 | Trượt quay bánh dẫn khi tăng tốc | Mất kiểm soát vận tốc, mòn ray | 6 | $F_k > F_{\text{bám}}$ (`E-02`) | 4 | A: $k_{\text{bám}}$ | 4 | **M** / 96 | $k_{\text{bám}} = 1.516$; giới hạn $\lvert i_{sq} \rvert$ tương ứng $F_k \le F_{\text{bám}}/1.2$ | 2 | 3 | **L** / 36 | `SRS-D01` / DV-05 |
 | **FM-08** | Vận tốc định mức — SRS-PERM-02 | $v_{xl}$ ngoài [0.114; 0.126] m/s | Lệch nghiệm thu | 5 | Dùng $i = 150$ (`P-16 [C]`) thay $i_{\text{thực}}$ trong quy đổi; trượt ĐC (`E-01`) | 6 | S: $v(t)$ | 4 | **M** / 120 | Quy đổi bằng $i_{\text{thực}}$ = 155.34 (`SRS-D03`); vòng kín tốc độ có khâu I | 2 | 3 | **L** / 30 | `SRS-D03`, `SRS-D08` / DV-06 |
 | **FM-09** | Chất lượng điều khiển — Downstream #1 | Quá điều chỉnh $M_p > 10\%$, dao động | Vượt tốc | 5 | Hệ số vòng tốc độ chọn không theo quán tính thực mà vòng điều khiển nhìn thấy (`RA-02`, `N-01`) | 5 | S: $v(t)$ hai trạng thái tải | 5 | **M** / 125 | Chỉnh SO theo quán tính chốt ở Khối 3 (SDD §4.3), kể trễ đo tốc độ; lượng đặt đi qua S-curve; kiểm PM ở $J_\Sigma$ và $J_{\Sigma,0}$ | 3 | 4 | **L** / 60 | `SRS-D07` / DV-06 |
-| **FM-10** | Tích hợp mô hình — toàn hệ | Lệch đơn vị/ký hiệu, gai đạo hàm $\rho(t)$ | Kết luận kiểm chứng sai | 5 | Không khóa ICD, $T_s$ thô (`RRM-05`) | 6 | Checker K9 | 5 | **M** / 150 | ICD khóa tên biến; $T_s \le 10^{-4}$ s; $G_d(s) = \frac{s}{T_f s + 1}$, $T_f \in [5; 10]$ ms | 2 | 3 | **L** / 30 | — / DV-07 |
+| **FM-10** | Tích hợp mô hình — toàn hệ | Lệch đơn vị/ký hiệu, gai đạo hàm $\rho(t)$ | Kết luận kiểm chứng sai | 5 | Không khóa ICD, $T_s$ thô (`RRM-05`) | 6 | rà soát K9 | 5 | **M** / 150 | ICD khóa tên biến; $T_s \le 10^{-4}$ s; $G_d(s) = \frac{s}{T_f s + 1}$, $T_f \in [5; 10]$ ms | 2 | 3 | **L** / 30 | — / DV-07 |
 | **FM-11** | Cấp dòng — SRS-PERM-01 | Biến tần quá dòng khi tăng tốc đầy tải | Ngắt, mất mô-men | 6 | Chọn biến tần theo $P_N$ thay vì dòng đỉnh | 4 | A: $I_{\text{đỉnh}}$ | 4 | **M** / 96 | Chọn theo $1.5\,I_{Hd} \ge I_{\text{đỉnh}}$ ([W-05] tr.12) | 2 | 3 | **L** / 36 | `SRS-D04` / DV-08 |
 
 ---

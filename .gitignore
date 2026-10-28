@@ -1,0 +1,5 @@
+# Tệp tạm của Excel/Word
+~$*
+# Tệp patch và đầu ra công cụ, không thuộc hồ sơ nộp
+*.patch
+Claude outputs/

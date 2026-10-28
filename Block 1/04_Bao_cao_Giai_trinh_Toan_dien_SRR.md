@@ -5,7 +5,7 @@
 **Nhóm sinh viên thực hiện:** Nhóm 8.5-EMG (Đề số 8, STT 22, tham số $x = 2$)  
 **Tiêu chuẩn áp dụng:** NASA SP-2016-6105 / ISO/IEC/IEEE 29148 / TCVN 4244:2005 / IEC 61800-2 / IEC 60034-1
 
-> **Ghi chú hiệu đính 26/10/2026 (Người dùng duyệt nhóm A):** các chỗ $k_{dt}$ trong báo cáo này đã đổi sang $k_{dt} \ge 1.20$ theo SRS Baseline A.1 (CR-01, bỏ cận trên 1.50); tiêu chí FAIL của DV-08 theo CR-02. Phần còn lại giữ nguyên như tại cổng SRR-EVT.
+> **Ghi chú hiệu đính 26/10/2026 (nhóm A duyệt):** các chỗ $k_{dt}$ trong báo cáo này đã đổi sang $k_{dt} \ge 1.20$ theo SRS Baseline A.1 (CR-01, bỏ cận trên 1.50); tiêu chí FAIL của DV-08 theo CR-02. Phần còn lại giữ nguyên như tại cổng SRR-EVT.
 
 ---
 

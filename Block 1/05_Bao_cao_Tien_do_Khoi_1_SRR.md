@@ -7,7 +7,7 @@
 > **Nhóm thực hiện:** Nhóm 8.5-EMG (Nguyễn Bá Hưng, Đặng Nguyên Bình, Trần Đỗ Khải, Phạm Văn Hưng, Nguyễn Hải Trung, Nghiêm Trọng Đông — STT 22 $\Rightarrow x = 2$)  
 > **Trạng thái:** `Đã đồng bộ hóa 100% theo SRS Baseline A v1.2 và RTM/DVP v1.2 (Frozen)`
 
-> **Ghi chú hiệu đính 26/10/2026 (Người dùng duyệt nhóm A):** các chỗ $k_{dt}$ trong báo cáo này đã đổi sang $k_{dt} \ge 1.20$ theo SRS Baseline A.1 (CR-01, bỏ cận trên 1.50); tiêu chí FAIL của DV-08 theo CR-02. Phần còn lại giữ nguyên như tại cổng SRR-EVT.
+> **Ghi chú hiệu đính 26/10/2026 (nhóm A duyệt):** các chỗ $k_{dt}$ trong báo cáo này đã đổi sang $k_{dt} \ge 1.20$ theo SRS Baseline A.1 (CR-01, bỏ cận trên 1.50); tiêu chí FAIL của DV-08 theo CR-02. Phần còn lại giữ nguyên như tại cổng SRR-EVT.
 
 ---
 
@@ -47,6 +47,6 @@ Tiếp nối bộ hồ sơ **Khối 0 (`Gate MCR`)** đã khóa cứng thông s�
      - **Độ giật ngang cực đại:** $|\rho(t)| \le 2.00\text{ m/s}^3$ ($+0.0\% / -10.0\%$, dải nghiệm thu $[1.80;\ 2.00]\text{ m/s}^3$).
      - **Lực cản tĩnh đầy tải & Lực kéo đỉnh:** $F_{c.\text{đầy}} = 2,096\text{ N} \pm 420\text{ N}$ ($[1.68;\ 2.52]\text{ kN}$), $F_{\max} = 9,218\text{ N} \approx 9.22\text{ kN}$ ($[8.80;\ 9.70]\text{ kN} \le F_{\text{bám}} = 13,973\text{ N}$ với hệ số an toàn bám $k_{\text{bám}} \ge 1.20$, danh định đạt $\approx 1.52$).
      - **Độ chính xác xác lập & Quá độ:** Sai lệch tĩnh $e_{xl} \le 5.0\%$ ($+0\%$), độ quá điều chỉnh $M_p \le 10.0\%$ ($+0\%$, $v_{\text{peak}} \le 0.132\text{ m/s}$) theo Downstream Allocation Khối 3.
-     - **Mạch hãm DC-Link:** $U_{\text{dc}}(t) \le 780\text{ V DC}$ (băm Chopper tại $700\text{V} \pm 20\text{V}$, trip bảo vệ tại $800\text{V} \pm 10\text{V}$) theo Downstream Allocation Khối 2/3.
+     - **Mạch hãm DC-Link:** $U_{\text{dc}}(t)$ dưới ngưỡng ngắt quá áp (tham số mô hình, CR-17: băm Chopper tại $700\text{V}$, trip bảo vệ tại $800\text{V}$) theo Downstream Allocation Khối 2/3.
      - **Phối hợp phanh & Vùng chết logic:** Mở phanh tại $M_{\text{hold}}(0\text{ rpm}) \in [100\%;\ 150\%] M_{\text{đm}}$, đóng phanh tại $|v(t)| \le 0.005\text{ m/s}$, độ trôi dừng xe $\Delta s \le \pm 10\text{ mm}$ (danh định $\Delta s = 0\text{ m}$); cấm đảo chiều khi $|v(t)| > 0.002\text{ m/s}$.
      - **Chế độ nhiệt $S3$ & Điện lưới:** $CD = 40\% \pm 2.0\%$, $T_{\text{ck}} = 10\text{ phút} \pm 30\text{ s}$, $k_{dt} \ge 1.20$, $\lambda_{\max} \ge 2.0$ dưới nguồn $380\text{V} \pm 10.0\% / 50\text{Hz} \pm 2.0\%$.

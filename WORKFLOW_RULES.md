@@ -85,14 +85,14 @@ Toàn bộ các tệp PDF/PPTX đã có sẵn trong thư mục **`Lưu đồ d�
 | **`[R5-B3]`** | `Thầy Đỉnh/Bài 3.pdf` & `Class_3_AC_Motor_Drive.pptx` | **Bài 3: Điều khiển Truyền động điện Xoay chiều (FOC)** (TS. Nguyễn Duy Đỉnh) | • Mô hình toán học động cơ KĐB 3 pha trên hệ tọa độ từ thông rotor $(d, q)$.<br>• Cấu trúc điều khiển Vector tựa từ thông rotor (**RFOC**).<br>• Tổng hợp bộ điều khiển PI mạch vòng dòng điện theo **Tối ưu Module (MO)** và PI mạch vòng tốc độ theo **Tối ưu Đối xứng (SO)**. |
 | **`[R5-B4]`** | `Thầy Đỉnh/Bài 4.pdf` & `Class_2_Elevator.pptx` | **Bài 4: Hệ TĐĐ Cầu trục & Thang máy** (TS. Nguyễn Duy Đỉnh) | • Đặc tính cơ 4 góc phần tư của cầu trục.<br>• Điều kiện bám dính chống trượt bánh xe thép trên ray thép ($\varphi = 0.20$, $F_{\max} \le F_{\text{bám}}$, tr.43–52).<br>• Tính toán mạch hãm tái sinh và điện trở xả hãm $R_h$. |
 | **`[R9-01]`** | `Crane trolley Nhật Bổn.pdf` | **Mita & Kanai (1979)** — *Optimal Control of the Crane System* | Phương trình vi phân dao động con lắc tải treo cáp $\ddot{\theta} + (g/l)\theta = a(t)/l$ và phân tích động học 3 pha. |
-| **`[R9-02]`** | `Cầu trục_Indo.pdf` & `Dynamic crane trolley.pdf` | **Feto et al. (2025)** — *Overhead Travelling Crane 10 Ton* | Thiết kế chuỗi truyền động cơ khí: Động cơ $\to$ Hộp giảm tốc bánh răng trụ 3 cấp $\to$ Khớp nối $\to$ Bánh xe $\to$ Phanh cơ. |
+| **`[R9-02]`** | `Cầu trục_Indo.pdf` | **Feto et al. (2025)** — *Overhead Travelling Crane 10 Ton* | Thiết kế chuỗi truyền động cơ khí: động cơ, hộp giảm tốc, khớp nối, bánh xe, phanh cơ. |
 | **`[R9-03]`** | `Thiết kế cầu trục dầm đôi_Thổ.pdf` | **Doğan (2023)** — *Double Girder Overhead Crane 10t* | Đối chứng công suất động cơ di chuyển xe con tải 10–15t thực tế ($\sim 1.5 \div 4\text{ kW}$) và hệ số động lực học theo TS EN 13001. |
-| **`[R9-04]`** | `Simulation_of_Crane_Trolley_Motion_Control_to_Redu_Nga.pdf` | **Valtchev et al. (2024)** — *IEEE DAS 2024* | Mô hình Simulink hệ truyền động biến tần Vector kéo tải treo mềm $l = 5 \div 10\text{ m}$. |
+| **`[R9-04]`** | `A54.pdf` (tên tệp không phản ánh nội dung) | **Valtchev et al. (2024)** — *DAS 2024* | Tăng khả năng dập dao động của hệ truyền động cầu trục khi tải treo mềm. |
 | **`[R9-05]`** | `SM2693.pdf` | **Zheng et al. (2021)** — *Sensors & Materials* | Mô hình động lực học 2 bậc tự do (2-DOF) xe con – tải treo cáp và phân tích vọt lố. |
 | **`[R9-06]`** | `Shevchenko_bakalavr.pdf` | **Y. O. Shevchenko (KPI, 2024)** — *Đồ án TĐĐ Cầu trục (Core Reference)* | **Tài liệu mẫu hạt nhân cho Khối 2 & 3:** Công thức tính chọn phần lực chế độ S3, chọn biến tần + Braking Chopper + $R_h$, tính 5 tham số mạch thay thế ĐC KĐB, tổng hợp bộ điều khiển PI dòng điện (MO) & PI tốc độ (SO) trong RFOC và sơ đồ Simulink. |
 | **`[R9-07]`** | `Dầm đôi_cấu trúc truyền động_Đức.pdf` | **Catalogue Demag DR/EZDR** — *Double-Rail Crab* | Chuẩn cấu hình công nghiệp Châu Âu: Động cơ KĐB gắn sẵn Pulse Encoder (tr.4), biến tần tích hợp điện trở xả hãm (tr.8), phanh đĩa điện từ. |
-| **`[R9-10]`** | `A54.pdf` | **Tiêu chuẩn Ray A54 & Bánh xe thép (DIN 536)** | Thông số hình học bánh xe đường kính $D_{bx} = 250\text{ mm}$ ($0.25\text{ m}$), ray A54 và suất cản lăn riêng $w_0 = 0.015$ (tr.15). |
-| **`[R9-11]`** | `S-curve.pdf` & `S-curve-simulation.pdf` | **Tho et al. (2020)** — *7-Segment S-Curve Trajectory* | Hệ phương trình giải tích quy hoạch quỹ đạo **S-Curve 7 đoạn** giới hạn đồng thời vận tốc $v_{\max}$, gia tốc $a_{\max}$ và độ giật $\rho_{\max}$. |
+| **`[R9-10]`** | — | *Không sử dụng* | Kho không có tiêu chuẩn DIN 536/ray A54; $D_{bx} = 0.25$ m, $w_0 = 0.015$ là giả định `[C]` (tính kiểm $w_0$ ở SSoT Phần 1b). |
+| **`[R9-11]`**, **`[R9-12]`** | `S-curve.pdf`, `S-curve-simulation.pdf` | **Ho Duc Tho et al. (2020)**; **Blejan & Blejan (2020)** | Quy hoạch quỹ đạo **S-Curve** giới hạn đồng thời vận tốc, gia tốc và độ giật. Thêm `[R9-13]` Reutov (2021) và `[R9-14]` Abdel-Rahman et al. (2003) — xem `Tài liệu tham khảo/00_Danh_muc_tai_lieu_tham_khao.md`. |
 | **`[R8]`** | `Bản sao của [NHÓM 2] Thiết kế truyền động xe con cầu trục 2.pptx.pdf` | **Báo cáo tham khảo sinh viên (Nhóm 2)** | Tài liệu tham khảo nội bộ về bố cục trình bày slide/báo cáo môn học (chỉ tham khảo cấu trúc, không chép số liệu). |
 
 ---
@@ -101,7 +101,7 @@ Toàn bộ các tệp PDF/PPTX đã có sẵn trong thư mục **`Lưu đồ d�
 
 Để đảm bảo nguyên tắc **"Người dùng hiểu và bảo vệ được từng con số"** và nhất quán 100% với `SSoT v1.2`, mọi tính toán ở Khối 2 & Khối 3 phải sử dụng bộ công thức chuẩn dưới đây:
 
-#### A. Nhóm công thức Động học & Phụ tải Tĩnh (`[R1, §2.4.7.2.2]`, `[R5-B2]`, `[R9-10, tr.15]`)
+#### A. Nhóm công thức Động học & Phụ tải Tĩnh (`[R1, §2.4.7.2.2]`, `[R5-B2]`; $w_0$: giả định `[C]`, tính kiểm ở SSoT Phần 1b)
 1. **Tổng khối lượng dịch chuyển:**
    - Đầy tải (`P-04`): $M_\Sigma = Q + m_{nh} + m_{xc} = 12,222 + 222 + 1,800 = 14,244\text{ kg}$
    - Không tải (`P-05`): $m_{\text{tĩnh}} = m_{nh} + m_{xc} = 222 + 1,800 = 2,022\text{ kg}$
