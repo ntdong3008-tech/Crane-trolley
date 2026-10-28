@@ -3,7 +3,7 @@
 **Mã tài liệu:** `SRS-A1-8.5EMG-TROLLEY-v1.0` — Gói `SOW-3.5` (Phạm Văn Hưng & Nghiêm Trọng Đông) — Khối 3  
 **Ngày:** 24/10/2026 — **Trạng thái:** **ĐÃ DUYỆT — Cổng G4 (`CDR-EVT`) đóng ngày 24/10/2026**. **SRS Baseline A.1 CÓ HIỆU LỰC từ 24/10/2026** (Người dùng ký CR-01..CR-07), thay thế Baseline A v1.2 đối với các ID nêu ở §1; các ID khác giữ nguyên nội dung v1.2. ~~Tệp Block 1 v1.2 vẫn giữ nguyên làm hồ sơ lịch sử.~~ **Cập nhật 26/10/2026 (Người dùng duyệt nhóm A):** CR-01, CR-02, CR-03 đã được tích hợp vào Block 0/1 — PRD v3.2, SOW v1.3, BCA-QFD v1.2, slide MCR v2.1, SRS Baseline A v1.3, SRS chi tiết v1.3, RTM/DVP v1.3 (tên tệp giữ hậu tố cũ); bản trước khi sửa lưu trong lịch sử phiên bản của từng tệp.  
 **Nguồn số:** `00_Tinh_toan_Xe_con_x2_v1.5.xlsx` sheet `Dẫn xuất`, `Kiểm tra`, `WCCA`, `UocLuong_TS`  
-**Lịch sử:** **v1.4 (28/10/2026, Người dùng duyệt)** chốt phạm vi môn học CR-08..CR-18 (§1); nguồn số Excel v1.5: tham số động cơ hiệu chỉnh (KT-44), $i_{sq,\lim}$ = 3.86 A, PI dòng và PI tốc độ chỉnh lại (`SRS-D07`, `SRS-D09`), `SRS-D14/D15` ở lưới danh định, WCCA 2 trường hợp (§6), DVP-SS-06/07 tùy chọn, DFMEA §7 theo DFMEA L1 v1.1 · v1.3 (27/10/2026) theo Checker lượt 1 (K8-1, K7-1, K10-3, K11-1): nguồn số chuyển sang Excel v1.4; thêm mã con `SRS-D05d` ($P_{Rh}$); đăng ký `SRS-D14`, `SRS-D15` (nhóm C, Người dùng duyệt 26/10/2026); RTM, V-model và DFMEA cập nhật theo KT-33..43; ghi rõ ngưỡng PASS của DV-04 không phải $P_{dc}$ = 436.5 W; các giá trị khác không đổi · v1.2 (25/10/2026) nhập $i_{\text{thực}}$ = 155.34 (SEW R87), xác minh BE1 7 N·m, R_h, QF1/KM1; số liệu tính lại · v1.0 (24/10/2026) bản đầu · v1.1 (24/10/2026) xử lý Checker: K11-1 mở rộng CR-01/CR-03, K8-1/K8-2 (cha của D02, quy ước mã con), K7-1 (D10, D13 theo bước thử mô-men), K7-2 (tiêu chí DVP-SS), K6-2/K6-4 (WCCA theo $U_N$ = 400 V, có trong Excel)
+**Lịch sử:** **v1.5 (28/10/2026, nhóm duyệt)** thêm CR-19 (§1): lượng đặt $a^*$ = 0.10 m/s², $\rho^*$ = 0.40 m/s³, chọn lại DRN71M4 0.37 kW + ACS380-01A8-4, rút gọn SRS; nguồn số Excel v2.0 rút gọn · **v1.4 (28/10/2026, Người dùng duyệt)** chốt phạm vi môn học CR-08..CR-18 (§1); nguồn số Excel v1.5: tham số động cơ hiệu chỉnh (KT-44), $i_{sq,\lim}$ = 3.86 A, PI dòng và PI tốc độ chỉnh lại (`SRS-D07`, `SRS-D09`), `SRS-D14/D15` ở lưới danh định, WCCA 2 trường hợp (§6), DVP-SS-06/07 tùy chọn, DFMEA §7 theo DFMEA L1 v1.1 · v1.3 (27/10/2026) theo Checker lượt 1 (K8-1, K7-1, K10-3, K11-1): nguồn số chuyển sang Excel v1.4; thêm mã con `SRS-D05d` ($P_{Rh}$); đăng ký `SRS-D14`, `SRS-D15` (nhóm C, Người dùng duyệt 26/10/2026); RTM, V-model và DFMEA cập nhật theo KT-33..43; ghi rõ ngưỡng PASS của DV-04 không phải $P_{dc}$ = 436.5 W; các giá trị khác không đổi · v1.2 (25/10/2026) nhập $i_{\text{thực}}$ = 155.34 (SEW R87), xác minh BE1 7 N·m, R_h, QF1/KM1; số liệu tính lại · v1.0 (24/10/2026) bản đầu · v1.1 (24/10/2026) xử lý Checker: K11-1 mở rộng CR-01/CR-03, K8-1/K8-2 (cha của D02, quy ước mã con), K7-1 (D10, D13 theo bước thử mô-men), K7-2 (tiêu chí DVP-SS), K6-2/K6-4 (WCCA theo $U_N$ = 400 V, có trong Excel)
 
 ---
 
@@ -29,8 +29,36 @@
 | CR-16 | Downstream #6 (SRS Baseline A §4); SAD §4.2; SOW QCD-Q02; PRD; RTM/DVP chi tiết | $F_{\max}$ = 9.22 kN, dải nghiệm thu [8.80; 9.70] kN | $F_{\max}$ = 9,218 N là giá trị tính toán; kiểm bằng lực kéo động cơ tạo được ≥ $F_{\max}$ (KT-06) | Dải dung sai gán cho giá trị tính, không còn căn cứ sau CR-14 | 28/10/2026 | **Người dùng duyệt** |
 | CR-17 | Downstream #3; SAD; ICD IF-05; SOW QCD-Q04; `SRS-D05c` | Chopper ON 700 ± 20 V; trip 800 ± 10 V | 700 / 780 / 800 V là tham số mô hình Simulink, không gán dung sai | Ngưỡng firmware ACS380 chưa xác minh; dung sai không kiểm chứng được | 28/10/2026 | **Người dùng duyệt** |
 | CR-18 | SSoT Phần 2 dòng 31 | $D \ge 10:1$ "chuyển sang Khối 3" (không có mã nhận) | Xóa | Không thuộc 8 yêu cầu SRS; điều chỉnh tốc độ đã có ở `SRS-D12` | 28/10/2026 | **Người dùng duyệt** |
+| CR-19 | `SRS-FUNC-02`, `SRS-FUNC-03`, `SRS-PERM-03`, `SRS-PERM-04`, Downstream #1..#8 (SRS Baseline A §3–§4); lượng đặt $a^*$, $\rho^*$; thiết bị phần lực | $a^*$ = 0.45 m/s², $\rho^*$ = 1.8 m/s³; DRN80M4 0.75 kW + ACS380-03A3-4; PERM-03 đo $a(t)$, $\rho(t)$ thực tế; FUNC-02 có $\Delta s \le \pm 10$ mm; 8 Downstream cùng mức | $a^*$ = **0.10 m/s²**, $\rho^*$ = **0.40 m/s³** (giới hạn đề bài 0.5 / 2.0 giữ nguyên); **DRN71M4 0.37 kW + ACS380-04xS-01A8-4**, BE1 5 N·m, cầu chì gG 4 A (R87 $i$ = 155.34 và $R_h$ = 210 Ω giữ nguyên); PERM-03 gộp vào FUNC-03 (kiểm trên lượng đặt, đo trên mô phỏng là tùy chọn); FUNC-02 giữ logic khóa chéo và phanh, bỏ chỉ tiêu $\Delta s$; chọn động cơ theo hai tiêu chí ngang nhau: $k_{dt} \ge 1.20$ (PERM-04) và $k_\lambda \ge 1.20$ (Downstream #7 nâng lên); giữ Downstream #6, #7; hoãn #1, #2, #3, #4, #5, #8 sang khối điều khiển và mô phỏng | Xem "Giải thích CR-19" dưới bảng. Nguồn số: `Block 3/00_Tinh_toan_Xe_con_x2_v2.0_rut_gon.xlsx` (18/18 KT đạt) | 28/10/2026 | **Nhóm duyệt; hiệu lực từ bản v2.0 về sau** |
 
 > ID khác của Baseline A (SRS-FUNC-01..04, SRS-PERM-01..03) **giữ nguyên**.
+
+### Giải thích CR-19 — lượng đặt gia tốc, độ giật và chọn lại thiết bị
+
+**1. Vì sao đổi lượng đặt.** $v_{\max}$ = 0.12 m/s, $a_{\max}$ = 0.5 m/s², $\rho_{\max}$ = 2.0 m/s³ là số liệu đề bài `[A]` và vẫn là **giới hạn trên** (CR-09). Lượng đặt $a^*$, $\rho^*$ là lựa chọn thiết kế `[C]`. So sánh trong Excel v2.0 (sheet `Chon_DC` mục B, đầy tải):
+
+| $a^*$ (m/s²) | $\rho^*$ (m/s³) | $t_{acc}$ (s) | $M_{\max}$ (N·m) | Động cơ nhỏ nhất đạt $k_\lambda \ge 1.2$ và $k_{dt} \ge 1.2$ |
+| :---: | :---: | :---: | :---: | :--- |
+| 0.45 (cũ) | 1.8 | 0.52 | 9.93 | DRN80M4 0.75 kW |
+| 0.30 | 1.2 | 0.65 | 7.24 | DRN80M4 0.75 kW |
+| 0.20 | 0.8 | 0.85 | 5.45 | DRN80MK4 0.55 kW |
+| **0.10 (mới)** | **0.4** | **1.45** | **3.66** | **DRN71M4 0.37 kW** |
+| 0.06 | 0.24 | 2.25 | 2.95 | DRN71M4 0.37 kW |
+
+- **Năng suất gần như không đổi:** mỗi hành trình 120 s chỉ chậm thêm ≈ 0.9 s (< 1%).
+- **Lắc tải không xấu đi:** với mọi $t_{acc}$ ngắn hơn nhiều so với $T_p$ = 6.95 s, tải nhận gần như một bước vận tốc, góc lắc dư ≈ 0.6° ở cả $a^*$ = 0.45 và 0.10 (mô phỏng con lắc tuyến tính $\ddot\theta + \omega_p^2\theta = -a/h$). Tăng tốc mạnh không có lợi gì cho lắc tải.
+- **Mô-men đỉnh giảm 2.7 lần** (9.93 → 3.66 N·m) ⇒ động cơ, biến tần nhỏ hơn; dự trữ bám tăng ($k_{bám}$ 1.52 → 3.74); mô-men ra hộp số 1,390 → 512 N·m.
+- **Chọn động cơ trở lại đúng phương pháp bài giảng:** với $a^*$ = 0.45, động cơ bị định cỡ theo mô-men đỉnh nên dư nhiệt 3.6 lần (xung đột K11, QĐ-02). Với $a^*$ = 0.10, động cơ được chọn đồng thời theo nhiệt ($k_{dt}$ = 1.85) và quá tải ($k_\lambda$ = 1.40); động cơ nhỏ hơn một cấp (DRN71MS4 0.25 kW) trượt cả hai tiêu chí ($k_\lambda$ = 0.85; $M_c/M_N$ = 1.10).
+- **Chọn $a^*$ = 0.10 thay vì 0.06 hoặc khớp $t_{acc} = T_p$:** 0.10 là giá trị tròn lớn nhất vẫn cho phép dùng DRN71M4; $t_{acc} = T_p$ (≈ 0.023 m/s²) chỉ triệt lắc khi đúng chiều dài cáp $h$, mà $h$ thay đổi khi nâng hạ — thuộc điều khiển chống lắc, ngoài phạm vi (SRS §1.2).
+- **$\rho^*$ = 0.40:** giữ tỷ số $\rho^*/a^*$ = 4 s⁻¹ như bản cũ (đoạn tăng độ giật $T_j$ = 0.25 s); $a^{*2}/\rho^*$ = 0.025 m/s < $v_{\max}$ nên S-curve đủ 7 đoạn.
+
+**2. Hệ quả hãm.** Ở $a^*$ = 0.10, khi giảm tốc đầy tải lực cản đủ hãm ($M_h$ = +0.08 N·m), không có năng lượng tái sinh; khi không tải chỉ có ≈ 30 W do quán tính rotor. $R_h$ vì vậy được kiểm cho **trường hợp giới hạn** giảm tốc với $a_{\max}$ = 0.5 m/s²: $P_{dc}$ = 494 W ≤ $P_{BR,\max}$ = 560 W của ACS380-01A8-4; $R_h$ = 210 Ω ∈ [99; 933] Ω.
+
+**3. Thiết bị sau CR-19.** SEW DRN71M4 0.37 kW (phanh BE1 đặt 5 N·m, encoder ES7C) + hộp số R87 $i$ = 155.34 (có thể giảm cỡ, cần chạy lại SEW Drive Selection) + ABB ACS380-04xS-01A8-4 + $R_h$ Danotherm 210 Ω/200 W + cầu chì gG OFAF000H4 + contactor AF09. Quán tính $J_{BMot}$ của khung DRN71 chưa có trong kho; dùng giá trị của DRN80M4 (26.2×10⁻⁴ kg·m²) làm cận trên `[C]`.
+
+**4. 14 tham số động cơ (DRN71M4).** Bộ 14 công thức lệch catalogue tới 22% ($\lambda_K$); bộ hiệu chỉnh $R_s$ = 17.25 Ω, $R_r'$ = 17.31 Ω, $L_{\sigma s} = L_{\sigma r}$ = 0.0731 H, $L_m$ = 0.905 H, sai số lớn nhất 1.9% (sheet `Tham_so_DC`).
+
+**5. Phạm vi hiệu lực.** Áp dụng từ Excel v2.0 về sau. Các tài liệu Block 3 viết theo DRN80M4 (Thuyết minh, Sơ đồ mạch lực + BOM, SDD, mục `SRS-Dxx` ở §2 tài liệu này) và Excel v1.5 **giữ làm lịch sử, chưa cập nhật số** — cần sửa trước khi dùng cho mô phỏng.
 
 ---
 
