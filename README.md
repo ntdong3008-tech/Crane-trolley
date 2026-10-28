@@ -45,7 +45,7 @@ Lưu đồ dự án/
 │   └── 06_Do_thi_phu_tai_mot_hanh_trinh.png      # Đồ thị phụ tải một hành trình (SAD §5.4)
 │
 ├── Block 3/                 # Khối 3: Thiết kế Chi tiết — Cổng G4 CDR-EVT [ĐÃ DUYỆT & ĐÓNG 24/10/2026]
-│   ├── 00_Tinh_toan_Xe_con_x2_v2.0_rut_gon.xlsx  # CDRL-02 HIỆN HÀNH (CR-19): bản rút gọn chỉ gồm chọn thiết bị — phụ tải, chọn động cơ (DRN71M4 0.37 kW), 14 tham số + hiệu chỉnh, biến tần ACS380-01A8-4, R_h, phanh; 18 mục kiểm tra
+│   ├── 00_Tinh_toan_Xe_con_x2_v2.0_rut_gon.xlsx  # CDRL-02 HIỆN HÀNH (CR-19): bản rút gọn chỉ gồm chọn thiết bị — phụ tải, chọn động cơ (DRN71M4 0.37 kW), 14 tham số + hiệu chỉnh, biến tần ACS380-01A8-4, R_h, phanh; 19 mục kiểm tra
 │   ├── 00_Tinh_toan_Xe_con_x2_v1.5.xlsx          # CDRL-02 bản trước (DRN80M4, a* = 0.45), giữ lịch sử: như v1.4 + sheet UocLuong_TS (14 công thức + hiệu chỉnh tham số ĐC, KT-44), vòng tốc độ chỉnh theo J_rig, WCCA 2 trường hợp, khối P ở lưới danh định (CR-08..CR-18)
 │   ├── 00_Tinh_toan_Xe_con_x2_v1.4.xlsx          # CDRL-02 bản trước: như v1.3 + E_đ theo ω_m, KT-42/43, khối S, sheet Tong_hop & Quy_dao (rà soát lượt 1–2 ngày 27/10/2026: không XUNG ĐỘT/CẢNH BÁO)
 │   ├── 00_Tinh_toan_Xe_con_x2_v1.3.xlsx          # CDRL-02 bản trước: như v1.2 + khối O–R & sheet Mo_phong (bộ thông số mô phỏng)
