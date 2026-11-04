@@ -59,10 +59,9 @@ Lưu đồ dự án/
 │   └── 06_Bao_cao_Checker_Excel_v1.4_luot2.md    # rà soát K6–K12 kiểm lại sau khi sửa (lượt 2)
 │
 ├── Block 4/                 # Khối 4: Mô hình hệ truyền động (bước 4 trên bảng của thầy)
-│   ├── 01_Mo_hinh_toan_He_truyen_dong.md         # Hệ phương trình, đối chiếu ví dụ xe máy điện, mô hình FOC, bảng thông số mô phỏng
-│   ├── 02_So_do_khoi_khoi_cung.png/.svg          # Hình 1: sơ đồ khối mô hình khối cứng
-│   ├── 03_So_do_khoi_con_lac.png/.svg            # Hình 2: mở rộng xe con + con lắc tải treo
-│   └── ve_so_do_khoi.py                          # Script matplotlib vẽ lại Hình 1, Hình 2
+│   ├── 01_Mo_hinh_toan_He_truyen_dong.md         # Giả định, hệ phương trình (theo Excel v2.0), sơ đồ khối, bảng thông số mô phỏng
+│   ├── 02_So_do_khoi_mo_phong.png/.svg           # Sơ đồ khối đơn giản dùng dựng Simulink
+│   └── ve_so_do_khoi.py                          # Script matplotlib vẽ lại sơ đồ khối
 │
 └── Tài liệu tham khảo/      # Kho tiêu chuẩn, bài giảng và Case Studies gốc đã xác minh
     ├── 00_Danh_muc_tai_lieu_tham_khao.md            # Danh mục thống nhất mã [R..], trạng thái đối chiếu từng tài liệu
