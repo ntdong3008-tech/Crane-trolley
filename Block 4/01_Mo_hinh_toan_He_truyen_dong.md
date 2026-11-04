@@ -3,7 +3,7 @@
 **Học phần:** Thiết kế hệ thống truyền động điện (EE4332) — GVHD: TS. Nguyễn Duy Đỉnh
 **Nhiệm vụ:** bước 4 — *Xây dựng mô hình hệ truyền động* để chạy mô phỏng (sau: ☑ chọn động cơ, ☑ ước lượng tham số, ☑ mô phỏng kiểm chứng động cơ).
 **Nguồn công thức và số liệu:** `Block 3/00_Tinh_toan_Xe_con_x2_v2.0_rut_gon.xlsx`, sheet `Phu_tai` (mã dòng ghi trong ngoặc vuông, ví dụ `[Phu_tai.Mc]`). Thiết bị: SEW DRN71M4 0.37 kW + ABB ACS380-04xS-01A8-4; lượng đặt $a^*$ = 0.10 m/s², $\rho^*$ = 0.40 m/s³ (CR-19).
-**Nguyên tắc:** mô hình giữ đơn giản nhất có thể mà vẫn khớp file Excel, để dựng được bằng các khối cơ bản của Simulink.
+**Nguyên tắc:** mô hình giữ đơn giản nhất có thể mà vẫn khớp file Excel, để dựng được bằng các phần tử điều khiển cơ bản của **PSIM** (không cần Motor Drive Module).
 **Ngày:** 04/11/2026
 
 ---
@@ -88,21 +88,46 @@ Kết quả trùng `[Phu_tai.Mkd]`. Khi chạy đều $T_{đ}$ = 1.874 N·m `[Ph
 
 *(Bản vector: `02_So_do_khoi_mo_phong.svg`; vẽ lại bằng `ve_so_do_khoi.py`)*
 
-| Khối | Nội dung | Khối Simulink tương ứng |
-| :--- | :--- | :--- |
-| S-curve | Vận tốc đặt $v^*(t)$ 7 đoạn với $a^*$, $\rho^*$ (`[Phu_tai.Tj]`, `[Phu_tai.Ta]`, `[Phu_tai.tacc]`) | From Workspace (bảng $t$–$v^*$ tính sẵn) |
-| $1/k$ | Đổi vận tốc đặt sang tốc độ đặt động cơ $\omega^* = v^*/k$ | Gain |
-| Σ, PI tốc độ | Sai lệch $\omega^* - \omega_m$ → dòng đặt $i_{sq}^*$ | Sum, PID Controller (PI) |
-| $k_M$ | $T_{đ} = k_M\, i_{sq}$ (GT-08) | Gain |
-| Σ, $1/J_\Sigma$, $1/s$ | Phương trình (5) | Sum, Gain, Integrator |
-| $k$ | $v = k\,\omega_m$ (2) | Gain |
-| $F_c$ | (1): $M g w_0\,\mathrm{sign}(v)$ | Sign + Gain |
-| $k/\eta$ | (3): $T_c = F_c k/\eta$ | Gain |
-| Phản hồi | Encoder ES7C đo $\omega_m$ | Đường nối trực tiếp |
+### 4.1. Phần tử PSIM cho từng khối
 
-Để tránh dao động số quanh $v = 0$, thay khối Sign bằng hàm có vùng chết nhỏ (ví dụ $F_c$ = 0 khi $|v| < 10^{-4}$ m/s).
+Toàn bộ sơ đồ dựng trong **mạch điều khiển** của PSIM (thư viện *Elements → Control* và *Sources*). Tín hiệu điều khiển trong PSIM không có đơn vị, nên mọi đại lượng nhập theo đơn vị SI như bảng mục 6.
 
-Đầu ra cần quan sát là $v(t)$ và $T_{đ}(t)$, để so với đồ thị phụ tải trong `Phu_tai` (cột I..M).
+| Khối trên sơ đồ | Nội dung | Phần tử PSIM | Thông số nhập |
+| :--- | :--- | :--- | :--- |
+| $a^*(t)$ PWL | Gia tốc đặt hình thang (S-curve có đúng dạng này) | Piecewise Linear Voltage Source (nối đất) | Các điểm ở mục 4.2 |
+| $1/s$ (S-curve) | $v^* = \int a^*\,dt$ | Integrator (I) | Hệ số 1, giá trị đầu 0 |
+| $1/k$ | $\omega^* = v^*/k$ | Proportional (P) | $1/k$ = 1242.7 |
+| Σ tốc độ | $\omega^* - \omega_m$ | Summer (2 đầu vào, dấu + và −) | — |
+| PI tốc độ | $i_{sq}^* = k\,\dfrac{1 + sT}{sT}\,(\omega^* - \omega_m)$ | PI controller | $k = K_p$, $T = T_i$ (chưa chốt, mục 8) |
+| $k_M$ | $T_{đ} = k_M\, i_{sq}$ (GT-08) | Proportional (P) | 2.52 |
+| Σ mô-men | $T_{đ} - T_c$ | Summer (+, −) | — |
+| $1/J_\Sigma$ | (5) | Proportional (P) | 69.40 (đầy tải) / 233.1 (không tải) |
+| $1/s$ (cơ khí) | $\omega_m = \int d\omega_m$ | Integrator (I) | Hệ số 1, giá trị đầu 0 |
+| $k$ | $v = k\,\omega_m$ | Proportional (P) | 8.047×10⁻⁴ |
+| $F_c$ | $M g w_0\,\mathrm{sat}(v/\varepsilon)$ thay cho $\mathrm{sign}(v)$ | Proportional (P) $1/\varepsilon$ → Limiter (±1) → Proportional (P) $M g w_0$ | $1/\varepsilon$ = 10,000; $M g w_0$ = 2,096 / 297.5 |
+| $k/\eta$ | $T_c = F_c k/\eta$ | Proportional (P) | 8.941×10⁻⁴ |
+| Phản hồi $\omega_m$ | Encoder | Dây nối từ đầu ra Integrator về Summer | — |
+| Quan sát | $v$, $T_{đ}$, $\omega_m$, $i_{sq}^*$ | Voltage Probe (đo tín hiệu điều khiển) | — |
+
+**Vì sao dùng $\mathrm{sat}(v/\varepsilon)$:** khi $|v|$ lớn hơn $\varepsilon = 10^{-4}$ m/s, khâu giới hạn bão hòa ở ±1 nên $F_c = M g w_0$ đúng như (1). Gần $v = 0$, lực cản giảm tuyến tính về 0, tránh dao động số khi xe vừa khởi động hoặc vừa dừng. Cả ba phần tử (P, Limiter, P) đều là phần tử cơ bản.
+
+Tên phần tử có thể khác nhau đôi chút giữa các phiên bản PSIM; nếu nhóm đã có sẵn khối nào tương đương thì dùng khối đó.
+
+### 4.2. Cài đặt mô phỏng một hành trình
+
+Gia tốc đặt của S-curve 7 đoạn có dạng hình thang, nên nhập đúng bằng nguồn tuyến tính từng đoạn. Đoạn chạy đều được rút ngắn còn 3 s cho gọn.
+
+| Thời điểm (s) | 0 | 0.25 | 1.20 | 1.45 | 4.45 | 4.70 | 5.65 | 5.90 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| $a^*$ (m/s²) | 0 | 0.10 | 0.10 | 0 | 0 | −0.10 | −0.10 | 0 |
+
+Các mốc thời gian lấy từ Excel: $T_j$ = 0.25 s `[Phu_tai.Tj]`, $T_a$ = 0.95 s `[Phu_tai.Ta]`, $t_{acc}$ = 1.45 s `[Phu_tai.tacc]`. Diện tích một hình thang = 0.10 × (0.95 + 0.25) = 0.12 m/s, đúng $v_{\max}$.
+
+**Simulation Control:** bước thời gian 1×10⁻⁴ s; tổng thời gian 7 s.
+
+**Kết quả mong đợi (đầy tải):** $v$ lên 0.12 m/s trong 1.45 s; $T_{đ}$ ≈ 3.66 N·m trong đoạn gia tốc không đổi, 1.874 N·m khi chạy đều, ≈ 0.08 N·m khi giảm tốc. Đây là các giá trị của đồ thị phụ tải trong `Phu_tai` (cột I..M). Bộ PI sẽ làm $T_{đ}$ lệch một chút ở chỗ chuyển đoạn.
+
+Chạy hai lần: đầy tải và không tải. Mỗi lần chỉ đổi hai hệ số $1/J_\Sigma$ và $M g w_0$.
 
 ---
 
@@ -159,9 +184,10 @@ Chỉ dùng lại cấu trúc chung ở mục 1. Các thành phần cụ thể k
 ## 8. Việc tiếp theo và câu hỏi cần chốt
 
 1. Sửa dòng `[Phu_tai.Jl]` trong Excel theo ghi chú ở mục 3.
-2. Viết `init_params.m` lấy số từ bảng mục 6.
-3. Dựng Simulink theo sơ đồ mục 4, chạy một hành trình đầy tải và một hành trình không tải, so $v(t)$, $T_{đ}(t)$ với Excel.
+2. Dựng mạch PSIM theo bảng mục 4.1. Có thể khai báo các hệ số bằng phần tử *Parameter File* của PSIM (lấy số từ bảng mục 6) để không gõ tay hằng số trong từng khối.
+3. Chạy một hành trình đầy tải và một hành trình không tải (mục 4.2), so $v(t)$, $T_{đ}(t)$ với Excel.
 
-**Cần nhóm chốt trước khi dựng Simulink:**
+**Cần nhóm chốt trước khi dựng mạch PSIM:**
 - **Cách chỉnh PI tốc độ:** theo tối ưu đối xứng (bài giảng Bài 2.1) hay chỉnh tay cho đơn giản? Lưu ý $J_\Sigma$ đổi 3.4 lần giữa đầy tải và không tải, nên phải chọn chỉnh theo trạng thái tải nào.
 - **Lượng đặt:** giữ $a^*$ = 0.10 / $\rho^*$ = 0.40, hay đổi sang 0.06 / 0.24 cho khớp TCVN 4244:2005 Bảng 2.1.2.3.1.1? Cấu trúc sơ đồ không đổi, chỉ đổi số.
+- **Động cơ trong PSIM:** sơ đồ trên coi động cơ + FOC là khâu khuếch đại $k_M$ (GT-08), dựng được với PSIM bản thường. Nếu ở bước "mô phỏng kiểm chứng động cơ" nhóm đã dùng phần tử động cơ không đồng bộ của PSIM (Motor Drive Module), có thể nối phần cơ khí ở đây vào động cơ đó sau; cần nhóm xác nhận đã dùng cách nào.

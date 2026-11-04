@@ -53,9 +53,12 @@ ax.text(6.55, Y + 1.55, "Biến tần ACS380 + ĐC DRN71M4 (FOC, vòng dòng coi
 box(ax, 14.4, Y + 0.85, 8.9, 4.6, "", fc="#FDF5F4", ec=RED, ls="--", lw=1.0)
 ax.text(14.4, Y + 3.35, "Phần cơ khí: xe con + tải (khối cứng), quy về trục động cơ", ha="center", fontsize=10, color=RED)
 
-# Lượng đặt
-box(ax, 0.9, Y, 1.6, 1.1, "S-curve\n$a^*,\\ \\rho^*$", fc="#FFF8E1", ec=GOLD, fs=10)
-arrow(ax, [(1.7, Y), (2.15, Y)], label="$v^*$", lpos=(1.93, Y + 0.08))
+# Lượng đặt: a*(t) hình thang (nguồn PWL) -> tích phân -> v*(t) S-curve
+box(ax, 0.55, Y, 1.0, 1.1, "$a^*(t)$\nPWL", fc="#FFF8E1", ec=GOLD, fs=10)
+ax.text(0.95, Y + 1.1, "Quỹ đạo S-curve", ha="center", fontsize=10, color=GOLD)
+arrow(ax, [(1.05, Y), (1.3, Y)])
+box(ax, 1.62, Y, 0.6, 0.8, "$\\dfrac{1}{s}$", fc="#FFF8E1", ec=GOLD, fs=11)
+arrow(ax, [(1.92, Y), (2.15, Y)], label="$v^*$", lpos=(2.03, Y + 0.08))
 gain(ax, 2.6, Y, 0.9, 0.9, "$1/k$", fs=11)
 arrow(ax, [(3.05, Y), (3.68, Y)], label="$\\omega^*$", lpos=(3.37, Y + 0.08))
 summ(ax, 3.9, Y); sign(ax, 3.58, Y + 0.38, "+"); sign(ax, 4.2, Y - 0.45, "−")
@@ -75,7 +78,8 @@ box(ax, 12.55, Y, 0.8, 0.9, "$\\dfrac{1}{s}$", fs=13)
 arrow(ax, [(12.95, Y), (14.05, Y)], label="$\\omega_m$", lpos=(13.5, Y + 0.08))
 gain(ax, 14.55, Y, 1.0, 0.95, "$k$", fs=13)
 arrow(ax, [(15.05, Y), (15.8, Y)], label="$v$", lpos=(15.42, Y + 0.08))
-box(ax, 17.1, Y, 2.5, 1.0, "$F_c = M\\, g\\, w_0\\, \\mathrm{sign}(v)$", fc="#FDEDEC", ec=RED, fs=11)
+box(ax, 17.1, Y, 2.5, 1.0, "$F_c = M\\, g\\, w_0\\, \\mathrm{sat}(v/\\varepsilon)$", fc="#FDEDEC", ec=RED, fs=11)
+ax.text(17.1, Y - 0.75, "sat: giới hạn ±1; $\\varepsilon = 10^{-4}$ m/s", ha="center", va="top", fontsize=9, color=RED)
 arrow(ax, [(18.35, Y), (19.2, Y), (19.2, 6.3), (15.05, 6.3)], label="$F_c$", lpos=(19.5, 5.0))
 gain(ax, 14.55, 6.3, 1.0, 0.95, "$k/\\eta$", left=True, fs=11)
 arrow(ax, [(14.05, 6.3), (9.75, 6.3), (9.75, Y + 0.22)], label="$T_c$", lpos=(11.9, 6.35))
@@ -87,7 +91,7 @@ ax.text(8.7, 1.15, "Encoder ES7C: phản hồi tốc độ động cơ $\\omega_
 arrow(ax, [(15.42, Y), (15.42, 2.75)], color=GREY)
 ax.text(15.42, 2.45, "$v(t)$, $T_{đ}(t)$: so với\nđồ thị phụ tải Excel", ha="center", va="top", fontsize=9.5, color=GREY)
 
-ax.text(10.15, 7.75, "Sơ đồ khối mô hình hệ truyền động xe con cầu trục (dùng cho mô phỏng)", ha="center", fontsize=14, fontweight="bold")
+ax.text(10.15, 7.75, "Sơ đồ khối mô hình hệ truyền động xe con cầu trục (dựng bằng phần tử điều khiển PSIM)", ha="center", fontsize=14, fontweight="bold")
 ax.text(4.6, 6.75, "$J_\\Sigma \\dfrac{d\\omega_m}{dt} = T_{đ} - T_c$      $T_c = \\dfrac{F_c\\, k}{\\eta}$      "
         "$J_\\Sigma = J_B + \\dfrac{\\delta M k^2}{\\eta}$      $v = k\\,\\omega_m$", ha="center", fontsize=11.5,
         bbox=dict(boxstyle="round", fc="#F7F9FC", ec="#C9D6E8"))
