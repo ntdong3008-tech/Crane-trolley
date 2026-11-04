@@ -59,8 +59,9 @@ Lưu đồ dự án/
 │   └── 06_Bao_cao_Checker_Excel_v1.4_luot2.md    # rà soát K6–K12 kiểm lại sau khi sửa (lượt 2)
 │
 ├── Block 4/                 # Khối 4: Mô hình hệ truyền động (bước 4 trên bảng của thầy)
-│   ├── 01_Mo_hinh_toan_He_truyen_dong.md         # Giả định, hệ phương trình (theo Excel v2.0), sơ đồ khối, bảng thông số mô phỏng
-│   ├── 02_So_do_khoi_mo_phong.png/.svg           # Sơ đồ khối đơn giản dùng dựng mạch PSIM
+│   ├── 01_Mo_hinh_toan_He_truyen_dong.md         # Giả định, hệ phương trình (theo Excel v2.0), 2 kịch bản PSIM, kết quả mong đợi
+│   ├── 02_Kich_ban_1_Dong_co_dau_luoi.png/.svg   # Kịch bản 1: động cơ đấu lưới 380 V kéo xe con (như bảng của thầy)
+│   ├── 03_Kich_ban_2_S_curve_FOC.png/.svg        # Kịch bản 2: biến tần FOC bám S-curve, PI chỉnh theo không tải
 │   └── ve_so_do_khoi.py                          # Script matplotlib vẽ lại sơ đồ khối
 │
 └── Tài liệu tham khảo/      # Kho tiêu chuẩn, bài giảng và Case Studies gốc đã xác minh
